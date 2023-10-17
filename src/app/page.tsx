@@ -1,4 +1,21 @@
-import Image from 'next/image'
+import Image from "next/image";
+
+/**
+ * ✏️ NOTES:
+ * 1. @getStaticProps
+ * - When building highly performant static pages, but most likely without real-time data
+ * - When page should be pre-rendered (SEO benefits) and must be fast
+ *
+ * 2. @getStaticPaths
+ * - complements 'getStaticProps'
+ * - When page has Dynamic Routes (must define a list of paths to be statistically generated)
+ * - As the page builds, Next.js will statically pre-render all the paths specified by getStaticPaths
+ * - 🌐 https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-paths
+ *
+ * 3. @getServerSideProps
+ * - When you need Next.js to pre-render the page on each request (using the data returned from getServerSideProps)
+ * - Basically, the better alternative to getStaticProps when you need to make a page with real-time data (frequent updates)
+ */
 
 export default function Home() {
   return (
@@ -15,15 +32,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            By <Image src="/vercel.svg" alt="Vercel Logo" className="dark:invert" width={100} height={24} priority />
           </a>
         </div>
       </div>
@@ -47,7 +56,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
+            Docs{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -64,7 +73,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
+            Learn{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -81,14 +90,12 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
+            Templates{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>Explore the Next.js 13 playground.</p>
         </a>
 
         <a
@@ -98,7 +105,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
+            Deploy{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -109,5 +116,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
