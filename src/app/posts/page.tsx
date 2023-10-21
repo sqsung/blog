@@ -1,7 +1,7 @@
-export default function PostsHome() {
+export default function MainPage() {
   return (
     <div>
-      <p>Hi! This directory probably is working!</p>
+      <p>이건 되는데?</p>
     </div>
   );
 }

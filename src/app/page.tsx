@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 import { getSortedPostsData } from "../../lib/posts";
 
 /**
@@ -28,12 +29,12 @@ export default async function Home() {
   const allPostsData = await getSortedPostsData();
 
   return (
-    <div className="flex flex-row w-sreen h-screen gap-10">
+    <div className="w-sreen flex h-screen flex-row gap-10">
       <Head>
         <title>James Next.js Blog</title>
       </Head>
-      <section className="h-100 flex flex-col border border-solid border-white p-10 items-center gap-10 w-1/4">
-        <p className="text-2xl font-bold text-center">James Sohn</p>
+      <section className="h-100 flex w-1/4 flex-col items-center gap-10 border border-solid border-white p-10">
+        <p className="text-center text-2xl font-bold">James Sohn</p>
         <div>
           <p className="text-center">Line 1 of Introduction</p>
           <p className="text-center">Line 2 of Introduction</p>
@@ -41,12 +42,18 @@ export default async function Home() {
           <p className="text-center">Line 4 of Introduction</p>
         </div>
       </section>
-      <section className="h-100 flex-col border border-solid border-white p-10 justify-center items-center w-3/4">
-        <h2 className="text-2xl font-bold">Blogs</h2>
-        <ul>
-          {allPostsData.map((data, index) => (
-            <li key={index}>
-              <a href="/posts">{data.title}</a>
+      <section className="h-100 w-3/4 flex-col items-center justify-center border border-solid border-white p-10">
+        <h2 className="my-5 text-2xl font-bold">Blogs</h2>
+        <ul className="flex flex-col gap-10">
+          {allPostsData.map(({ id, title, date }) => (
+            <li key={id}>
+              <Link
+                href={`/posts/${id}`}
+                className="text-2xl hover:cursor-pointer hover:text-gray-300"
+              >
+                {title}
+              </Link>
+              <p className="text-gray-400">{date.toString()}</p>
             </li>
           ))}
         </ul>

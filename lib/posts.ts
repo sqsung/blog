@@ -56,12 +56,13 @@ export async function getPostData(id: string) {
 
   const processedContent = await remark()
     .use(remarkHtml)
-    .process(matterResult.content)
-    .toString();
+    .process(matterResult.content);
+
+  const htmlContent = processedContent.toString();
 
   return {
     id,
-    processedContent,
+    htmlContent,
     ...(matterResult.data as { date: string; title: string }),
   };
 }
