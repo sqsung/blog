@@ -5,23 +5,33 @@ import matter from "gray-matter";
 const postsDirectory = path.join(process.cwd(), "posts");
 
 export function getSortedPostsData() {
-  const fileNames: string[] = fs.readdirSync(postsDirectory);
+  // Get file names under /posts
+  const fileNames = fs.readdirSync(postsDirectory);
 
   const allPostsData = fileNames.map(fileName => {
-    const id: string = fileName.replace(/\.md$/, "");
+    // Remove ".md" from file name to get id
+    const id = fileName.replace(/\.md$/, "");
 
-    const fullPath: string = path.join(postsDirectory, fileName);
-    const fileContents: string = fs.readFileSync(fullPath, "utf-8");
+    // Read markdown file as string
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
 
+    // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
+    // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as { date: string; title: string }),
+      ...(matterResult.data as { title: string; date: string }),
     };
   });
 
+  // Sort posts by date
   return allPostsData.sort((a, b) => {
-    return a.date < b.date ? 1 : -1;
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
   });
 }

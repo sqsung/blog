@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
+import { getSortedPostsData } from "../../lib/posts";
 
 /**
  * ✏️ NOTES:
@@ -18,7 +19,14 @@ import Head from "next/head";
  * - Basically, the better alternative to getStaticProps when you need to make a page with real-time data (frequent updates)
  */
 
-export default function Home() {
+export default async function Home() {
+  /**
+   * await technically not needed in the case below as it's just fetching internally stored data
+   * also, getStaticProps is no longer necessary with the app directory
+   * check out: https://github.com/vercel/next.js/issues/51860
+   */
+  const allPostsData = await getSortedPostsData();
+
   return (
     <div className="flex flex-row w-sreen h-screen gap-10">
       <Head>
@@ -35,7 +43,13 @@ export default function Home() {
       </section>
       <section className="h-100 flex-col border border-solid border-white p-10 justify-center items-center w-3/4">
         <h2 className="text-2xl font-bold">Blogs</h2>
-        {/* <ul></ul> */}
+        <ul>
+          {allPostsData.map((data, index) => (
+            <li key={index}>
+              <a href="/posts">{data.title}</a>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );
