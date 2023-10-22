@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
 import { getSortedPostsData } from "../../lib/posts";
 
@@ -29,20 +28,28 @@ export default async function Home() {
   const allPostsData = await getSortedPostsData();
 
   return (
-    <div className="w-sreen flex h-screen flex-row gap-10">
-      <Head>
+    <div className="w-sreen flex h-screen flex-col">
+      <head>
         <title>James Next.js Blog</title>
-      </Head>
-      <section className="h-100 flex w-1/4 flex-col items-center gap-10 border border-solid border-white p-10">
-        <p className="text-center text-2xl font-bold">James Sohn</p>
-        <div>
-          <p className="text-center">Line 1 of Introduction</p>
-          <p className="text-center">Line 2 of Introduction</p>
-          <p className="text-center">Line 3 of Introduction</p>
-          <p className="text-center">Line 4 of Introduction</p>
+      </head>
+      <section className="h-100 flex h-1/4 items-center justify-center gap-10 border p-10">
+        <Image
+          src="/images/profile.jpg"
+          alt="Blog Author's profile picture"
+          width={200}
+          height={200}
+          className="rounded-full"
+        />
+        <div className="flex h-full flex-col">
+          <p className="m-0 text-2xl font-bold">James Sohn</p>
+          <p className="m-0 mb-5 text-gray-400">Frontend Developer</p>
+          <p className="max-w-md">
+            Software engineer based in South Korea with a passion for developing
+            user-focused products with great business models.
+          </p>
         </div>
       </section>
-      <section className="h-100 w-3/4 flex-col items-center justify-center border border-solid border-white p-10">
+      <section className="h-100 h-3/4 flex-col items-center justify-center border p-10">
         <h2 className="my-5 text-2xl font-bold">Blogs</h2>
         <ul className="flex flex-col gap-10">
           {allPostsData.map(({ id, title, date }) => (
