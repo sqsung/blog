@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getSortedPostsData } from "../../lib/posts";
+import Header from "@/components/common/Header";
 
 /**
  * ✏️ NOTES:
@@ -32,6 +33,7 @@ export default async function Home() {
       <head>
         <title>James Next.js Blog</title>
       </head>
+      <Header />
       <section className="h-100 flex h-1/4 items-center justify-center gap-10 border p-10">
         <Image
           src="/images/profile.jpg"
