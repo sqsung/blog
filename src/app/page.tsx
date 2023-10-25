@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getSortedPostsData } from "../../lib/posts";
+import { AuthorProfile } from "@/components/common";
 
 export default async function Home() {
   /**
@@ -11,25 +12,9 @@ export default async function Home() {
   const allPostsData = await getSortedPostsData();
 
   return (
-    <div className="flex h-full w-full flex-col">
-      <section className="flex items-center justify-center gap-10 border p-5">
-        <Image
-          src="/images/profile.jpg"
-          alt="Blog Author's profile picture"
-          width={200}
-          height={200}
-          className="rounded-full"
-        />
-        <div className="flex h-full flex-col">
-          <p className="m-0 text-2xl font-bold">James Sohn</p>
-          <p className="m-0 mb-5 text-gray-400">Frontend Developer</p>
-          <p className="max-w-md">
-            Software engineer based in South Korea with a passion for developing
-            user-focused products with great business models.
-          </p>
-        </div>
-      </section>
-      <section className="h-100 h-3/4 flex-col items-center justify-center p-10">
+    <div className="flex h-full w-full justify-center border border-red-500 px-1 px-5">
+      <AuthorProfile />
+      <section className="h-100 w-[1000px] flex-col items-center justify-center border px-5">
         <h2 className="my-5 text-2xl font-bold">Blogs</h2>
         <ul className="flex flex-col gap-10">
           {allPostsData.map(({ id, title, date }) => (
