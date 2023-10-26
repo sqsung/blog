@@ -12,11 +12,24 @@ export default async function Home() {
   const allPostsData = await getSortedPostsData();
 
   return (
-    <div className="flex h-full w-full justify-center border border-red-500 px-1 px-5">
+    <div className="flex w-5/6 justify-center gap-5 border">
       <AuthorProfile />
-      <section className="h-100 w-[1000px] flex-col items-center justify-center border px-5">
-        <h2 className="my-5 text-2xl font-bold">Blogs</h2>
-        <ul className="flex flex-col gap-10">
+      <section className="h-100 w-full flex-col items-center justify-center border px-5">
+        <ul className="flex gap-5">
+          <li className="	text-decoration-line: w-[150px] cursor-pointer text-lg font-bold underline">
+            Tech Blogs
+          </li>
+          <li className="w-[150px] cursor-pointer text-center text-lg font-light">
+            Resume
+          </li>
+          <li className="w-[150px] cursor-pointer text-center text-lg font-light">
+            Project
+          </li>
+          <li className="w-[150px] cursor-pointer text-center text-lg font-light">
+            Contact
+          </li>
+        </ul>
+        <ul className="my-10 flex flex-col gap-10">
           {allPostsData.map(({ id, title, date }) => (
             <li key={id}>
               <Link
