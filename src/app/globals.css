@@ -23,3 +23,19 @@
 .menu-selected {
   @apply w-[150px] cursor-pointer font-bold text-lg underline
 }
+
+.border-test {
+  @apply border border-red-300 border-dashed
+}
+
+.blog {
+  @apply [&>p]:my-5 [&>p]:text-gray-600 [&>h2]:font-bold [&>h2]:text-lg
+}
+
+.quote {
+  @apply text-gray-400 border-s-2 ps-5
+}
+
+.title {
+  @apply text-[30px] font-bold text-gray-700
+}
