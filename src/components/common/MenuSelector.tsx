@@ -8,7 +8,14 @@ export default function MenuSelector() {
 
   return (
     <ul className="flex gap-5">
-      <Link href="/" className={pathname === "/" ? "menu-selected" : "menu"}>
+      <Link
+        href="/"
+        className={
+          pathname === "/" || pathname.includes("post")
+            ? "menu-selected"
+            : "menu"
+        }
+      >
         Tech Blogs
       </Link>
       <Link
