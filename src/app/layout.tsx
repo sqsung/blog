@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <PageWrapper>
           <AuthorProfile />
-          <section className="h-100 w-full flex-col items-center justify-center border px-5">
+          <section className="h-100 border-test w-full flex-col items-center justify-center px-5">
             <MenuSelector />
             {children}
           </section>

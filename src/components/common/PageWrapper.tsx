@@ -4,7 +4,7 @@ interface PageWrapperProps {
 
 export default function PageWrapper({ children }: PageWrapperProps) {
   return (
-    <div className="flex h-full w-full justify-center gap-5 px-5 py-7">
+    <div className="border-test flex h-full min-h-screen w-full justify-center gap-5 px-40 py-10">
       {children}
     </div>
   );
