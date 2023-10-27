@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { PageWrapper } from "@/components/common";
+import { PageWrapper, MenuSelector, AuthorProfile } from "@/components/common";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <PageWrapper>{children}</PageWrapper>
+        <PageWrapper>
+          <AuthorProfile />
+          <section className="h-100 w-full flex-col items-center justify-center border px-5">
+            <MenuSelector />
+            {children}
+          </section>
+        </PageWrapper>
       </body>
     </html>
   );
