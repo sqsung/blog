@@ -1,11 +1,28 @@
 ---
-title: What is Next.js
+title: What is Next.js?
+thumbnail: /images/blog_profile.jpeg
 date: 2023-03-30
+description: Just some random, placeholder blog ChatGPT created for me about Next.js.
+tags:
+  - placeholder
+  - ChatGPT
 ---
 
-# Unleashing the Power of Next.js for Modern Web Development
+## Unleashing the Power of Next.js for Modern Web Development
 
 In the fast-paced world of web development, it's essential to have tools and frameworks that can keep up with the ever-evolving needs of both developers and users. One such tool that has gained popularity in recent years is Next.js, a versatile and powerful framework for building modern web applications.
+
+```js
+const test = () => "test";
+```
+
+**_italic test!_**
+
+> QUOTE TEST!
+
+~~LINE THROUGH TEST~~
+
+`test!!`
 
 ## What is Next.js?
 

@@ -1,6 +1,11 @@
 ---
-title: Just a random blog made my ChatGPT
+title: Just some random blog again!
+thumbnail: /images/blog_profile.jpeg
 date: 2023-03-31
+description: Just some random, placeholder blog ChatGPT created for me about Next.js.
+tags:
+  - Random
+  - ChatGPT
 ---
 
 # The Fascinating World of Time Travel
@@ -10,6 +15,11 @@ Time travel has captured our imaginations for generations. The concept of journe
 ## Theoretical Frameworks
 
 Scientists and physicists have long pondered the possibility of time travel within the framework of Einstein's theory of relativity. In theory, if we could travel at or near the speed of light, time dilation would occur. This means that time would pass more slowly for the traveler relative to those left behind. While this doesn't necessarily allow for traveling back in time, it raises interesting questions about how we perceive time.
+
+This is the truth
+
+- test bullet point 1
+- test bullet point 2
 
 ## The Grandfather Paradox
 

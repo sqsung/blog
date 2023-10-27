@@ -24,7 +24,13 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as { title: string; date: string }),
+      ...(matterResult.data as {
+        title: string;
+        date: string;
+        thumbnail: string;
+        description: string;
+        tags: string[];
+      }),
     };
   });
 
@@ -57,6 +63,8 @@ export async function getPostData(id: string) {
   const processedContent = await remark()
     .use(remarkHtml)
     .process(matterResult.content);
+
+  console.log(processedContent);
 
   const htmlContent = processedContent.toString();
 
