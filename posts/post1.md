@@ -10,10 +10,37 @@ tags:
 
 ## Unleashing the Power of Next.js for Modern Web Development
 
+한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요. 한국말 테스트해볼게요.
+
 In the fast-paced world of web development, it's essential to have tools and frameworks that can keep up with the ever-evolving needs of both developers and users. One such tool that has gained popularity in recent years is Next.js, a versatile and powerful framework for building modern web applications.
 
-```js
+```javascript
 const test = () => "test";
+
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css"
+      />
+      <body className={inter.className}>
+        <PageWrapper>
+          <AuthorProfile />
+          <section className="h-100 border-test w-full flex-col items-center justify-center px-5">
+            <MenuSelector />
+            {children}
+          </section>
+        </PageWrapper>
+      </body>
+    </html>
+  );
+}
 ```
 
 **_italic test!_**
