@@ -3,8 +3,16 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
+import { load } from "cheerio";
+import hljs from "highlight.js";
+import remarkGfm from "remark-gfm";
 
 const postsDirectory = path.join(process.cwd(), "posts");
+
+hljs.registerLanguage(
+  "javascript",
+  require("highlight.js/lib/languages/javascript"),
+);
 
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -54,6 +62,11 @@ export function getAllPostIds() {
   });
 }
 
+/**
+ * Grabs a single Post Data by Id
+ * @param id id of the target blog
+ * @returns the HTML content of the blog as well as its meta data
+ */
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf-8");
@@ -62,15 +75,51 @@ export async function getPostData(id: string) {
 
   const processedContent = await remark()
     .use(remarkHtml)
+    .use(remarkGfm)
     .process(matterResult.content);
 
-  console.log(processedContent);
+  const stringContent = processedContent.toString();
 
-  const htmlContent = processedContent.toString();
+  // Replace tags that need classes to be styled properly using cheerio library
+  const htmlContent = load(stringContent);
+
+  // - replace <blockquote> with <div className="quote">
+  htmlContent("blockquote").each((index, element) => {
+    const quote = htmlContent(element);
+    const div = htmlContent("<div>").addClass("quote");
+    div.html(quote.html() as string);
+    quote.replaceWith(div);
+  });
+
+  // - apply syntax highlights to <pre><code[language-..] with highlight.js
+  htmlContent('pre code[class^="language-"]').each((index, element) => {
+    const codeBlock = htmlContent(element);
+    const code = codeBlock.text();
+    const language = codeBlock.attr("class")?.replace("language-", ""); // Remove the "language-" prefix
+    const highlightedCode = hljs.highlight(language as string, code).value;
+    codeBlock.html(highlightedCode);
+  });
+
+  // - add ".noncode" class to non-language codes (for styling purposes)
+  htmlContent("p code").each((index, element) => {
+    const codeBlock = htmlContent(element);
+    const code = codeBlock.html();
+    const span = htmlContent("<span>").addClass("noncode");
+    span.html(code as string);
+    codeBlock.replaceWith(span);
+  });
+
+  const modifiedHtmlContent = htmlContent.html();
 
   return {
     id,
-    htmlContent,
-    ...(matterResult.data as { date: string; title: string }),
+    modifiedHtmlContent,
+    ...(matterResult.data as {
+      title: string;
+      date: string;
+      thumbnail: string;
+      description: string;
+      tags: string[];
+    }),
   };
 }
