@@ -2,7 +2,7 @@ interface TagsProps {
   tags: string[];
 }
 
-export default function Tag({ tags }: TagsProps) {
+export default function Tags({ tags }: TagsProps) {
   return (
     <div className="flex cursor-pointer gap-3">
       {tags.map((tag, index) => (
