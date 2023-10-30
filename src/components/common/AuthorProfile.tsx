@@ -8,9 +8,8 @@ export default function AuthorProfile() {
         alt="Blog Author's profile picture"
         width={300}
         height={300}
-        // className="rounded-full"
       />
-      <div className="flex h-full w-64 w-[330px] flex-col">
+      <div className="flex h-full w-64 flex-col">
         <p className="m-0 text-2xl font-bold">James Sohn</p>
         <p className="m-0 mb-5 text-gray-400">Frontend Developer</p>
         <p className="text-sm">
