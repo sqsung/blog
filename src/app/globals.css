@@ -33,7 +33,7 @@
 }
 
 .blog {
-  @apply [&>p]:my-5 [&>p]:text-gray-600 [&>h2]:font-bold [&>h2]:text-lg
+  @apply [&>p]:my-5 [&>p]:text-gray-700 [&>h2]:font-bold [&>h2]:text-lg [&>h2]:border-b-2 [&>h2]:mt-5 [&>h2:fisrt-of-type]:m-0 [&>ul]:list-disc [&>ul]:pl-5
 }
 
 .title {
@@ -41,14 +41,9 @@
 }
 
 .noncode {
-  @apply bg-gray-200 px-2
+  @apply bg-gray-200 px-2 text-sm
 }
 
 pre {
-  background: rgb(46, 46, 46);
-  border: 20px solid rgb(46, 46, 46);
-  border-radius: 5px;
-  overflow: scroll;
-  max-width: 100%;
-  @apply text-gray-200
+  @apply text-gray-200 bg-gray-700 border-[20px] border-solid border-gray-700 rounded-lg overflow-scroll max-w-full text-base
 }
