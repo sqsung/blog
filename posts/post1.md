@@ -55,11 +55,7 @@ export default function RootLayout({
 
 Next.js is an open-source React framework that focuses on providing an exceptional developer experience while delivering high performance and SEO-friendly web applications. It simplifies the process of building complex applications by offering a range of features and benefits that make it a go-to choice for many developers.
 
-## Server-Side Rendering (SSR)
-
 One of the standout features of Next.js is its built-in support for server-side rendering (SSR). SSR enables your web application to generate the initial HTML on the server, rather than relying on client-side JavaScript. This approach has significant advantages for both performance and SEO. With SSR, your website can load faster and provide a better user experience. Additionally, search engines can easily crawl and index your pages, enhancing your site's discoverability.
-
-## Static Site Generation (SSG)
 
 Next.js also supports static site generation (SSG), which is a method of pre-rendering your pages at build time. This means that your pages are generated as static HTML files that can be served directly to the user. The result is blazing-fast load times, making your website a joy to navigate. Plus, you can host your static site on a variety of platforms, including CDNs and cloud services.
 
