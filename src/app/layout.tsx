@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { PageWrapper, MenuSelector, AuthorProfile } from "@/components/common";
+import { Header, Footer, PageWrapper } from "@/components/common";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,13 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <PageWrapper>
+          <Header />
+          {children}
+          <Footer />
+        </PageWrapper>
+      </body>
     </html>
   );
 }
