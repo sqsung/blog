@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -33,7 +35,7 @@
 }
 
 .blog {
-  @apply [&>p]:my-5 [&>p]:text-gray-700 [&>h2]:font-bold [&>h2]:text-lg [&>h2]:border-b-2 [&>h2]:mt-5 [&>h2:fisrt-of-type]:m-0 [&>ul]:list-disc [&>ul]:pl-5
+  @apply [&>p]:my-5 [&>p]:text-gray-700 [&>h2]:font-bold [&>h2]:text-lg [&>h2]:border-b-2 [&>h2]:mt-5 [&>h2:fisrt-of-type]:m-0 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:text-gray-700
 }
 
 .title {
