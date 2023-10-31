@@ -8,7 +8,7 @@ tags:
   - ChatGPT
 ---
 
-# The Fascinating World of Time Travel
+## The Fascinating World of Time Travel
 
 Time travel has captured our imaginations for generations. The concept of journeying to the past or future has been a staple in science fiction literature, movies, and TV shows. While time travel remains firmly in the realm of fiction, its allure and intrigue persist. In this blog post, we'll explore the fascinating world of time travel and some of the theories and paradoxes that make it a captivating subject.
 
@@ -16,7 +16,7 @@ Time travel has captured our imaginations for generations. The concept of journe
 
 Scientists and physicists have long pondered the possibility of time travel within the framework of Einstein's theory of relativity. In theory, if we could travel at or near the speed of light, time dilation would occur. This means that time would pass more slowly for the traveler relative to those left behind. While this doesn't necessarily allow for traveling back in time, it raises interesting questions about how we perceive time.
 
-This is the truth
+### 3-1. This is the truth
 
 - test bullet point 1
 - test bullet point 2
