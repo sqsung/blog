@@ -16,7 +16,7 @@ export default function BlogListItem(props: BlogListItemProps) {
   const { id, thumbnail, tags, title, description, date } = props;
 
   return (
-    <li className="py-5">
+    <li className="py-5 transition hover:scale-[1.01]">
       <div className="flex h-[150px] gap-5">
         {thumbnail && (
           <Image
@@ -29,7 +29,7 @@ export default function BlogListItem(props: BlogListItemProps) {
         <div className="flex h-full w-full flex-col">
           <Link
             href={`/${id}`}
-            className="text-[20px] font-bold hover:cursor-pointer hover:text-gray-300"
+            className="text-[20px] font-bold transition hover:cursor-pointer hover:text-gray-300"
           >
             {title}
           </Link>
