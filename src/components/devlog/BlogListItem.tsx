@@ -16,17 +16,15 @@ export default function BlogListItem(props: BlogListItemProps) {
   const { id, thumbnail, tags, title, description, date } = props;
 
   return (
-    <li className="py-5 transition hover:scale-[1.01]">
+    <li className="border-t-[1px] border-gray-200 py-5 [&:last-of-type]:border-b-[1px]">
       <Link href={`/${id}`}>
-        <div className="flex h-[150px] gap-5">
-          {thumbnail && (
-            <Image
-              src={thumbnail}
-              width={150}
-              height={150}
-              alt="Blog Post Thumbnail"
-            />
-          )}
+        <div className="flex h-[100px] gap-5 transition hover:scale-[1.01]">
+          <Image
+            src={thumbnail || "/seriesThumbnails/nextjs.png"}
+            width={100}
+            height={100}
+            alt="Blog Post Thumbnail"
+          />
           <div className="flex h-full w-full flex-col">
             <p className="text-[20px] font-bold transition hover:cursor-pointer hover:text-gray-300">
               {title}
