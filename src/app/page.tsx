@@ -6,7 +6,7 @@ export default function HomeDevlogPage() {
     <MainContents>
       <AuthorProfile />
       <section className="h-100 w-full flex-col items-center justify-center px-5">
-        <MenuSelector />
+        {/* <MenuSelector /> */}
         <BlogList />
       </section>
     </MainContents>

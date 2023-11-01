@@ -23,7 +23,7 @@
 }
 
 .menu-selected {
-  @apply w-[150px] cursor-pointer font-bold text-lg underline
+  @apply w-[150px] cursor-pointer font-bold text-lg
 }
 
 .border-test {

@@ -7,7 +7,7 @@ export default function MenuSelector() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex gap-5">
+    <ul className="border-test flex">
       <Link
         href="/"
         className={
@@ -32,7 +32,7 @@ export default function MenuSelector() {
       </Link>
       <Link
         href="/contact"
-        className={pathname === "/contact" ? "menu-selected" : "menu"}
+        className={`${pathname === "/contact" ? "menu-selected" : "menu"}`}
       >
         Contact
       </Link>
