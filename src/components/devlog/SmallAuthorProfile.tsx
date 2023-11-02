@@ -11,7 +11,7 @@ export default function SmallAuthorProfile() {
         className="rounded-full"
       />
       <div className="flex h-full flex-col justify-around">
-        <p className="font-bold">James Sohn</p>
+        <p className="font-bold">James K. Sohn</p>
         <p className="text-sm text-gray-500">Frontend Engineer</p>
       </div>
     </div>
