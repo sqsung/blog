@@ -9,11 +9,12 @@ interface BlogListItemProps {
   title: string;
   description: string;
   date: string;
+  category: string;
   tags: string[];
 }
 
 export default function BlogListItem(props: BlogListItemProps) {
-  const { id, thumbnail, tags, title, description, date } = props;
+  const { id, thumbnail, tags, title, description, date, category } = props;
 
   return (
     <li className="border-t-[1px] border-gray-200 py-5 [&:last-of-type]:border-b-[1px]">
@@ -30,7 +31,9 @@ export default function BlogListItem(props: BlogListItemProps) {
               {title}
             </p>
             <div className="flex items-center gap-3">
-              <p className="text-sm text-gray-400">{formatDate(date)}</p>
+              <p className="text-sm text-gray-400">{`${category} ${formatDate(
+                date,
+              )}`}</p>
               <Tags tags={tags} />
             </div>
             <p className="my-5">{description}</p>
