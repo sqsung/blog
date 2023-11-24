@@ -24,7 +24,7 @@ export default function AuthorProfile() {
           {`Accidentally fell in love with dev while studying it to manage my
           startup${"'"}s development team. Been a full-time dev since.`}
         </p>
-        <ContactLinks color="text-gray-400" hoverColor="text-black" />
+        <ContactLinks color="text-gray-400" />
       </div>
       <div className="w-full">
         <p className="w-full border-b-[1px] text-sm">Categories:</p>
