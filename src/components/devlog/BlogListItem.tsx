@@ -31,9 +31,9 @@ export default function BlogListItem(props: BlogListItemProps) {
               {title}
             </p>
             <div className="flex items-center gap-3">
-              <p className="text-sm text-gray-400">{`${category} ${formatDate(
-                date,
-              )}`}</p>
+              <p className="text-sm text-gray-400">
+                {`${category} ${formatDate(date)}`}
+              </p>
               <Tags tags={tags} />
             </div>
             <p className="my-5">{description}</p>
