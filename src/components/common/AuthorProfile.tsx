@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { ContactLinks } from ".";
+import { getCategories } from "../../../lib/posts";
 
-export default function AuthorProfile() {
+export default async function AuthorProfile() {
+  const categories = await getCategories();
+
+  console.log(categories);
+
   return (
     <section className="flex flex-col items-center gap-5 px-5">
       <Image
@@ -28,6 +33,9 @@ export default function AuthorProfile() {
       </div>
       <div className="w-full">
         <p className="w-full border-b-[1px] text-sm">Categories:</p>
+        {categories.map((category) => (
+          <p key={category}>{category}</p>
+        ))}
       </div>
     </section>
   );

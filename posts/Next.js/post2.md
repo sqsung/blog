@@ -3,7 +3,6 @@ title: Just some random blog again!
 thumbnail: /images/blog_profile.jpeg
 date: 2023-03-31
 description: Just some random, placeholder blog ChatGPT created for me about Next.js.
-category: Next.js
 tags:
   - Random
   - ChatGPT

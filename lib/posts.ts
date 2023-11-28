@@ -7,6 +7,16 @@ import { load } from "cheerio";
 import hljs from "highlight.js";
 import remarkGfm from "remark-gfm";
 
+interface PostData {
+  title: string;
+  date: string;
+  thumbnail: string;
+  description: string;
+  tags: string[];
+  id: string;
+  category: string;
+}
+
 const postsDirectory = path.join(process.cwd(), "posts");
 
 hljs.registerLanguage(
@@ -14,46 +24,88 @@ hljs.registerLanguage(
   require("highlight.js/lib/languages/javascript"),
 );
 
-export function getSortedPostsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
+export async function getLatestTenPostsData() {
+  const categories = fs.readdirSync(postsDirectory);
+  const allPosts: PostData[] = [];
 
-  const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, "");
+  categories.map((category) => {
+    const filePath = path.join(postsDirectory, category);
+    const fileNames = fs.readdirSync(filePath);
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const fullPaths = fileNames.map((file) => {
+      return path.join(filePath, file);
+    });
 
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
+    fullPaths.forEach((path) => {
+      const fileContent = fs.readFileSync(path, "utf8");
+      const matterResult = matter(fileContent);
+      const id = path.split("/").at(-1)?.replace(/\.md$/, "");
 
-    // Combine the data with the id
-    return {
-      id,
-      ...(matterResult.data as {
-        title: string;
-        date: string;
-        thumbnail: string;
-        description: string;
-        category: string;
-        tags: string[];
-      }),
-    };
+      const post = {
+        ...matterResult.data,
+        category,
+        id,
+      } as PostData;
+
+      allPosts.push(post);
+    });
   });
 
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return allPosts
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
+    .splice(0, 10);
 }
 
-export function getAllPostIds() {
+export async function getSortedPostsData(pageNumber: number) {
+  const categories = fs.readdirSync(postsDirectory);
+
+  categories.map((category) => {
+    const fileNames = fs.readdirSync(`posts/${category}`);
+  });
+
+  //   const allPostsData = categories.map((category) => {
+  //     // Remove ".md" from file name to get id
+  //     const fileNames = fs.readdirSync(category);
+  //     const id = fileNames.map(fileName => fileName.replace(/\.md$/, ""));
+
+  //     // Read markdown file as string
+  //     const fullPath = path.join(postsDirectory, fileName);
+  //     const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  //     // Use gray-matter to parse the post metadata section
+  //     const matterResult = matter(fileContents);
+
+  //     // Combine the data with the id
+  //     return {
+  //       id,
+  //       ...(matterResult.data as {
+  //         title: string;
+  //         date: string;
+  //         thumbnail: string;
+  //         description: string;
+  //         category: string;
+  //         tags: string[];
+  //       }),
+  //     };
+  // });
+
+  // Sort posts by date
+  // return allPostsData.sort((a, b) => {
+  //   if (a.date < b.date) {
+  //     return 1;
+  //   } else {
+  //     return -1;
+  //   }
+  // });
+}
+
+export async function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames.map((fileName) => {
@@ -125,3 +177,13 @@ export async function getPostData(id: string) {
     }),
   };
 }
+
+export async function getCategories() {
+  const allCategories = fs
+    .readdirSync(path.join(process.cwd(), "posts"))
+    .filter((file) => !file.includes(".md"));
+
+  return allCategories;
+}
+
+getCategories();
