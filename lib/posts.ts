@@ -53,23 +53,23 @@ export async function getLatestTenPostsData() {
     .splice(0, 10);
 }
 
-export async function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+// export async function getAllPostIds() {
+//   const fileNames = fs.readdirSync(postsDirectory);
 
-  return fileNames.map((fileName) => {
-    return {
-      params: { id: fileName.replace(/\.md$/, "") },
-    };
-  });
-}
+//   return fileNames.map((fileName) => {
+//     return {
+//       params: { id: fileName.replace(/\.md$/, "") },
+//     };
+//   });
+// }
 
 /**
  * Grabs a single Post Data by Id
  * @param id id of the target blog
  * @returns the HTML content of the blog as well as its meta data
  */
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getPostData(category: string, id: string) {
+  const fullPath = path.join(postsDirectory, `${category}/${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf-8");
 
   const matterResult = matter(fileContents);
