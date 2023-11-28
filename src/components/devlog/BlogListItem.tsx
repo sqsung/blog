@@ -2,18 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatDate } from "@/utils/format";
 import Tags from "./Tags";
+import { PostData } from "global";
 
-interface BlogListItemProps {
-  id: string;
-  thumbnail: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  tags: string[];
-}
-
-export default function BlogListItem(props: BlogListItemProps) {
+export default function BlogListItem(props: PostData) {
   const { id, thumbnail, tags, title, description, date, category } = props;
 
   return (

@@ -1,4 +1,4 @@
-import { getLatestTenPostsData, getSortedPostsData } from "../../../lib/posts";
+import { getLatestTenPostsData } from "../../../lib/posts";
 import BlogListItem from "./BlogListItem";
 
 export default async function BlogList() {
@@ -13,10 +13,6 @@ export default async function BlogList() {
         {allPostsData.map((metaData, index) => (
           <BlogListItem key={index} {...metaData} />
         ))}
-        {/* {allPostsData.map((metaData, index) => {
-          console.log(metaData);
-          return <p key={index}>HiHiHiHiHi</p>;
-        })} */}
       </ul>
     </div>
   );

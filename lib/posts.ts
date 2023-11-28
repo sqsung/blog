@@ -6,16 +6,7 @@ import remarkHtml from "remark-html";
 import { load } from "cheerio";
 import hljs from "highlight.js";
 import remarkGfm from "remark-gfm";
-
-interface PostData {
-  title: string;
-  date: string;
-  thumbnail: string;
-  description: string;
-  tags: string[];
-  id: string;
-  category: string;
-}
+import { PostData } from "global";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -60,49 +51,6 @@ export async function getLatestTenPostsData() {
       }
     })
     .splice(0, 10);
-}
-
-export async function getSortedPostsData(pageNumber: number) {
-  const categories = fs.readdirSync(postsDirectory);
-
-  categories.map((category) => {
-    const fileNames = fs.readdirSync(`posts/${category}`);
-  });
-
-  //   const allPostsData = categories.map((category) => {
-  //     // Remove ".md" from file name to get id
-  //     const fileNames = fs.readdirSync(category);
-  //     const id = fileNames.map(fileName => fileName.replace(/\.md$/, ""));
-
-  //     // Read markdown file as string
-  //     const fullPath = path.join(postsDirectory, fileName);
-  //     const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  //     // Use gray-matter to parse the post metadata section
-  //     const matterResult = matter(fileContents);
-
-  //     // Combine the data with the id
-  //     return {
-  //       id,
-  //       ...(matterResult.data as {
-  //         title: string;
-  //         date: string;
-  //         thumbnail: string;
-  //         description: string;
-  //         category: string;
-  //         tags: string[];
-  //       }),
-  //     };
-  // });
-
-  // Sort posts by date
-  // return allPostsData.sort((a, b) => {
-  //   if (a.date < b.date) {
-  //     return 1;
-  //   } else {
-  //     return -1;
-  //   }
-  // });
 }
 
 export async function getAllPostIds() {
