@@ -64,8 +64,9 @@ export async function getLatestTenPostsData() {
 // }
 
 /**
- * Grabs a single Post Data by Id
- * @param id id of the target blog
+ * Returns data of a single blog post by its cateogry/id
+ * @param category category of the target blog post
+ * @param id id of the target blog post
  * @returns the HTML content of the blog as well as its meta data
  */
 export async function getPostData(category: string, id: string) {
@@ -126,6 +127,10 @@ export async function getPostData(category: string, id: string) {
   };
 }
 
+/**
+ *
+ * @returns an Array<string> of all the categories in it
+ */
 export async function getCategories() {
   const allCategories = fs
     .readdirSync(path.join(process.cwd(), "posts"))
@@ -134,4 +139,14 @@ export async function getCategories() {
   return allCategories;
 }
 
-getCategories();
+export async function getCategoryData(category: string) {
+  const categoryPath = path.join(postsDirectory, category);
+  const fileNames = fs.readdirSync(categoryPath);
+
+  const categoryThumbnail = `/seriesThumbnails/${category}.png`;
+
+  return {
+    numberOfPosts: fileNames.length,
+    categoryThumbnail,
+  };
+}
