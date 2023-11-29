@@ -18,6 +18,11 @@
   }
 }
 
+
+.maximum-width {
+  @apply w-[540px]
+}
+
 .menu {
   @apply w-[150px] cursor-pointer font-light text-lg
 }

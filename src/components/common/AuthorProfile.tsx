@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { ContactLinks } from ".";
-import { getCategories } from "../../../lib/posts";
+import Divider from "./Divider";
 
 export default async function AuthorProfile() {
-  const categories = await getCategories();
-
   return (
     <section className="flex w-full flex-col items-center">
       <Image
@@ -22,11 +20,10 @@ export default async function AuthorProfile() {
           </p>
           <ContactLinks color="text-gray-400" />
         </div>
-        <p className="sm:text-md text-sm text-gray-700 sm:text-center">
-          A coffee loving frontend engineer from Korea with a passion for
-          developing user centered products with innovative business models.
-        </p>
-        <p className="sm:text-md text-sm text-gray-700 sm:text-center">
+        <Divider />
+        <p className="sm:text-md text-sm text-gray-700">
+          A coffee-loving frontend engineer from Korea with a passion for
+          developing user centered products with innovative business models.{" "}
           {`Accidentally fell in love with dev while studying it to manage my
           startup${"'"}s development team. Been a full-time dev since.`}
         </p>
