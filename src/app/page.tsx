@@ -6,8 +6,7 @@ export default function HomeDevlogPage() {
     <MainContents>
       <div className="w-full px-0 md:px-[15%]">
         <AuthorProfile />
-        <section className="h-100 w-full flex-col items-center justify-center px-5">
-          {/* <MenuSelector /> */}
+        <section className="h-100 w-full flex-col items-center justify-center px-1">
           <BlogList />
         </section>
       </div>
