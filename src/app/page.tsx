@@ -4,11 +4,13 @@ import { MainContents, AuthorProfile, MenuSelector } from "@/components/common";
 export default function HomeDevlogPage() {
   return (
     <MainContents>
-      <AuthorProfile />
-      <section className="h-100 w-full flex-col items-center justify-center px-5">
-        {/* <MenuSelector /> */}
-        <BlogList />
-      </section>
+      <div className="w-full px-0 md:px-[15%]">
+        <AuthorProfile />
+        <section className="h-100 w-full flex-col items-center justify-center px-5">
+          {/* <MenuSelector /> */}
+          <BlogList />
+        </section>
+      </div>
     </MainContents>
   );
 }

@@ -13,7 +13,9 @@ export default function ContactLinks({
   justify,
 }: ContactLinksProps) {
   return (
-    <div className={`flex gap-5 justify-${justify} text-${size} ${color}`}>
+    <div
+      className={`flex gap-2 md:gap-5 justify-${justify} text-lg md:text-${size} ${color}`}
+    >
       <a
         href="https://github.com/sqsung"
         target="_blank"

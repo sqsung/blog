@@ -51,6 +51,10 @@ export default function RootLayout({
 
 `test!!`
 
+<!-- <img src="/images/blog_profile.jpeg" width='300px' height="300px"/> -->
+
+![Image Test](/images/blog_profile.jpeg)
+
 ## What is Next.js?
 
 Next.js is an open-source React framework that focuses on providing an exceptional developer experience while delivering high performance and SEO-friendly web applications. It simplifies the process of building complex applications by offering a range of features and benefits that make it a go-to choice for many developers.
