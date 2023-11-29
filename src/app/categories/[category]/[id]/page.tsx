@@ -1,4 +1,4 @@
-import { getPostData } from "../../../../lib/posts";
+import { getPostData } from "../../../../../lib/posts";
 import PostHeader from "@/components/devlog/PostHeader";
 import { MainContents, BackButton } from "@/components/common";
 

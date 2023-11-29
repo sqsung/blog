@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getCategoryData } from "../../../lib/posts";
-import ClientSideImage from "../common/ClientSIdeImage";
 
 interface CategoryItemProps {
   category: string;

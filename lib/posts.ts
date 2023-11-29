@@ -150,3 +150,29 @@ export async function getCategoryData(category: string) {
     categoryThumbnail,
   };
 }
+
+export async function getPostsByCategory(category: string) {
+  const filePath = path.join(postsDirectory, category);
+  const fileNames = fs.readdirSync(filePath);
+  const allPosts: PostData[] = [];
+
+  const fullPaths = fileNames.map((file) => {
+    return path.join(filePath, file);
+  });
+
+  fullPaths.forEach((path) => {
+    const fileContent = fs.readFileSync(path, "utf8");
+    const matterResult = matter(fileContent);
+    const id = path.split("/").at(-1)?.replace(/\.md$/, "");
+
+    const post = {
+      ...matterResult.data,
+      category,
+      id,
+    } as PostData;
+
+    allPosts.push(post);
+  });
+
+  return allPosts;
+}
