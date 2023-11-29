@@ -15,6 +15,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <MainContents>
       <div>
         <p>{params.category}</p>
+        <p>{postsData.length}개의 게시물</p>
         <ul>
           {postsData.map((post, index) => (
             <BlogListItem key={index} {...post} />
