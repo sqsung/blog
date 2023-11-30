@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-export default function SmallAuthorProfile() {
+interface SmallAuthorProfileProps {
+  children?: React.ReactNode;
+}
+
+export default function SmallAuthorProfile({
+  children: additionalInfo,
+}: SmallAuthorProfileProps) {
   return (
     <div className="my-5 flex gap-3">
       <Image
@@ -13,6 +19,9 @@ export default function SmallAuthorProfile() {
       <div className="flex h-full flex-col justify-around">
         <p className="font-bold">James K. Sohn</p>
         <p className="text-sm text-gray-500">Frontend Engineer</p>
+      </div>
+      <div className="ml-auto flex items-center justify-center gap-0 text-center text-sm text-gray-500 sm:gap-1">
+        {additionalInfo}
       </div>
     </div>
   );

@@ -14,8 +14,10 @@ export default async function AuthorProfile() {
       />
       <div className="flex w-full flex-col gap-3 p-5 sm:w-[540px]">
         <div className="flex gap-2 sm:flex-col sm:items-center sm:gap-0">
-          <p className="text-lg font-bold md:text-2xl">James K. Sohn</p>
-          <p className="mr-auto flex items-center text-sm text-gray-400 sm:mb-3 sm:mr-0 sm:text-lg">
+          <p className="overflow-ellipsis whitespace-nowrap  text-lg font-bold md:text-2xl">
+            James K. Sohn
+          </p>
+          <p className="mr-auto flex items-center overflow-ellipsis whitespace-nowrap text-sm text-gray-400 sm:mb-3 sm:mr-0 sm:text-lg">
             Frontend Engineer
           </p>
           <ContactLinks color="text-gray-400" />

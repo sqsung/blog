@@ -1,6 +1,7 @@
-import { BlogListItem } from "@/components/devlog";
+import { BlogList, SmallAuthorProfile } from "@/components/devlog";
 import { getPostsByCategory } from "../../../../lib/posts";
 import { MainContents } from "@/components/common";
+import Divider from "@/components/common/Divider";
 
 interface CategoryPageProps {
   params: {
@@ -9,18 +10,16 @@ interface CategoryPageProps {
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const postsData = await getPostsByCategory(params.category);
+  const categorizedPosts = await getPostsByCategory(params.category);
 
   return (
     <MainContents>
-      <div>
-        <p>{params.category}</p>
-        <p>{postsData.length}개의 게시물</p>
-        <ul>
-          {postsData.map((post, index) => (
-            <BlogListItem key={index} {...post} />
-          ))}
-        </ul>
+      <div className="w-full px-2 sm:px-[15%]">
+        <div className="px-2 sm:px-[15%]">
+          <SmallAuthorProfile />
+          <Divider />
+        </div>
+        <BlogList blogs={categorizedPosts} isOnMain={false} />
       </div>
     </MainContents>
   );
