@@ -1,17 +1,14 @@
-import { getLatestTenPostsData } from "../../../lib/posts";
 import BlogListItem from "./BlogListItem";
+import { getLatestTenPostsData } from "../../../lib/posts";
 
 export default async function BlogList() {
-  const allPostsData = await getLatestTenPostsData();
+  const latestTenPosts = await getLatestTenPostsData();
 
   return (
     <>
-      {/* <div>
-        <p className="title w-full text-center">Recent Posts:</p>
-      </div> */}
-      <div className="mt-5 w-full justify-center px-5 sm:flex sm:px-[10%] md:px-[15%]">
+      <div className="mt-5 w-full justify-center px-5 sm:px-[10%] md:px-[15%]">
         <ul className="flex w-full flex-col justify-center gap-5">
-          {allPostsData.map((metaData, index) => (
+          {latestTenPosts.map((metaData, index) => (
             <BlogListItem key={index} {...metaData} />
           ))}
         </ul>
