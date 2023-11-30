@@ -10,7 +10,7 @@ export default async function AuthorProfile() {
         alt="Blog Author's profile picture"
         width={300}
         height={300}
-        className="h-[300px] w-full object-cover sm:w-[300px] sm:rounded-full"
+        className="h-[300px] w-full object-cover sm:h-[150px] sm:w-[150px] sm:rounded-full"
       />
       <div className="flex w-full flex-col gap-3 p-5 sm:w-[540px]">
         <div className="flex gap-2 sm:flex-col sm:items-center sm:gap-0">
