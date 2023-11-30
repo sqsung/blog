@@ -3,7 +3,6 @@ import Link from "next/link";
 import { formatDate } from "@/utils/format";
 import Tags from "./Tags";
 import { PostData } from "global";
-import GrayLabel from "../common/GrayLabel";
 
 export default function BlogListItem(props: PostData) {
   const { id, thumbnail, tags, title, description, date, category } = props;
