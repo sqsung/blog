@@ -147,7 +147,7 @@ export async function getCategoryData(category: string) {
   const categoryPath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(categoryPath);
 
-  const categoryThumbnail = `/seriesThumbnails/${category}.png`;
+  const categoryThumbnail = `/thumbnails/${category}/default.png`;
 
   return {
     numberOfPosts: fileNames.length,
