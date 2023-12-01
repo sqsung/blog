@@ -39,7 +39,7 @@
 }
 
 .blog {
-  @apply w-full [&>p]:my-5 [&>p]:text-gray-700 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:border-b-[1px] [&>h2]:mt-5 [&>h2:fisrt-of-type]:m-0 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:text-gray-700 [&>h3]:font-bold [&>h3]:text-lg [&>h3]:mt-5 [&>h3]:border-b-[1px]
+  @apply w-full sm:[&>p]:text-base [&>p]:text-sm [&>p]:my-5 [&>p]:text-gray-700 [&>h2]:font-bold sm:[&>h2]:text-2xl [&>h2]:text-lg [&>h2]:border-b-[1px] [&>h2]:mt-5 [&>h2:fisrt-of-type]:m-0 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:text-gray-700 [&>h3]:font-bold sm:[&>h3]:text-lg [&>h3]:text-base [&>h3]:mt-5 [&>h3]:border-b-[1px]
 }
 
 .noncode {
@@ -47,5 +47,5 @@
 }
 
 pre {
-  @apply text-gray-200 bg-gray-700 border-[20px] border-solid border-gray-700 rounded-lg overflow-scroll max-w-full text-base
+  @apply text-gray-200 bg-gray-700 border-[10px] sm:border-[20px] border-solid border-gray-700 rounded-md overflow-scroll max-w-full sm:text-base text-xs
 }
