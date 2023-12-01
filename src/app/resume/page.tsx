@@ -3,9 +3,13 @@ import { MainContents, BackButton } from "@/components/common";
 export default function ResumePage() {
   return (
     <MainContents>
-      <div className="w-full border border-red-400">
-        <BackButton />
-        <p>This is going to be used as a resume page!</p>
+      <div className="flex w-full items-center justify-center">
+        <p>
+          <span className="italic text-gray-300">
+            Author resume page under construction
+          </span>{" "}
+          🚧
+        </p>
       </div>
     </MainContents>
   );
