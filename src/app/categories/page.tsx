@@ -1,4 +1,4 @@
-import { MainContents } from "@/components/common";
+import { ContactLinks, MainContents } from "@/components/common";
 import { getCategories } from "../../../lib/posts";
 import CategoryItem from "@/components/categories/CategoryItem";
 import { SmallAuthorProfile } from "@/components/devlog";
@@ -10,12 +10,11 @@ export default async function CategoriesPage() {
   return (
     <MainContents>
       <div className="flex w-full flex-col px-5 sm:gap-5 sm:px-[25%]">
-        <div className="px-2">
-          <SmallAuthorProfile>
-            <p className="font-bold">All Categories</p>
-          </SmallAuthorProfile>
-          <Divider />
+        <div className="flex items-center justify-between">
+          <SmallAuthorProfile />
+          <ContactLinks />
         </div>
+        <Divider />
         <div className="mt-5 flex grid-cols-2 flex-col gap-3 pb-5 sm:grid">
           {categories.map((category, index) => (
             <CategoryItem key={index} category={category} />

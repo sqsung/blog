@@ -1,6 +1,7 @@
 import SmallAuthorProfile from "./SmallAuthorProfile";
 import { formatDate } from "@/utils/format";
 import Tags from "./Tags";
+import Divider from "../common/Divider";
 
 interface PostHeaderProps {
   title: string;
@@ -10,13 +11,12 @@ interface PostHeaderProps {
 
 export default function PostHeader({ title, date, tags }: PostHeaderProps) {
   return (
-    <div className="flex w-full flex-col border-b-2">
-      <h1 className="title m-0">{title}</h1>
-      <div className="flex items-center gap-3">
-        <p className="m-0 text-sm text-gray-600">{formatDate(date)}</p>
-        <Tags tags={tags} />
-      </div>
+    <div className="flex w-full flex-col">
+      <h1 className="title m-0 mb-2">{title}</h1>
+      <p className="m-0 text-xs text-gray-600 sm:text-sm">{formatDate(date)}</p>
+      <Tags tags={tags} />
       <SmallAuthorProfile />
+      <Divider />
     </div>
   );
 }
