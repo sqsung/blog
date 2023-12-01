@@ -11,3 +11,5 @@ export const WEEKDAYS = [
   "Friday",
   "Saturday",
 ];
+
+export const PAGE_SIZE = 10;

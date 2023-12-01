@@ -9,7 +9,7 @@ export default function BlogListItem(props: PostData) {
 
   return (
     <li className="sm:border-gray-150 h-80 overflow-hidden rounded-md border transition hover:border-gray-700 sm:h-fit sm:pb-0">
-      <Link href={`/categories/${category}/${id}`}>
+      <Link href={`/devlog/${category}/${id}`}>
         <div className="flex h-[100%] flex-col gap-2 sm:flex-row">
           <Image
             src={thumbnail || "/seriesThumbnails/nextjs.png"}

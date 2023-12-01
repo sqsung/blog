@@ -1,5 +1,5 @@
 import { BlogList, SmallAuthorProfile } from "@/components/devlog";
-import { getPostsByCategory } from "../../../../lib/posts";
+import { getPostsByCategory } from "../../../../../lib/posts";
 import { ContactLinks, MainContents } from "@/components/common";
 import Divider from "@/components/common/Divider";
 import Pagination from "@/components/common/Pagination";
@@ -7,11 +7,15 @@ import Pagination from "@/components/common/Pagination";
 interface CategoryPageProps {
   params: {
     category: string;
+    page: number;
   };
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const categorizedPosts = await getPostsByCategory(params.category);
+  const { totalPages, categorizedPosts } = await getPostsByCategory(
+    params.category,
+    +params.page,
+  );
 
   return (
     <MainContents>
@@ -24,7 +28,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <Divider />
         </div>
         <BlogList blogs={categorizedPosts} isOnMain={false} />
-        <Pagination />
+        <Pagination
+          pagesCount={totalPages}
+          category={params.category}
+          page={params.page}
+        />
       </div>
     </MainContents>
   );

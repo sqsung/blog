@@ -7,6 +7,7 @@ import { load } from "cheerio";
 import hljs from "highlight.js";
 import remarkGfm from "remark-gfm";
 import { PostData } from "global";
+import { PAGE_SIZE } from "@/utils/constants";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -151,28 +152,37 @@ export async function getCategoryData(category: string) {
   };
 }
 
-export async function getPostsByCategory(category: string) {
+export async function getPostsByCategory(category: string, page: number) {
   const filePath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(filePath);
-  const allPosts: PostData[] = [];
+  const categorizedPosts: PostData[] = [];
+
+  const startPoint = 1 + PAGE_SIZE * page - PAGE_SIZE;
+  const endPoint = PAGE_SIZE * page;
 
   const fullPaths = fileNames.map((file) => {
     return path.join(filePath, file);
   });
 
-  fullPaths.forEach((path) => {
-    const fileContent = fs.readFileSync(path, "utf8");
-    const matterResult = matter(fileContent);
-    const id = path.split("/").at(-1)?.replace(/\.md$/, "");
+  for (let i = 1; i <= fullPaths.length; i++) {
+    if (i >= startPoint && i <= endPoint) {
+      const path = fullPaths[i - 1];
+      const fileContent = fs.readFileSync(path, "utf8");
+      const matterResult = matter(fileContent);
+      const id = path.split("/").at(-1)?.replace(/\.md$/, "");
 
-    const post = {
-      ...matterResult.data,
-      category,
-      id,
-    } as PostData;
+      const post = {
+        ...matterResult.data,
+        category,
+        id,
+      } as PostData;
 
-    allPosts.push(post);
-  });
+      categorizedPosts.push(post);
+    }
+  }
 
-  return allPosts;
+  return {
+    totalPages: Math.ceil(fileNames.length / PAGE_SIZE),
+    categorizedPosts,
+  };
 }
