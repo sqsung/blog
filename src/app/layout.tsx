@@ -6,7 +6,7 @@ import { Header, Footer, PageWrapper } from "@/components/common";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "James Nextjs Blog",
+  title: "JSJS Blog",
   description: "Frontend engineer's journey to becoming a better developer,",
 };
 
@@ -22,6 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css"
         />
+        <link rel="icon" href="/images/favicon.ico" sizes="any" />
       </head>
       <body className={inter.className}>
         <PageWrapper>

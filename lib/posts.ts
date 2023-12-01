@@ -10,6 +10,7 @@ import { PostData } from "global";
 import { PAGE_SIZE } from "@/utils/constants";
 
 const postsDirectory = path.join(process.cwd(), "posts");
+const thumbnailDirectory = path.join(process.cwd(), "public/thumbnails");
 
 hljs.registerLanguage(
   "javascript",
@@ -28,15 +29,25 @@ export async function getLatestTenPostsData() {
       return path.join(filePath, file);
     });
 
-    fullPaths.forEach((path) => {
-      const fileContent = fs.readFileSync(path, "utf8");
+    fullPaths.forEach((fullPath) => {
+      const fileContent = fs.readFileSync(fullPath, "utf8");
       const matterResult = matter(fileContent);
-      const id = path.split("/").at(-1)?.replace(/\.md$/, "");
+      const id = fullPath.split("/").at(-1)?.replace(/\.md$/, "");
+
+      const thumbnailPath = path.join(
+        thumbnailDirectory,
+        `${category}/posts/${id}.jpg`,
+      );
+
+      const thumbnail = fs.existsSync(thumbnailPath)
+        ? thumbnailPath.split("public")[1]
+        : `/thumbnails/${category}/default.png`;
 
       const post = {
         ...matterResult.data,
         category,
         id,
+        thumbnail,
       } as PostData;
 
       allPosts.push(post);
@@ -115,16 +126,8 @@ export async function getPostData(category: string, id: string) {
   const modifiedHtmlContent = htmlContent.html();
 
   return {
-    id,
     modifiedHtmlContent,
-    ...(matterResult.data as {
-      title: string;
-      date: string;
-      thumbnail: string;
-      description: string;
-      category: string;
-      tags: string[];
-    }),
+    ...(matterResult.data as PostData),
   };
 }
 
@@ -166,13 +169,23 @@ export async function getPostsByCategory(category: string, page: number) {
 
   for (let i = 1; i <= fullPaths.length; i++) {
     if (i >= startPoint && i <= endPoint) {
-      const path = fullPaths[i - 1];
-      const fileContent = fs.readFileSync(path, "utf8");
+      const currentPath = fullPaths[i - 1];
+      const fileContent = fs.readFileSync(currentPath, "utf8");
       const matterResult = matter(fileContent);
-      const id = path.split("/").at(-1)?.replace(/\.md$/, "");
+      const id = currentPath.split("/").at(-1)?.replace(/\.md$/, "");
+
+      const thumbnailPath = path.join(
+        thumbnailDirectory,
+        `${category}/posts/${id}.jpg`,
+      );
+
+      const thumbnail = fs.existsSync(thumbnailPath)
+        ? thumbnailPath.split("public")[1]
+        : `/thumbnails/${category}/default.png`;
 
       const post = {
         ...matterResult.data,
+        thumbnail,
         category,
         id,
       } as PostData;

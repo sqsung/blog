@@ -1,6 +1,5 @@
 ---
 title: What is Next.js?
-thumbnail:
 date: 2023-03-30
 description: Just some random, placeholder blog ChatGPT created for me about Next.js.
 tags:

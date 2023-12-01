@@ -14,7 +14,7 @@ export default function SmallAuthorProfile({
         alt="Author profile image"
         width={50}
         height={50}
-        className="rounded-full"
+        className="max-h-[50px] rounded-full"
       />
       <div className="flex h-full flex-col justify-around">
         <p className="font-bold">James K. Sohn</p>

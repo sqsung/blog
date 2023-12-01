@@ -12,11 +12,11 @@ export default function BlogListItem(props: PostData) {
       <Link href={`/devlog/${category}/${id}`}>
         <div className="flex h-[100%] flex-col gap-2 sm:flex-row">
           <Image
-            src={thumbnail || "/seriesThumbnails/nextjs.png"}
+            src={thumbnail}
             width={100}
             height={100}
             alt="Blog Post Thumbnail"
-            className="h-[60%] w-full object-cover sm:h-[200px] sm:max-h-[200px] sm:w-[200px]"
+            className="h-[60%] w-full min-w-[200px] object-cover sm:h-[200px] sm:max-h-[200px] sm:w-[200px]"
           />
           <div className="flex h-full w-full flex-col p-1 sm:p-2">
             <p className="overflow-ellipsis whitespace-nowrap text-sm font-bold transition hover:cursor-pointer hover:text-gray-300 sm:text-lg">

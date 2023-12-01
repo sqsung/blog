@@ -20,7 +20,7 @@ export default async function Post({ params }: PostProps) {
 
   return (
     <MainContents>
-      <div className="flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:gap-10 sm:p-10 2xl:w-[60%]">
+      <div className="flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:gap-10 sm:p-10 lg:w-[60%]">
         <div className="w-full">
           <PostHeader title={title} date={date} tags={tags} />
         </div>
