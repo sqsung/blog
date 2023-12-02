@@ -11,7 +11,7 @@ export default async function CategoryItem({ category }: CategoryItemProps) {
 
   return (
     <Link
-      href={`/categories/${category}/1`}
+      href={`/${category}/1`}
       className="mx-auto h-80 w-[90%] cursor-pointer items-center justify-center rounded-md border border-gray-200 transition hover:border-gray-700"
     >
       <Image

@@ -32,7 +32,6 @@ export default function RootLayout({
         <PageWrapper>
           <AuthorProfile />
           <section className="h-100 border-test w-full flex-col items-center justify-center px-5">
-            <MenuSelector />
             {children}
           </section>
         </PageWrapper>

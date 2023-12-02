@@ -1,4 +1,4 @@
-import SmallAuthorProfile from "./SmallAuthorProfile";
+import SmallAuthorProfile from "../common/SmallAuthorProfile";
 import { formatDate } from "@/utils/format";
 import Tags from "./Tags";
 import Divider from "../common/Divider";

@@ -49,3 +49,7 @@
 pre {
   @apply text-gray-200 bg-gray-700 border-[10px] sm:border-[20px] border-solid border-gray-700 rounded-md overflow-scroll max-w-full sm:text-base text-xs
 }
+
+.skeleton {
+  @apply bg-gray-200 animate-pulse rounded-sm
+}

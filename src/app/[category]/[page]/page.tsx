@@ -1,8 +1,12 @@
-import { BlogList, SmallAuthorProfile } from "@/components/devlog";
-import { getPostsByCategory } from "../../../../../lib/posts";
-import { ContactLinks, MainContents } from "@/components/common";
-import Divider from "@/components/common/Divider";
-import Pagination from "@/components/common/Pagination";
+import { getPostsByCategory } from "../../../../lib/posts";
+import { BlogList } from "@/components/devlog";
+import {
+  Pagination,
+  ContactLinks,
+  MainContents,
+  SmallAuthorProfile,
+  Divider,
+} from "@/components/common";
 
 interface CategoryPageProps {
   params: {

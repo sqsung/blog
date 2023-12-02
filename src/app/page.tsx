@@ -1,5 +1,5 @@
 import BlogList from "@/components/devlog/BlogList";
-import { MainContents, AuthorProfile, MenuSelector } from "@/components/common";
+import { MainContents, AuthorProfile } from "@/components/common";
 import { getLatestTenPostsData } from "../../lib/posts";
 
 export default async function HomeDevlogPage() {

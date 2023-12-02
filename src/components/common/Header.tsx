@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MenuSelector } from ".";
 
 export default function Header() {
   return (

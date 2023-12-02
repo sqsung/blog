@@ -9,7 +9,7 @@ export default async function CategoriesPage() {
 
   return (
     <MainContents>
-      <div className="flex w-full flex-col px-5 sm:px-[25%]">
+      <div className="flex w-full flex-col px-5 lg:px-[25%]">
         <div className="px-2">
           <div className="flex items-center justify-between">
             <SmallAuthorProfile />
