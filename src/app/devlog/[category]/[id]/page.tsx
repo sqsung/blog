@@ -1,7 +1,6 @@
 import { getPostData } from "../../../../../lib/posts";
-import PostHeader from "@/components/devlog/PostHeader";
 import { MainContents } from "@/components/common";
-import EmptyBlogMessage from "@/components/devlog/EmptyBlogMessage";
+import { EmptyBlogMessage, PostHeader } from "@/components/devlog";
 
 const emptyHTMLString = "<html><head></head><body></body></html>";
 
