@@ -1,8 +1,7 @@
-import { ContactLinks, MainContents } from "@/components/common";
 import { getCategories } from "../../../lib/posts";
-import CategoryItem from "@/components/categories/CategoryItem";
+import { CategoryItem } from "@/components/categories";
 import { SmallAuthorProfile } from "@/components/devlog";
-import Divider from "@/components/common/Divider";
+import { ContactLinks, MainContents, Divider } from "@/components/common";
 
 export default async function CategoriesPage() {
   const categories = await getCategories();

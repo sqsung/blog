@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Pagination } from "@mui/material";
 
@@ -25,7 +24,7 @@ export default function PaginationRounded({
         variant="outlined"
         shape="rounded"
         onChange={(_, newPage) => {
-          router.push(`/categories/${category}/${+newPage}`);
+          router.push(`/${category}/${+newPage}`);
         }}
       />
     </div>
