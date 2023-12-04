@@ -1,6 +1,5 @@
 import { MainContents } from "@/components/common";
-import { EmptyBlogMessage } from "@/components/devlog";
-import PostHeaderSkeleton from "@/components/devlog/PostHeaderSkeleton";
+import { EmptyBlogMessage, PostHeaderSkeleton } from "@/components/devlog";
 import { CircularProgress } from "@mui/material";
 
 export default function PostLoading() {

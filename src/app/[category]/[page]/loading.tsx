@@ -4,7 +4,7 @@ import {
   SmallAuthorProfile,
   Divider,
 } from "@/components/common";
-import BlogListSkeleton from "@/components/devlog/BlogListSkeleton";
+import { BlogListSkeleton } from "@/components/devlog";
 
 export default function CategorizedPostsLoading() {
   return (

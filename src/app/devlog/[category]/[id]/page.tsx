@@ -1,8 +1,9 @@
 import { getPostData } from "../../../../../lib/posts";
-import { MainContents } from "@/components/common";
+import { Divider, MainContents } from "@/components/common";
 import { EmptyBlogMessage, PostHeader } from "@/components/devlog";
+import Comments from "@/components/devlog/Comments";
 
-const emptyHTMLString = "<html><head></head><body></body></html>";
+const EMPTY_HTML_STRING = "<html><head></head><body></body></html>";
 
 interface PostProps {
   params: {
@@ -23,7 +24,7 @@ export default async function Post({ params }: PostProps) {
         <div className="w-full">
           <PostHeader title={title} date={date} tags={tags} />
         </div>
-        {modifiedHtmlContent !== emptyHTMLString ? (
+        {modifiedHtmlContent !== EMPTY_HTML_STRING ? (
           <div
             className="blog"
             dangerouslySetInnerHTML={{ __html: modifiedHtmlContent }}
@@ -31,6 +32,8 @@ export default async function Post({ params }: PostProps) {
         ) : (
           <EmptyBlogMessage />
         )}
+        <Divider />
+        <Comments />
       </div>
     </MainContents>
   );
