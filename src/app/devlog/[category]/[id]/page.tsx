@@ -22,7 +22,12 @@ export default async function Post({ params }: PostProps) {
     <MainContents>
       <div className="flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:gap-10 sm:p-10 lg:w-[60%]">
         <div className="w-full">
-          <PostHeader title={title} date={date} tags={tags} />
+          <PostHeader
+            title={title}
+            date={date}
+            tags={tags}
+            category={params.category}
+          />
         </div>
         {modifiedHtmlContent !== EMPTY_HTML_STRING ? (
           <div

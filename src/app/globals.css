@@ -53,3 +53,11 @@ pre {
 .skeleton {
   @apply bg-gray-200 animate-pulse rounded-sm text-gray-200
 }
+
+.t-hover-blue {
+  @apply [&:hover]:text-blue-300 transition cursor-pointer
+}
+
+.t-hover-gray {
+  @apply [&:hover]:text-gray-300 transition cursor-pointer
+}
