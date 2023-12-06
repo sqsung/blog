@@ -7,3 +7,4 @@ export { default as BlogListItemSkeleton } from "./BlogListItemSkeleton";
 export { default as BlogListSkeleton } from "./BlogListSkeleton";
 export { default as EmptyBlogMessage } from "./EmptyBlogMessage";
 export { default as PostHeaderSkeleton } from "./PostHeaderSkeleton";
+export { default as AdjacentPostButton } from "./AdjacentPostButton";

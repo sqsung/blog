@@ -60,11 +60,7 @@ export async function getLatestTenPostsData() {
 
   return allPosts
     .sort((a, b) => {
-      if (a.date < b.date) {
-        return 1;
-      } else {
-        return -1;
-      }
+      return a.date < b.date ? 1 : -1;
     })
     .splice(0, 10);
 }
@@ -76,9 +72,9 @@ export async function getLatestTenPostsData() {
  * @returns the HTML content of the blog as well as its meta data
  */
 export async function getPostData(category: string, id: string) {
+  const { prevPost, nextPost } = await getAdjacentPosts(category, id);
   const fullPath = path.join(postsDirectory, `${category}/${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf-8");
-
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
@@ -121,8 +117,42 @@ export async function getPostData(category: string, id: string) {
 
   return {
     modifiedHtmlContent,
+    prevPost,
+    nextPost,
     ...(matterResult.data as PostData),
   };
+}
+
+/**
+ * Fetches the ids of a posts adjacent (prev/next) to a target post
+ * @param category category the post is located in
+ * @param targetId id of the post that is being read
+ * @returns (object) prevPost: data of the previous post, nextPost: data of the nextPostsId
+ */
+export async function getAdjacentPosts(category: string, targetId: string) {
+  const adjacentPosts: {
+    prevPost: null | PostData;
+    nextPost: null | PostData;
+  } = {
+    prevPost: null,
+    nextPost: null,
+  };
+
+  const sortedPosts = await getAllPostsByCategory(category);
+
+  for (let i = 0; i < sortedPosts.length; i += 1) {
+    if (targetId !== sortedPosts[i].id) continue;
+
+    const prev = i === 0 ? null : sortedPosts[i - 1];
+    const next = i + 1 === sortedPosts.length ? null : sortedPosts[i + 1];
+
+    adjacentPosts.prevPost = prev;
+    adjacentPosts.nextPost = next;
+
+    break;
+  }
+
+  return adjacentPosts;
 }
 
 /**
@@ -155,7 +185,7 @@ export async function getCategoryData(category: string) {
 }
 
 /**
- *
+ * Fetches posts of a single target category
  * @param category name of the target category
  * @param page page number the user is on
  * @returns (object) totalPages: number of pages in target category / categorizedPosts: array of posts that belong to the category
@@ -204,4 +234,45 @@ export async function getPostsByCategory(category: string, page: number) {
     totalPages: Math.ceil(fileNames.length / PAGE_SIZE),
     categorizedPosts,
   };
+}
+
+/**
+ * Fetches every post in a category, sorted by date of publication (latest to oldest)
+ * @param category Target category
+ * @returns Array of posts that belong to target category
+ */
+export async function getAllPostsByCategory(category: string) {
+  const filePath = path.join(postsDirectory, category);
+  const fileNames = fs.readdirSync(filePath);
+
+  const fullPaths = fileNames.map((file) => {
+    return path.join(filePath, file);
+  });
+
+  const allPostsMetadata = fullPaths.map((fullPath, index) => {
+    const fileContent = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContent);
+
+    const id = fileNames[index].replace(/\.md$/, "");
+
+    const thumbnailPath = path.join(
+      thumbnailDirectory,
+      `${category}/posts/${id}.jpg`,
+    );
+
+    const thumbnail = fs.existsSync(thumbnailPath)
+      ? thumbnailPath.split("public")[1]
+      : `/thumbnails/${category}/default.png`;
+
+    return {
+      id,
+      thumbnail,
+      category,
+      ...matterResult.data,
+    } as PostData;
+  });
+
+  return allPostsMetadata.sort((a, b) => {
+    return a.date < b.date ? 1 : -1;
+  });
 }

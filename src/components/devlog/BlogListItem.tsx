@@ -19,7 +19,7 @@ export default function BlogListItem(props: PostData) {
             className="h-[60%] w-full min-w-[200px] object-cover sm:h-[200px] sm:max-h-[200px] sm:w-[200px]"
           />
           <div className="flex h-full w-full flex-col p-1 sm:p-2">
-            <p className="overflow-ellipsis whitespace-nowrap text-sm font-bold transition hover:cursor-pointer hover:text-gray-300 sm:text-lg">
+            <p className="t-hover-gray overflow-ellipsis whitespace-nowrap text-sm font-bold sm:text-lg">
               {title}
             </p>
             <p className="text-xs text-gray-400 sm:text-sm ">

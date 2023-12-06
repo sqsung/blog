@@ -17,7 +17,7 @@ export default function SmallAuthorProfile({
         className="max-h-[50px] rounded-full"
       />
       <div className="flex h-full flex-col justify-around">
-        <p className="font-bold">James K. Sohn</p>
+        <p className="font-bold text-gray-700">James K. Sohn</p>
         <p className="text-sm text-gray-500">Frontend Engineer</p>
       </div>
       <div className="ml-auto flex items-center justify-center gap-0 text-center text-sm text-gray-500 sm:gap-1">
