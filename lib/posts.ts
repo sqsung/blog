@@ -17,6 +17,10 @@ hljs.registerLanguage(
   require("highlight.js/lib/languages/javascript"),
 );
 
+/**
+ * Fetches the ten latests posts in an uncategorized manner
+ * @returns Array of ten latest posts
+ */
 export async function getLatestTenPostsData() {
   const categories = fs.readdirSync(postsDirectory);
   const allPosts: PostData[] = [];
@@ -64,16 +68,6 @@ export async function getLatestTenPostsData() {
     })
     .splice(0, 10);
 }
-
-// export async function getAllPostIds() {
-//   const fileNames = fs.readdirSync(postsDirectory);
-
-//   return fileNames.map((fileName) => {
-//     return {
-//       params: { id: fileName.replace(/\.md$/, "") },
-//     };
-//   });
-// }
 
 /**
  * Returns data of a single blog post by its cateogry/id
@@ -132,7 +126,7 @@ export async function getPostData(category: string, id: string) {
 }
 
 /**
- *
+ * Fetches all the categories (directories in sides /posts)
  * @returns an Array<string> of all the categories in it
  */
 export async function getCategories() {
@@ -143,6 +137,11 @@ export async function getCategories() {
   return allCategories;
 }
 
+/**
+ * Fetches category specific information
+ * @param category name of the target category
+ * @returns (object) numberOfPosts: total num of posts inside target category / categoryThumbnail: uri string of the default thumbnail of target category
+ */
 export async function getCategoryData(category: string) {
   const categoryPath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(categoryPath);
@@ -155,6 +154,12 @@ export async function getCategoryData(category: string) {
   };
 }
 
+/**
+ *
+ * @param category name of the target category
+ * @param page page number the user is on
+ * @returns (object) totalPages: number of pages in target category / categorizedPosts: array of posts that belong to the category
+ */
 export async function getPostsByCategory(category: string, page: number) {
   const filePath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(filePath);
@@ -167,31 +172,32 @@ export async function getPostsByCategory(category: string, page: number) {
     return path.join(filePath, file);
   });
 
-  for (let i = 1; i <= fullPaths.length; i++) {
-    if (i >= startPoint && i <= endPoint) {
-      const currentPath = fullPaths[i - 1];
-      const fileContent = fs.readFileSync(currentPath, "utf8");
-      const matterResult = matter(fileContent);
-      const id = currentPath.split("/").at(-1)?.replace(/\.md$/, "");
+  for (let i = startPoint; i <= endPoint; i++) {
+    const currentPath = fullPaths[i - 1];
 
-      const thumbnailPath = path.join(
-        thumbnailDirectory,
-        `${category}/posts/${id}.jpg`,
-      );
+    if (!currentPath) break;
 
-      const thumbnail = fs.existsSync(thumbnailPath)
-        ? thumbnailPath.split("public")[1]
-        : `/thumbnails/${category}/default.png`;
+    const fileContent = fs.readFileSync(currentPath, "utf8");
+    const matterResult = matter(fileContent);
+    const id = currentPath.split("/").at(-1)?.replace(/\.md$/, "");
 
-      const post = {
-        ...matterResult.data,
-        thumbnail,
-        category,
-        id,
-      } as PostData;
+    const thumbnailPath = path.join(
+      thumbnailDirectory,
+      `${category}/posts/${id}.jpg`,
+    );
 
-      categorizedPosts.push(post);
-    }
+    const thumbnail = fs.existsSync(thumbnailPath)
+      ? thumbnailPath.split("public")[1]
+      : `/thumbnails/${category}/default.png`;
+
+    const post = {
+      ...matterResult.data,
+      thumbnail,
+      category,
+      id,
+    } as PostData;
+
+    categorizedPosts.push(post);
   }
 
   return {
