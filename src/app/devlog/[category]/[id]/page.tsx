@@ -1,6 +1,10 @@
 import { getPostData } from "../../../../../lib/posts";
 import { Divider, MainContents } from "@/components/common";
-import { EmptyBlogMessage, PostHeader } from "@/components/devlog";
+import {
+  AdjacentPostButton,
+  EmptyBlogMessage,
+  PostHeader,
+} from "@/components/devlog";
 import Comments from "@/components/devlog/Comments";
 
 const EMPTY_HTML_STRING = "<html><head></head><body></body></html>";
@@ -13,10 +17,8 @@ interface PostProps {
 }
 
 export default async function Post({ params }: PostProps) {
-  const { title, date, modifiedHtmlContent, tags } = await getPostData(
-    params.category,
-    params.id,
-  );
+  const { title, date, tags, prevPost, nextPost, modifiedHtmlContent } =
+    await getPostData(params.category, params.id);
 
   return (
     <MainContents>
@@ -37,7 +39,15 @@ export default async function Post({ params }: PostProps) {
         ) : (
           <EmptyBlogMessage />
         )}
-        <Divider />
+        {(nextPost || prevPost) && (
+          <div className="flex w-full flex-col gap-1">
+            <div className="flex h-full w-full items-center justify-center gap-2 rounded-sm py-1 sm:gap-5">
+              <AdjacentPostButton direction="previous" postData={prevPost} />
+              <AdjacentPostButton direction="next" postData={nextPost} />
+            </div>
+            <Divider />
+          </div>
+        )}
         <Comments />
       </div>
     </MainContents>
