@@ -24,7 +24,7 @@ export default function PaginationRounded({
         variant="outlined"
         shape="rounded"
         onChange={(_, newPage) => {
-          router.push(`/${category}/${+newPage}`);
+          if (+page !== newPage) router.push(`/${category}/${+newPage}`);
         }}
       />
     </div>

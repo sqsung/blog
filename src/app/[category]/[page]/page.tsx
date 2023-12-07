@@ -18,7 +18,7 @@ interface CategoryPageProps {
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { totalPages, categorizedPosts } = await getPostsByCategory(
     params.category,
-    +params.page,
+    params.page,
   );
 
   return (
