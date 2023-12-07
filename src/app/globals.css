@@ -18,6 +18,27 @@
   } */
 }
 
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    overflow: auto;
+  }
+}
+
+
 .menu {
   @apply w-[150px] cursor-pointer font-light text-lg
 }
@@ -47,7 +68,7 @@
 }
 
 pre {
-  @apply text-gray-200 bg-gray-700 border-[10px] sm:border-[20px] border-solid border-gray-700 rounded-md overflow-scroll max-w-full sm:text-base text-xs
+  @apply text-gray-200 bg-gray-700 border-[10px] sm:border-[20px] border-solid border-gray-700 rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar
 }
 
 .skeleton {
