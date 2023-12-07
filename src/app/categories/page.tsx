@@ -1,4 +1,4 @@
-import { getCategories } from "../../../lib/posts";
+import { formatCategoryForUI, getCategories } from "../../../lib/posts";
 import { CategoryItem } from "@/components/categories";
 import { SmallAuthorProfile } from "@/components/devlog";
 import { ContactLinks, MainContents, Divider } from "@/components/common";

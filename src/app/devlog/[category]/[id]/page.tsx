@@ -1,4 +1,4 @@
-import { getPostData } from "../../../../../lib/posts";
+import { formatCategoryForUI, getPostData } from "../../../../../lib/posts";
 import { Divider, MainContents } from "@/components/common";
 import {
   AdjacentPostButton,
@@ -28,7 +28,7 @@ export default async function Post({ params }: PostProps) {
             title={title}
             date={date}
             tags={tags}
-            category={params.category}
+            category={formatCategoryForUI(params.category)}
           />
         </div>
         {modifiedHtmlContent !== EMPTY_HTML_STRING ? (

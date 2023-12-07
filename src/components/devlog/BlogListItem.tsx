@@ -8,7 +8,7 @@ export default function BlogListItem(props: PostData) {
   const { id, thumbnail, tags, title, description, date, category } = props;
 
   return (
-    <li className="sm:border-gray-150 h-80 overflow-hidden rounded-md border transition hover:border-gray-700 sm:h-fit sm:pb-0">
+    <li className="sm:border-gray-150 i-hover-up h-80 overflow-hidden rounded-md border hover:text-blue-300 sm:h-fit sm:pb-0">
       <Link href={`/devlog/${category}/${id}`}>
         <div className="flex h-[100%] flex-col gap-2 sm:flex-row">
           <Image
@@ -19,7 +19,7 @@ export default function BlogListItem(props: PostData) {
             className="h-[60%] w-full min-w-[200px] object-cover sm:h-[200px] sm:max-h-[200px] sm:w-[200px]"
           />
           <div className="flex h-full w-full flex-col p-1 sm:p-2">
-            <p className="t-hover-gray overflow-ellipsis whitespace-nowrap text-sm font-bold sm:text-lg">
+            <p className="overflow-ellipsis whitespace-nowrap text-sm font-bold sm:text-lg">
               {title}
             </p>
             <p className="text-xs text-gray-400 sm:text-sm ">

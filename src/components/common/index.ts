@@ -6,6 +6,5 @@ export { default as Footer } from "./Footer";
 export { default as MainContents } from "./MainContents";
 export { default as ContactLinks } from "./ContactLinks";
 export { default as Divider } from "./Divider";
-export { default as Pagination } from "./Pagination";
 export { default as GrayLabel } from "./GrayLabel";
 export { default as SmallAuthorProfile } from "./SmallAuthorProfile";
