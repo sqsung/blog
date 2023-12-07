@@ -1,7 +1,7 @@
-import { getPostsByCategory } from "../../../../lib/posts";
+import { formatCategoryForUI, getPostsByCategory } from "../../../../lib/posts";
 import { BlogList } from "@/components/devlog";
+import { Pagination } from "@/components/categories";
 import {
-  Pagination,
   ContactLinks,
   MainContents,
   SmallAuthorProfile,
@@ -30,7 +30,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <div className="flex flex-col items-end">
               <ContactLinks />
               <p className="text-end text-xs italic text-gray-300 sm:text-sm">
-                {params.category}
+                {formatCategoryForUI(params.category)}
               </p>
             </div>
           </div>

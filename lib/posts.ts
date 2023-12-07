@@ -1,5 +1,5 @@
 import fs from "fs";
-import path from "path";
+import path, { format } from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
@@ -71,7 +71,8 @@ export async function getLatestTenPostsData() {
  * @param id id of the target blog post
  * @returns the HTML content of the blog as well as its meta data
  */
-export async function getPostData(category: string, id: string) {
+export async function getPostData(categoryName: string, id: string) {
+  const category = formatCategoryForServer(categoryName);
   const { prevPost, nextPost } = await getAdjacentPosts(category, id);
   const fullPath = path.join(postsDirectory, `${category}/${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf-8");
@@ -87,16 +88,16 @@ export async function getPostData(category: string, id: string) {
   // Replace tags that need classes to be styled properly using cheerio library
   const htmlContent = load(stringContent);
 
-  // - replace <blockquote> with <div className="quote">
-  htmlContent("blockquote").each((index, element) => {
+  // replace <blockquote> with <div className="quote">
+  htmlContent("blockquote").each((_, element) => {
     const quote = htmlContent(element);
     const div = htmlContent("<div>").addClass("quote");
     div.html(quote.html() as string);
     quote.replaceWith(div);
   });
 
-  // - apply syntax highlights to <pre><code[language-..] with highlight.js
-  htmlContent('pre code[class^="language-"]').each((index, element) => {
+  // apply syntax highlights to <pre><code[language-..] with highlight.js
+  htmlContent('pre code[class^="language-"]').each((_, element) => {
     const codeBlock = htmlContent(element);
     const code = codeBlock.text();
     const language = codeBlock.attr("class")?.replace("language-", ""); // Remove the "language-" prefix
@@ -104,13 +105,20 @@ export async function getPostData(category: string, id: string) {
     codeBlock.html(highlightedCode);
   });
 
-  // - add ".noncode" class to non-language codes (for styling purposes)
-  htmlContent("p code").each((index, element) => {
+  // add ".noncode" class to non-language codes (for styling purposes)
+  htmlContent("p code").each((_, element) => {
     const codeBlock = htmlContent(element);
     const code = codeBlock.html();
     const span = htmlContent("<span>").addClass("noncode");
     span.html(code as string);
     codeBlock.replaceWith(span);
+  });
+
+  // wraps img tags in a div with blog-image-wrapper class
+  htmlContent("img").each((_, element) => {
+    const img = htmlContent(element);
+    const wrapper = htmlContent("<div>").addClass("blog-image-wrapper");
+    img.wrap(wrapper);
   });
 
   const modifiedHtmlContent = htmlContent.html();
@@ -172,7 +180,8 @@ export async function getCategories() {
  * @param category name of the target category
  * @returns (object) numberOfPosts: total num of posts inside target category / categoryThumbnail: uri string of the default thumbnail of target category
  */
-export async function getCategoryData(category: string) {
+export async function getCategoryData(categoryName: string) {
+  const category = formatCategoryForServer(categoryName);
   const categoryPath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(categoryPath);
 
@@ -190,7 +199,8 @@ export async function getCategoryData(category: string) {
  * @param page page number the user is on
  * @returns (object) totalPages: number of pages in target category / categorizedPosts: array of posts that belong to the category
  */
-export async function getPostsByCategory(category: string, page: number) {
+export async function getPostsByCategory(categoryName: string, page: number) {
+  const category = formatCategoryForServer(categoryName);
   const filePath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(filePath);
   const categorizedPosts: PostData[] = [];
@@ -275,4 +285,16 @@ export async function getAllPostsByCategory(category: string) {
   return allPostsMetadata.sort((a, b) => {
     return a.date < b.date ? 1 : -1;
   });
+}
+
+/**
+ * @param category name of category to be formatted
+ * @returns if category includes '-', returns category name with all dashes replaced with a sapce, and vice versa.
+ */
+export function formatCategoryForServer(category: string) {
+  return category.replaceAll("%20", " ").replaceAll(" ", "_");
+}
+
+export function formatCategoryForUI(category: string) {
+  return category.replaceAll("_", " ").replaceAll("%20", " ");
 }

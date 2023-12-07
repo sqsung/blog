@@ -20,7 +20,7 @@ export default function CategoriesLoading() {
           </div>
           <Divider />
         </div>
-        <CategoryListSkeleton number={2} />
+        <CategoryListSkeleton number={4} />
       </div>
     </MainContents>
   );

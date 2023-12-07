@@ -18,8 +18,8 @@ export default function AdjacentPostButton({
   return postData ? (
     <Link
       href={!!postData ? `/devlog/${postData!.category}/${postData!.id}` : ""}
-      className={`flex w-1/2 cursor-pointer items-end justify-between rounded-sm border border-gray-200 px-3 py-5 transition ${
-        hovered && !!postData ? "-translate-y-1 transform" : ""
+      className={`flex w-1/2 items-end justify-between rounded-sm border border-gray-200 px-3 py-5 ${
+        hovered && !!postData ? "i-hover-up" : ""
       }`}
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
