@@ -13,7 +13,10 @@ export default function CategorizedPostsLoading() {
         <div className="px-2 sm:px-[15%]">
           <div className="flex items-center justify-between">
             <SmallAuthorProfile />
-            <ContactLinks />
+            <div className="flex flex-col">
+              <ContactLinks />
+              <p className="skeleton text-end text-sm italic">Category</p>
+            </div>
           </div>
           <Divider />
         </div>

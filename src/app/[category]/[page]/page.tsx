@@ -18,7 +18,7 @@ interface CategoryPageProps {
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { totalPages, categorizedPosts } = await getPostsByCategory(
     params.category,
-    +params.page,
+    params.page,
   );
 
   return (
@@ -27,7 +27,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <div className="px-2 sm:px-[15%]">
           <div className="flex items-center justify-between">
             <SmallAuthorProfile />
-            <ContactLinks />
+            <div className="flex flex-col items-end">
+              <ContactLinks />
+              <p className="text-end text-xs italic text-gray-300 sm:text-sm">
+                {params.category}
+              </p>
+            </div>
           </div>
           <Divider />
         </div>

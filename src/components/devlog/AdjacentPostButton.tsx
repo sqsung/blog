@@ -32,7 +32,7 @@ export default function AdjacentPostButton({
           {direction === "previous" ? "Previous" : "Next"}
         </p>
         <p
-          className={`max-w-[80%] overflow-hidden overflow-ellipsis whitespace-nowrap text-xs font-bold transition sm:text-base md:max-w-[100%] ${
+          className={`max-w-[100%] overflow-hidden overflow-ellipsis whitespace-nowrap text-xs font-bold transition sm:text-base md:max-w-[100%] ${
             hovered ? "text-blue-300" : "text-gray-700"
           }`}
         >

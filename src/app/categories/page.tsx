@@ -12,7 +12,12 @@ export default async function CategoriesPage() {
         <div className="px-2">
           <div className="flex items-center justify-between">
             <SmallAuthorProfile />
-            <ContactLinks />
+            <div className="flex flex-col items-end">
+              <ContactLinks />
+              <p className="text-end text-xs italic text-gray-300 sm:text-sm">
+                All Categories
+              </p>
+            </div>
           </div>
           <Divider />
         </div>
