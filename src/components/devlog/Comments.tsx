@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import useScript from "../../../lib/comments";
-import { CircularProgress } from "@mui/material";
 
 export default function Comments() {
   const comment = useRef(null);

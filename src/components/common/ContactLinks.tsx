@@ -8,7 +8,7 @@ interface ContactLinksProps {
 }
 
 export default function ContactLinks({
-  color = "text-gray-300",
+  color = "text-gray-500",
   size = "2xl",
   justify,
 }: ContactLinksProps) {
@@ -22,13 +22,13 @@ export default function ContactLinks({
         rel="noreferrer noopener"
         className="cursor-pointer transition-colors"
       >
-        <i className="bi bi-github hover:text-gray-700" />
+        <i className="bi bi-github hover:text-gray-300" />
       </a>
       <a href="mailto:rok.ksohn@gmail.com">
-        <i className="bi bi-envelope-fill cursor-pointer transition-colors hover:text-gray-700" />
+        <i className="bi bi-envelope-fill cursor-pointer transition-colors hover:text-gray-300" />
       </a>
       <Link href="/resume">
-        <i className="bi bi-info-circle-fill cursor-pointer transition-colors hover:text-gray-700" />
+        <i className="bi bi-info-circle-fill cursor-pointer transition-colors hover:text-gray-300" />
       </Link>
     </div>
   );

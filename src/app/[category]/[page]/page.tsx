@@ -29,7 +29,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <SmallAuthorProfile />
             <div className="flex flex-col items-end">
               <ContactLinks />
-              <p className="text-end text-xs italic text-gray-300 sm:text-sm">
+              <p className="regular-text text-end text-xs italic sm:text-sm">
                 {formatCategoryForUI(params.category)}
               </p>
             </div>
