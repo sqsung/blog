@@ -6,7 +6,7 @@ export default async function AuthorProfile() {
   return (
     <section className="flex w-full flex-col items-center">
       <Image
-        src="/images/blog_profile.jpeg"
+        src="/blog_profile.jpeg"
         alt="Blog Author's profile picture"
         width={300}
         height={300}
@@ -14,16 +14,16 @@ export default async function AuthorProfile() {
       />
       <div className="flex w-full flex-col gap-3 p-5 sm:w-[540px]">
         <div className="flex gap-2 sm:flex-col sm:items-center sm:gap-0">
-          <p className="overflow-ellipsis whitespace-nowrap  text-lg font-bold md:text-2xl">
+          <p className="title-text overflow-ellipsis whitespace-nowrap text-lg font-bold md:text-2xl">
             James K. Sohn
           </p>
-          <p className="mr-auto flex items-center overflow-ellipsis whitespace-nowrap text-sm text-gray-400 sm:mb-3 sm:mr-0 sm:text-lg">
+          <p className="subtle-text mr-auto flex items-center overflow-ellipsis whitespace-nowrap text-sm sm:mb-3 sm:mr-0 sm:text-lg">
             Frontend Engineer
           </p>
           <ContactLinks color="text-gray-400" />
         </div>
         <Divider />
-        <p className="sm:text-md text-sm text-gray-700">
+        <p className="regular-text sm:text-md text-sm">
           A coffee-loving frontend engineer from Korea with a passion for
           developing user centered products with innovative business models.{" "}
           {`Accidentally fell in love with dev while studying it to manage my

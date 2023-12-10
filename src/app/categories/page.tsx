@@ -14,7 +14,7 @@ export default async function CategoriesPage() {
             <SmallAuthorProfile />
             <div className="flex flex-col items-end">
               <ContactLinks />
-              <p className="text-end text-xs italic text-gray-300 sm:text-sm">
+              <p className="regular-text text-end text-xs italic sm:text-sm">
                 All Categories
               </p>
             </div>

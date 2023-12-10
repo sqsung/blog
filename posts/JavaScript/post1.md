@@ -49,9 +49,9 @@ export default function RootLayout({
 
 `test!!`
 
-<!-- <img src="/images/blog_profile.jpeg" width='300px' height="300px"/> -->
+<!-- <img src="/blog_profile.jpeg" width='300px' height="300px"/> -->
 
-![Image Test](/images/blog_profile.jpeg)
+![Image Test](/blog_profile.jpeg)
 ![Image Test](/thumbnails/javascript/posts/post2.jpg)
 
 ## What is Next.js?
