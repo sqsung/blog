@@ -20,8 +20,8 @@ export default function PaginationRounded({
     <div className="mb-5 flex justify-center px-2 sm:px-[15%]">
       <Pagination
         defaultPage={+page}
+        color="primary"
         count={pagesCount}
-        variant="outlined"
         shape="rounded"
         onChange={(_, newPage) => {
           if (+page !== newPage) router.push(`/${category}/${+newPage}`);

@@ -18,12 +18,14 @@ export default function PostHeader({
   category,
 }: PostHeaderProps) {
   return (
-    <div className="flex w-full flex-col text-gray-500">
+    <div className="flex w-full flex-col">
       <Link href={`/${category}/1`}>
-        <p className="t-hover-blue text-xs sm:text-sm">{category}</p>
+        <p className="regular-text t-hover-blue text-xs sm:text-sm">
+          {category}
+        </p>
       </Link>
-      <h1 className="title m-0 mb-2 leading-tight">{title}</h1>
-      <p className="m-0 text-xs text-gray-600 sm:text-sm">{formatDate(date)}</p>
+      <h1 className="title-text text-[30px] font-bold">{title}</h1>
+      <p className="regular-text m-0 text-xs sm:text-sm">{formatDate(date)}</p>
       <Tags tags={tags} />
       <SmallAuthorProfile />
       <Divider />

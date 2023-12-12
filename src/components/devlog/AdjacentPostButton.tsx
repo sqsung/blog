@@ -18,33 +18,33 @@ export default function AdjacentPostButton({
   return postData ? (
     <Link
       href={!!postData ? `/devlog/${postData!.category}/${postData!.id}` : ""}
-      className={`flex w-1/2 items-end justify-between rounded-sm border border-gray-200 px-3 py-5 ${
+      className={`gray-border flex w-1/2 items-end justify-between rounded-sm border px-3 py-5 ${
         hovered && !!postData ? "i-hover-up" : ""
       }`}
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
     >
       {direction === "previous" && (
-        <i className="bi bi-arrow-left text-base sm:text-2xl" />
+        <i className="regular-text bi bi-arrow-left text-base sm:text-2xl" />
       )}
       <div className="w-fit max-w-[80%]">
-        <p className="text-xs italic">
+        <p className="subtle-text text-xs italic">
           {direction === "previous" ? "Previous" : "Next"}
         </p>
         <p
           className={`max-w-[100%] overflow-hidden overflow-ellipsis whitespace-nowrap text-xs font-bold transition sm:text-base md:max-w-[100%] ${
-            hovered ? "text-blue-300" : "text-gray-700"
+            hovered ? "text-blue-300" : "regular-text"
           }`}
         >
           {postData!.title}
         </p>
       </div>
       {direction === "next" && (
-        <i className="bi bi-arrow-right text-base sm:text-2xl" />
+        <i className="regular-text bi bi-arrow-right text-base sm:text-2xl" />
       )}
     </Link>
   ) : (
-    <p className="flex w-1/2 items-center justify-center text-sm italic text-gray-300 sm:text-xs">
+    <p className="subtle-text flex w-1/2 items-center justify-center text-sm italic sm:text-xs">
       No {direction} post in the category
     </p>
   );

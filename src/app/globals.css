@@ -8,7 +8,15 @@
   /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
-  background-color: rgb(32, 54, 74)
+  background-color: rgb(35, 47, 62)
+    /* background: rgb(96, 95, 113);
+  background: linear-gradient(90deg, rgba(96, 95, 113, 1) 0%, rgba(64, 74, 108, 1) 49%, rgba(58, 98, 158, 1) 100%); */
+    /* 
+  background: rgb(81, 79, 105);
+  background: linear-gradient(90deg, rgba(81, 79, 105, 1) 0%, rgba(40, 50, 84, 1) 49%, rgba(27, 50, 85, 1) 100%); */
+
+    /* background: rgb(82, 82, 113);
+  background: linear-gradient(103deg, rgba(82, 82, 113, 1) 0%, rgba(44, 51, 75, 1) 49%, rgba(12, 32, 62, 1) 100%); */
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -36,24 +44,44 @@
     overflow: auto;
   }
 
+  .subtle-blog-text {
+    @apply text-gray-500
+  }
+
+  .regular-blog-text {
+    @apply text-gray-300
+  }
+
+  .title-blog-text {
+    @apply text-gray-200
+  }
+
+  .gray-border {
+    @apply border-gray-600
+  }
+
   .blog-a {
     @apply text-blue-500 hover:text-blue-300 transition
   }
 
   .blog-p {
-    @apply text-sm sm:text-base my-5 text-gray-700 [&>a]:blog-a
+    @apply text-sm sm:text-base my-5 regular-blog-text [&>a]:blog-a leading-loose
+  }
+
+  .blog-h1 {
+    @apply text-[30px] font-bold m-0 mb-2 leading-tight title-blog-text
   }
 
   .blog-h2 {
-    @apply font-bold sm:text-2xl text-lg border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3
+    @apply title-blog-text font-bold sm:text-2xl text-lg border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3 gray-border
   }
 
   .blog-h3 {
-    @apply font-bold sm:text-lg text-base mt-10 mb-5 border-b-[1px]
+    @apply title-blog-text font-bold sm:text-lg text-base mt-10 mb-5 border-b-[1px] gray-border
   }
 
   .blog-ul {
-    @apply list-disc pl-5 text-gray-700 text-sm sm:text-base
+    @apply list-disc pl-5 regular-blog-text text-sm sm:text-base
   }
 }
 
@@ -62,11 +90,11 @@
 }
 
 .regular-text {
-  @apply text-gray-400
+  @apply text-gray-300
 }
 
 .title-text {
-  @apply text-gray-300
+  @apply text-gray-200
 }
 
 .gray-border {
@@ -86,7 +114,7 @@
 }
 
 .quote {
-  @apply text-gray-500 italic border-s-4 ps-3 my-3 w-full bg-gray-50 py-1 border-s-blue-300
+  @apply subtle-text italic border-s-4 ps-3 my-3 w-full bg-gray-800 py-1 border-s-blue-300
 }
 
 .title {
@@ -98,11 +126,11 @@
 }
 
 .blog {
-  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a
+  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>h1]:blog-h1
 }
 
 .noncode {
-  @apply bg-gray-100 px-1 text-sm border border-gray-200 rounded-sm text-gray-500
+  @apply bg-gray-800 px-1 text-sm border border-gray-800 rounded-sm regular-text
 }
 
 pre {
@@ -110,7 +138,7 @@ pre {
 }
 
 .skeleton {
-  @apply bg-gray-100 animate-pulse rounded-sm text-gray-100
+  @apply bg-gray-500 animate-pulse rounded-sm text-gray-500
 }
 
 .t-hover-blue {
