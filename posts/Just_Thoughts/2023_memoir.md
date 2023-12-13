@@ -39,7 +39,7 @@ I too went through this stage when I started binge watching YouTube videos on HT
 
 ![Expert Curve](/images/expert_curve.jpg)
 
-This stage was like me climbing up `Mt. Stupid` for the first time. I had no roadmap. I was blind to everything beyond and HTML/CSS and therefore wasn't strategic about studying. The only curriculum I had was mindlessly jumping around YouTube's `related videos` tab after I finish a HTML/CSS tutorial video.
+This stage was like me climbing up `Mt. Stupid` for the first time. I had no roadmap. I was blind to everything beyond HTML/CSS and therefore wasn't strategic about studying. The only curriculum I had was mindlessly jumping around YouTube's `related videos` tab after I finish a HTML/CSS tutorial video.
 
 When I did eventually find out about JavaScript/React and all that good frontend stuff, I overestimated my abilities and thought I could understand all these things as quickly as I did HTML/CSS. Consequently, I approached JavaScript the same way I approached HTML/CSS: binge watching YouTube.
 
@@ -109,7 +109,7 @@ Unlike when I believed HTML/CSS was all there was to learn about programming, me
 
 I mean, I remember hating on Next.js only because it meant I had to move away from the psychological comfort zone I have developed with React. I would search up and cherrypick all the hate on Next, just to give myself reasons to procrastinate on studying Next.js `But this blog is made with Next.js lol`. But I quickly realized all this unwillingness to push myself out of my comfort zone is only going to slow me down. I think I was just scared to put in the effort to get past the Valley of Despair.
 
-Fortunately, I pushed through and managed to study new techs outside my comfort zone. But this doesn't mean I am past the Valley of Despair yet. Far from it actually. I've just begun to take my first steps out of the valley and I think I'll be here for quite some time. Maybe even forever. With all the things there is to study in the development world, I wonder if anyone is actually able to confidently call himself an `expert` while not being a Mt. Stupid of his own.
+Fortunately, I pushed through and managed to study new techs outside my comfort zone. But this doesn't mean I am past the Valley of Despair yet. Far from it actually. I've just begun to take my first steps out of the valley and I think I'll be here for quite some time. Maybe even forever. With all the things there is to study in the development world, I wonder if anyone is actually able to confidently call himself an `expert` while not being on a Mt. Stupid of his own.
 
 ## 3. First Developer Job
 
