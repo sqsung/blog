@@ -8,15 +8,7 @@
   /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
-  background-color: rgb(35, 47, 62)
-    /* background: rgb(96, 95, 113);
-  background: linear-gradient(90deg, rgba(96, 95, 113, 1) 0%, rgba(64, 74, 108, 1) 49%, rgba(58, 98, 158, 1) 100%); */
-    /* 
-  background: rgb(81, 79, 105);
-  background: linear-gradient(90deg, rgba(81, 79, 105, 1) 0%, rgba(40, 50, 84, 1) 49%, rgba(27, 50, 85, 1) 100%); */
-
-    /* background: rgb(82, 82, 113);
-  background: linear-gradient(103deg, rgba(82, 82, 113, 1) 0%, rgba(44, 51, 75, 1) 49%, rgba(12, 32, 62, 1) 100%); */
+  background-color: rgb(35, 47, 62);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -65,7 +57,7 @@
   }
 
   .blog-p {
-    @apply text-sm sm:text-base my-5 regular-blog-text [&>a]:blog-a leading-loose
+    @apply text-sm sm:text-base my-5 regular-blog-text [&>a]:blog-a
   }
 
   .blog-h1 {
@@ -73,15 +65,15 @@
   }
 
   .blog-h2 {
-    @apply title-blog-text font-bold sm:text-2xl text-lg border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3 gray-border
+    @apply title-blog-text font-bold sm:text-2xl text-2xl border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3 gray-border
   }
 
   .blog-h3 {
-    @apply title-blog-text font-bold sm:text-lg text-base mt-10 mb-5 border-b-[1px] gray-border
+    @apply title-blog-text font-bold sm:text-xl text-base mt-10 mb-5 border-b-[1px] gray-border
   }
 
   .blog-ul {
-    @apply list-disc pl-5 regular-blog-text text-sm sm:text-base
+    @apply list-disc pl-5 regular-blog-text text-sm sm:text-base flex flex-col gap-3
   }
 }
 
@@ -114,7 +106,7 @@
 }
 
 .quote {
-  @apply subtle-text italic border-s-4 ps-3 my-3 w-full bg-gray-800 py-1 border-s-blue-300
+  @apply regular-text border-s-4 ps-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic
 }
 
 .title {
@@ -130,11 +122,11 @@
 }
 
 .noncode {
-  @apply bg-gray-800 px-1 text-sm border border-gray-800 rounded-sm regular-text
+  @apply bg-gray-600 px-1 text-sm rounded-sm text-blue-200
 }
 
 pre {
-  @apply text-gray-200 bg-gray-700 border-[10px] sm:border-[20px] border-solid border-gray-700 rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar
+  @apply text-gray-200 bg-secondary border-[10px] sm:border-[20px] border-solid border-secondary rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar
 }
 
 .skeleton {
