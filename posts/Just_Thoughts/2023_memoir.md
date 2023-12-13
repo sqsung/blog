@@ -1,8 +1,8 @@
 ---
 title: "2023 Memoir: The Transition to a Developer From Scratch"
-date: 2023-12-05
-description: "A Junior Frontend Engineer's memoir about first learning to code to getting his first developer job."
-tags: ["Memoir", "Essay"]
+date: 2023-12-13
+description: "A junior frontend developer's memoir about transitioning from a young startup owner to a developer"
+tags: ["2023", "Memoir", "Frontend Developer"]
 ---
 
 > In 2022, I was an entrepreneur with a business degree. In 2023, a software engineer.
@@ -105,9 +105,9 @@ So, did I feel like an absolute frontend expert after bootcamp ended? No. As a m
 
 ![Expert Curve](/images/expert_curve.jpg)
 
-Unlike when I believed HTML/CSS was all there was to learn about programming, me coming out of bootcamp definitely knew what I had to study from here on. `There just was too much.`
+Unlike when I believed HTML/CSS was all there was to learn about programming, me coming out of bootcamp definitely knew what I had to study from here on. `There just was too much.` I had too many things in mind. I had to dig deeper into TypeScript, learn Next.js, try styling libraries beside styled-components, and the list goes on and on and on. Surprisingly, the more I learned about something, the more I saw beyond the things I was comfortable with. It was an endless cycle of persuading myself to study something and shutting my computer down after thinking to myself: `"there's more?"`.
 
-I remember hating on Next.js only because it meant I had to move away from the psychological comfort I ~~was finally able to feel~~ felt with React. I would search up and cherrypick all the hate on Next just to pursuade myself studying Next.js wasn't necessary `lol`. But I quickly realized all this unwillingness to push myself out of my comfort zone is only going to slow me down. I think I was just scared to put in the effort to get past the Valley of Despair.
+I mean, I remember hating on Next.js only because it meant I had to move away from the psychological comfort zone I have developed with React. I would search up and cherrypick all the hate on Next, just to give myself reasons to procrastinate on studying Next.js `But this blog is made with Next.js lol`. But I quickly realized all this unwillingness to push myself out of my comfort zone is only going to slow me down. I think I was just scared to put in the effort to get past the Valley of Despair.
 
 Fortunately, I pushed through and managed to study new techs outside my comfort zone. But this doesn't mean I am past the Valley of Despair yet. Far from it actually. I've just begun to take my first steps out of the valley and I think I'll be here for quite some time. Maybe even forever. With all the things there is to study in the development world, I wonder if anyone is actually able to confidently call himself an `expert` while not being a Mt. Stupid of his own.
 

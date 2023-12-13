@@ -26,7 +26,7 @@ export default function BlogListItem(props: PostData) {
               {`${formatDate(date)}`}
             </p>
             <Tags tags={tags} />
-            <p className="regular-text my-1 line-clamp-2 overflow-hidden overflow-ellipsis py-1 text-xs sm:my-3 sm:text-base">
+            <p className="subtle-text my-1 line-clamp-2 overflow-hidden overflow-ellipsis py-1 text-xs sm:my-3 sm:text-sm">
               {description}
             </p>
           </div>
