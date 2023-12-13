@@ -69,7 +69,7 @@
   }
 
   .blog-h3 {
-    @apply title-blog-text font-bold sm:text-xl text-base mt-10 mb-5 border-b-[1px] gray-border
+    @apply title-blog-text font-bold sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border
   }
 
   .blog-ul {
@@ -79,6 +79,10 @@
 
 .subtle-text {
   @apply text-gray-500
+}
+
+.light-text {
+  @apply text-gray-400
 }
 
 .regular-text {
@@ -106,7 +110,7 @@
 }
 
 .quote {
-  @apply regular-text border-s-4 ps-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic
+  @apply light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a
 }
 
 .title {
@@ -114,7 +118,7 @@
 }
 
 .blog-image-wrapper {
-  @apply flex justify-center w-full sm:h-[400px] object-cover
+  @apply flex justify-center w-full sm:max-h-[400px] object-contain sm:[&>img]:max-w-[80%] [&>img]:max-w-[100%]
 }
 
 .blog {

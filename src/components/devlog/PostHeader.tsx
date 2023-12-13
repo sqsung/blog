@@ -25,7 +25,7 @@ export default function PostHeader({
         </p>
       </Link>
       <h1 className="title-text text-[30px] font-bold">{title}</h1>
-      <p className="regular-text m-0 text-xs sm:text-sm">{formatDate(date)}</p>
+      <p className="subtle-text m-0 text-xs sm:text-sm">{formatDate(date)}</p>
       <Tags tags={tags} />
       <SmallAuthorProfile />
       <Divider />
