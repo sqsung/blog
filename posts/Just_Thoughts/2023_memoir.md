@@ -13,7 +13,7 @@ tags: ["2023", "Memoir", "Frontend Developer"]
 
 It's wild to imagine that just about a year and a few months ago, I was clueless about what software engineers do; nor did I have any intentions of becoming a software engineer myself. I was just a young startup owner with a business degree who often felt frustrated about it being so difficult to communicate with developers on the team. Like any other non-technical manager, I wanted immediate results and refused to understand why developers working with me were rejecting my ~~brilliant~~ ideas.
 
-In efforts to become a better communicator/project manager, I started spending my time off work studying ~~programming~~ HTML/CSS. At first, I just mindlessly binge watched a bunch of YouTube videos like it was a K-drama series. After a few days, I randomly felt a burst of confidence, unconsciously downloaded VS Code, typed a few lines of HTML and CSS, clicked live share. To my surprise, I had a website open in front of my eyes. Like cavemen who first discovered fire, I was immediately mesmerized.
+In efforts to become a better communicator/project manager, I started spending my time off work studying ~~programming~~ HTML/CSS. At first, I just mindlessly binge watched a bunch of YouTube videos like it was a K-drama series. After a few days, I randomly felt a burst of confidence, unconsciously downloaded VS Code, typed a few lines of HTML and CSS, clicked live share. To my surprise, I had what looked like a website open in front of my eyes. Like cavemen who first discovered fire, I was immediately mesmerized.
 
 This all happened towards the end of 2022 summer. It's December of 2023 now and it has been a few months since I started my career as a web developer now. Fortunately, I know much better to understand that being able to write a few lines of HTML and click live share does not equate to being a good developer. `Thank God!`
 
@@ -39,7 +39,7 @@ I too went through this stage when I started binge watching YouTube videos on HT
 
 ![Expert Curve](/images/expert_curve.jpg)
 
-This stage was like me climbing up `Mt. Stupid` for the first time. I had no roadmap. I was blind to everything beyond and HTML/CSS and therefore wasn't strategic about studying. The only curriculum I had was mindlessly jumping around YouTube's `related videos` tab after I finish a HTML/CSS tutorial video.
+This stage was like me climbing up `Mt. Stupid` for the first time. I had no roadmap. I was blind to everything beyond HTML/CSS and therefore wasn't strategic about studying. The only curriculum I had was mindlessly jumping around YouTube's `related videos` tab after I finish a HTML/CSS tutorial video.
 
 When I did eventually find out about JavaScript/React and all that good frontend stuff, I overestimated my abilities and thought I could understand all these things as quickly as I did HTML/CSS. Consequently, I approached JavaScript the same way I approached HTML/CSS: binge watching YouTube.
 
@@ -109,7 +109,7 @@ Unlike when I believed HTML/CSS was all there was to learn about programming, me
 
 I mean, I remember hating on Next.js only because it meant I had to move away from the psychological comfort zone I have developed with React. I would search up and cherrypick all the hate on Next, just to give myself reasons to procrastinate on studying Next.js `But this blog is made with Next.js lol`. But I quickly realized all this unwillingness to push myself out of my comfort zone is only going to slow me down. I think I was just scared to put in the effort to get past the Valley of Despair.
 
-Fortunately, I pushed through and managed to study new techs outside my comfort zone. But this doesn't mean I am past the Valley of Despair yet. Far from it actually. I've just begun to take my first steps out of the valley and I think I'll be here for quite some time. Maybe even forever. With all the things there is to study in the development world, I wonder if anyone is actually able to confidently call himself an `expert` while not being a Mt. Stupid of his own.
+Fortunately, I pushed through and managed to study new techs outside my comfort zone. But this doesn't mean I am past the Valley of Despair yet. Far from it actually. I've just begun to take my first steps out of the valley and I think I'll be here for quite some time. Maybe even forever. With all the things there is to study in the development world, I wonder if anyone is actually able to confidently call himself an `expert` while not being on a Mt. Stupid of his own.
 
 ## 3. First Developer Job
 
@@ -117,7 +117,7 @@ Fortunately, I pushed through and managed to study new techs outside my comfort 
 
 ### 3-1. Getting the Job
 
-The way I got hired is pretty interesting. I actually applied to a different company where, during the final interview, the CEO found me apparently interesting. The company hired a different candidate `no feelings hurt` but the CEO who interviewed me e-mailed me and asked if he could reference me to a different person who is looking for someone just like me. By then, I was becoming extremely exhausted with the endless coding tests and tech interviews so the e-mail was like an oasis.
+The way I got hired is pretty interesting. I actually applied to a different company where, during the final interview, the CEO found me apparently interesting. The company ended up hiring a different candidate `no feelings hurt` but the CEO who interviewed me e-mailed me later on and asked if he could reference me to a different person who is looking for someone just like me. By then, I was becoming extremely exhausted with the endless coding tests and tech interviews so the e-mail felt like an oasis.
 
 I was referenced to my current boss whom, after a few interviews, offered me a job. I remember feeling super relieved when I heard I got the position. After approximately a year of studying, I was finally able to call myself a dev.
 
