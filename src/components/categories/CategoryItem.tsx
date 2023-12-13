@@ -12,10 +12,10 @@ export default async function CategoryItem({ category }: CategoryItemProps) {
   return (
     <Link
       href={`/${category}/1`}
-      className="i-hover-up regular-text t-hover-blue gray-border mx-auto h-80 w-[90%] items-center justify-center rounded-md border"
+      className="i-hover-up regular-text t-hover-blue gray-border mx-auto h-80 w-[90%] items-center justify-center overflow-hidden rounded-md border"
     >
       <Image
-        src={categoryThumbnail}
+        src={categoryThumbnail!}
         alt="Category Thumbnail"
         width={200}
         height={200}
