@@ -1,5 +1,5 @@
 import fs from "fs";
-import path, { format } from "path";
+import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
@@ -16,6 +16,33 @@ hljs.registerLanguage(
   "javascript",
   require("highlight.js/lib/languages/javascript"),
 );
+
+function getThumbnail(category: string, id?: string) {
+  const validFileExtensions = [".jpeg", ".png", ".jpg"];
+
+  if (id) {
+    for (const extension of validFileExtensions) {
+      const thumbnailPath = path.join(
+        thumbnailDirectory,
+        `${category}/posts/${id}${extension}`,
+      );
+
+      if (fs.existsSync(thumbnailPath)) return thumbnailPath.split("public")[1];
+    }
+  }
+
+  for (const extension of validFileExtensions) {
+    const defaultThumbnail = path.join(
+      thumbnailDirectory,
+      `${category}/default${extension}`,
+    );
+
+    if (fs.existsSync(defaultThumbnail))
+      return defaultThumbnail.split("public")[1];
+  }
+
+  return "/thumbnails/placeholder.png";
+}
 
 /**
  * Fetches the ten latests posts in an uncategorized manner
@@ -37,15 +64,7 @@ export async function getLatestTenPostsData() {
       const fileContent = fs.readFileSync(fullPath, "utf8");
       const matterResult = matter(fileContent);
       const id = fullPath.split("/").at(-1)?.replace(/\.md$/, "");
-
-      const thumbnailPath = path.join(
-        thumbnailDirectory,
-        `${category}/posts/${id}.jpg`,
-      );
-
-      const thumbnail = fs.existsSync(thumbnailPath)
-        ? thumbnailPath.split("public")[1]
-        : `/thumbnails/${category}/default.png`;
+      const thumbnail = getThumbnail(category, id!);
 
       const post = {
         ...matterResult.data,
@@ -184,8 +203,7 @@ export async function getCategoryData(categoryName: string) {
   const category = formatCategoryForServer(categoryName);
   const categoryPath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(categoryPath);
-
-  const categoryThumbnail = `/thumbnails/${category}/default.png`;
+  const categoryThumbnail = getThumbnail(category);
 
   return {
     numberOfPosts: fileNames.length,
@@ -220,15 +238,7 @@ export async function getPostsByCategory(categoryName: string, page: number) {
     const fileContent = fs.readFileSync(currentPath, "utf8");
     const matterResult = matter(fileContent);
     const id = currentPath.split("/").at(-1)?.replace(/\.md$/, "");
-
-    const thumbnailPath = path.join(
-      thumbnailDirectory,
-      `${category}/posts/${id}.jpg`,
-    );
-
-    const thumbnail = fs.existsSync(thumbnailPath)
-      ? thumbnailPath.split("public")[1]
-      : `/thumbnails/${category}/default.png`;
+    const thumbnail = getThumbnail(category, id);
 
     const post = {
       ...matterResult.data,
