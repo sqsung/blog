@@ -75,6 +75,10 @@
   .blog-ul {
     @apply list-disc pl-5 regular-blog-text text-sm sm:text-base flex flex-col gap-3
   }
+
+  .blog-em {
+    @apply subtle-blog-text text-xs flex justify-center w-full sm:max-h-[400px] sm:[&>img]:max-w-[80%] [&>img]:max-w-[100%] my-1
+  }
 }
 
 .subtle-text {
@@ -122,7 +126,7 @@
 }
 
 .blog {
-  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>h1]:blog-h1
+  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>h1]:blog-h1 [&>em]:blog-em
 }
 
 .noncode {

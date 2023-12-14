@@ -18,8 +18,7 @@ In efforts to become a better communicator/project manager, I started spending m
 This all happened towards the end of 2022 summer. It's December of 2023 now and it has been a few months since I started my career as a web developer now. Fortunately, I know much better to understand that being able to write a few lines of HTML and click live share does not equate to being a good developer. `Thank God!`
 
 ![2023 Git Commits](/images/2023_commit.png)
-
-> \*My commits in 2023 (as of 12.13.2023). The empty spots since Aug are usually because my company uses Bitbucket
+_My commits in 2023 (as of 12.13.2023). The empty spots since August are usually because my company uses Bitbucket_
 
 After more than a year, I still find developing immmensely exciting as my first day. But as is with anything, I know this level of passion cannot be constantly maintained. So these memoirs are for mainly myself (_and some of you who lost your way on Google and landed on this post_). I want to write a memoir every year `as long as I am still a developer`, recording my progress and thoughts as a dev. In the end, I hope to read these memoirs down the road and use them to fuel a new wave of evergy and enthusiasm for developing. Hopefully, I can fit at least 30 of these before having to retire. **Welcome to the first one!**
 
@@ -38,6 +37,7 @@ This is the stage where you genuinely believe that free contents available on Go
 I too went through this stage when I started binge watching YouTube videos on HTML/CSS. Thanks to all the great creators in the YouTube ecosystem, I was able to understand when to appropriately use a `grid` or `flex` box, or the difference between `p` and `span` tags very quickly.
 
 ![Expert Curve](/images/expert_curve.jpg)
+_The Dunning-Kruger Effect: the tendency of people with low ability in a specific area to overestimate his or her ability._
 
 This stage was like me climbing up `Mt. Stupid` for the first time. I had no roadmap. I was blind to everything beyond HTML/CSS and therefore wasn't strategic about studying. The only curriculum I had was mindlessly jumping around YouTube's `related videos` tab after I finish a HTML/CSS tutorial video.
 
@@ -50,6 +50,7 @@ I had no basic knowledge about JavaScript. So with every video, I just ended up 
 ### 2-2. 'I Need Help' Stage (Part A: Book)
 
 ![Modern JavaScript Deep Dive](/images/deep_dive.png)
+_"Modern JavaScript: Deep Dive" By: Lee Ungmo_
 
 I decided to read a book on JavaScript. I did some research here and there, and discovered a book titled `Modern JavaScript: Deep Dive`. According to the Korean dev forums I read, it apparently is renowned to be the `Bible of JavaScript` in Korea.
 
@@ -72,6 +73,7 @@ Fortunately, this wasn't a problem for me because I was unemployed and deeply in
 It was a very simple lifestyle I genuinely enjoyed. I think it partly has to do with the fact that focusing so hard on something helped me get over the misery of having to close down my business `haha`, but pushing myself into an environment that required minimal worrying about life matters and coding all day was subtly satisfying.
 
 ![JavaScript Assignment: Date Picker](https://user-images.githubusercontent.com/112310899/206949047-864f444f-fb8e-464e-afee-f4f70c786ca5.gif)
+_Date picker made with vanilla JavaScript_
 
 One of the best decisions I made during the online program was not rushing through JavaScript lessons. A lot of my peers invested minimal time into learning JavaScript and went straight to React assignments, but I took my time and tried to learn the fundamentals doing JavaScript assignments `Like the date picker above`. I think doing so not only helped me appreciate React more later on, but also realize that understanding the fundamentals is key to becoming a good, versatile developer.
 
@@ -94,6 +96,7 @@ For about three weeks, my teammates and I really put in the work to finish our p
 > [MyChelin Guide - Project Repository](https://github.com/Team-Hoisting/mychelin-guide-typescript?tab=readme-ov-file)
 
 ![Project Voting System GIF](https://user-images.githubusercontent.com/112310899/236768432-488a73b7-2916-4e44-a317-67d41e1bb200.gif)
+_MyChelin Guide: A service where users can vote their favorite restaurant per food category_
 
 It was an astounding experience seeing my ideas turn into code, then into a visible product. The moment the project was finished, I knew I would never regret becoming a dev. (_Also began to understand why the developers on my team always rejected my ideas for "technical reasons"_)
 
@@ -104,6 +107,7 @@ Of course, looking back we could have definitely done better. But I think that's
 So, did I feel like an absolute frontend expert after bootcamp ended? No. As a matter of fact, I felt the opposite. I felt like I finally climbed down from the peak of Mt. Stupid, only to see the Valley of Despair.
 
 ![Expert Curve](/images/expert_curve.jpg)
+_The Dunning-Kruger Effect: the tendency of people with low ability in a specific area to overestimate his or her ability._
 
 Unlike when I believed HTML/CSS was all there was to learn about programming, me coming out of bootcamp definitely knew what I had to study from here on. `There just was too much.` I had too many things in mind. I had to dig deeper into TypeScript, learn Next.js, try styling libraries beside styled-components, and the list goes on and on and on. Surprisingly, the more I learned about something, the more I saw beyond the things I was comfortable with. It was an endless cycle of persuading myself to study something and shutting my computer down after thinking to myself: `"there's more?"`.
 
