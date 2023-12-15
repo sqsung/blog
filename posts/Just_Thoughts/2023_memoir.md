@@ -13,7 +13,7 @@ tags: ["2023", "Memoir", "Frontend Developer"]
 
 It's wild to imagine that just about a year and a few months ago, I was clueless about what software engineers do; nor did I have any intentions of becoming a software engineer myself. I was just a young startup owner with a business degree who often felt frustrated about it being so difficult to communicate with developers on the team. Like any other non-technical manager, I wanted immediate results and refused to understand why developers working with me were rejecting my ~~brilliant~~ ideas.
 
-In efforts to become a better communicator/project manager, I started spending my time off work studying ~~programming~~ HTML/CSS. At first, I just mindlessly binge watched a bunch of YouTube videos like it was a K-drama series. After a few days, I randomly felt a burst of confidence, unconsciously downloaded VS Code, typed a few lines of HTML and CSS, clicked live share. To my surprise, I had a website open in front of my eyes. Like cavemen who first discovered fire, I was immediately mesmerized.
+In efforts to become a better communicator/project manager, I started spending my time off work studying ~~programming~~ HTML/CSS. At first, I just mindlessly binge watched a bunch of YouTube videos like it was a K-drama series. After a few days, I randomly felt a burst of confidence, unconsciously downloaded VS Code, typed a few lines of HTML and CSS, clicked live share. To my surprise, I had what looked like a website open in front of my eyes. Like cavemen who first discovered fire, I was immediately mesmerized.
 
 This all happened towards the end of 2022 summer. It's December of 2023 now and it has been a few months since I started my career as a web developer now. Fortunately, I know much better to understand that being able to write a few lines of HTML and click live share does not equate to being a good developer. `Thank God!`
 
@@ -24,7 +24,7 @@ After more than a year, I still find developing immmensely exciting as my first 
 
 ## 2. Learning to Code
 
-Learning to code was an interesting journey that feels like a three phase process.
+Learning to code was an interesting journey that felt like a three phase process.
 
 - The **_YouTube is Enough For Me_** Stage
 - The **_I Need Help_** Stage
