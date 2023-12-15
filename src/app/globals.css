@@ -69,7 +69,7 @@
   }
 
   .blog-h3 {
-    @apply title-blog-text font-bold sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border
+    @apply title-blog-text sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border italic font-semibold
   }
 
   .blog-ul {
@@ -151,4 +151,8 @@ pre {
 
 .i-hover-up {
   @apply transition cursor-pointer hover:-translate-y-1 transform
+}
+
+.utterances {
+  @apply max-w-full
 }
