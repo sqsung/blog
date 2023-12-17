@@ -12,7 +12,7 @@ export default function Header() {
           jsjs devlog
         </p>
       </Link>
-      <nav className="regular-text flex gap-3 text-sm sm:gap-5">
+      <nav className="regular-text flex gap-3 text-sm tracking-wider sm:gap-5">
         <Link href="/" className="t-hover-blue">
           Home
         </Link>
