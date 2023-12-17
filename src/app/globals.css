@@ -77,7 +77,7 @@
   }
 
   .blog-em {
-    @apply subtle-blog-text text-xs flex justify-center w-full sm:max-h-[400px] sm:[&>img]:max-w-[80%] [&>img]:max-w-[100%] my-1
+    @apply subtle-blog-text text-xs flex justify-center w-full sm:max-h-[400px] sm:[&>img]:max-w-[80%] [&>img]:max-w-[100%] my-1 text-center
   }
 }
 
