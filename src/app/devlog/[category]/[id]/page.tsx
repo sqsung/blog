@@ -22,7 +22,7 @@ export default async function Post({ params }: PostProps) {
 
   return (
     <MainContents>
-      <div className="flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:p-10 lg:w-[60%]">
+      <div className="flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:p-10 lg:w-[50%]">
         <div className="w-full">
           <PostHeader
             title={title}

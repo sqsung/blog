@@ -6,7 +6,7 @@ export default function CategoryListSkeleton({ number }: { number: number }) {
         .map((_, index) => (
           <div
             key={index}
-            className="border-gray-200transition mx-auto h-80 w-[90%] items-center justify-center rounded-md border hover:border-gray-700"
+            className="border-gray-200transition mx-auto h-80 w-[90%] items-center justify-center rounded-md border"
           >
             <div className="skeleton h-[80%] w-full  object-cover" />
             <div className="flex flex-col gap-2 p-2">
