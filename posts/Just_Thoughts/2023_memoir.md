@@ -1,5 +1,5 @@
 ---
-title: "2023 Memoir: The Transition to a Developer From Scratch"
+title: "2023 Memoir: Developer From Zerobase"
 date: 2023-12-13
 description: "A junior frontend developer's memoir about transitioning from a young startup owner to a developer"
 tags: ["2023", "Memoir", "Frontend Developer"]
