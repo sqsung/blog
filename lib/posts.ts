@@ -215,7 +215,7 @@ export async function getCategoryData(categoryName: string) {
  * Fetches posts of a single target category
  * @param category name of the target category
  * @param page page number the user is on
- * @returns (object) totalPages: number of pages in target category / categorizedPosts: array of posts that belong to the category
+ * @returns (object) totalPages: number of pages in target category / categorizedPosts: array of posts that belong to the category / totalPosts: number of posts in the category
  */
 export async function getPostsByCategory(categoryName: string, page: number) {
   const category = formatCategoryForServer(categoryName);
@@ -253,6 +253,7 @@ export async function getPostsByCategory(categoryName: string, page: number) {
   return {
     totalPages: Math.ceil(fileNames.length / PAGE_SIZE),
     categorizedPosts,
+    totalPosts: fileNames.length,
   };
 }
 

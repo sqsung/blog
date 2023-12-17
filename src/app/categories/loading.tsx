@@ -1,23 +1,15 @@
 import { CategoryListSkeleton } from "@/components/categories";
-import {
-  ContactLinks,
-  MainContents,
-  Divider,
-  SmallAuthorProfile,
-} from "@/components/common";
+import { MainContents, Divider } from "@/components/common";
 
 export default function CategoriesLoading() {
   return (
     <MainContents>
-      <div className="flex w-full flex-col px-5 sm:px-[25%]">
-        <div className="px-2">
-          <div className="flex items-center justify-between">
-            <SmallAuthorProfile />
-            <div className="flex flex-col">
-              <ContactLinks />
-              <p className="skeleton text-end text-sm italic">Category</p>
-            </div>
-          </div>
+      <div className="flex w-full flex-col p-5 sm:gap-5 lg:px-[25%]">
+        <div className="flex flex-col gap-1 px-5 sm:gap-3">
+          <p className="title-text text-[30px] font-bold">All Categories</p>
+          <p className="skeleton subtle-text w-fit text-[18px]">
+            00 categories to read from
+          </p>
           <Divider />
         </div>
         <CategoryListSkeleton number={4} />
