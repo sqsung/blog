@@ -1,9 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Nunito_Sans } from "next/font/google";
 import { Header, Footer, PageWrapper } from "@/components/common";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "JSJS Blog",
@@ -24,7 +26,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={nunitoSans.className}>
         <PageWrapper>
           <Header />
           {children}
