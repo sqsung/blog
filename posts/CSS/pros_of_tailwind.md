@@ -23,7 +23,7 @@ The following are some of the reasons why I personally adore Tailwind. They may 
 
 ### 2-1. No More Naming
 
-How many times have you promised yourself before a project that you will name everything perfectly this time, only to end up with a bunch of nasty names that aren't understandable just a month later?
+How many times have you promised yourself before a project that you will name everything perfectly this time, only to end up with a bunch of vague names that aren't understandable just a month later?
 
 At least for me, this was very common. Coming up with class names when using plain CSS or element names when using CSS-in-JS libraries was always painful. Near the end of my project, I would always end up with obnoxious names with a bunch of suffix/prefixes (e.g., _Wrapper_, _Container_, _Box_, _Main_ and so on).
 
