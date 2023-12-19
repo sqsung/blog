@@ -69,7 +69,7 @@
   }
 
   .blog-h3 {
-    @apply title-blog-text sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border italic font-semibold
+    @apply title-blog-text sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border font-semibold
   }
 
   .blog-ul {
@@ -114,7 +114,7 @@
 }
 
 .quote {
-  @apply light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a
+  @apply overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a
 }
 
 .title {
@@ -122,7 +122,7 @@
 }
 
 .blog-image-wrapper {
-  @apply flex justify-center w-full sm:max-h-[400px] object-contain sm:[&>img]:max-w-[80%] [&>img]:max-w-[100%]
+  @apply flex justify-center w-full sm:max-h-[400px] object-contain [&>img]:max-w-[100%]
 }
 
 .blog {
@@ -155,4 +155,8 @@ pre {
 
 .utterances {
   @apply max-w-full
+}
+
+.MuiSvgIcon-root {
+  @apply regular-text
 }

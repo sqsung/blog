@@ -17,6 +17,7 @@ export default function BlogListItem(props: PostData) {
             height={100}
             alt="Blog Post Thumbnail"
             className="h-[60%] w-full min-w-[200px] object-cover sm:h-[200px] sm:max-h-[200px] sm:w-[200px]"
+            quality={100}
           />
           <div className="flex h-full w-full flex-col p-1 sm:p-2">
             <p className="line-clamp-2 overflow-ellipsis text-sm font-bold sm:text-lg">
