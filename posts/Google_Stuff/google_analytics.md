@@ -2,7 +2,7 @@
 title: "Adding Google Analytics to Your Next.js Project"
 date: 2023-12-18
 description: "A simple guide to adding Google Analytics to your Next.js project"
-tags: ["Google Analytics", "project"]
+tags: ["Google Analytics", "Next.js"]
 ---
 
 ## 1. Google Analytics
@@ -117,10 +117,12 @@ Open up a browser and visit your property. Once finished, proceed to the Google 
 
 ![Google Analytics Dashboard](/images/ga_dashboard.png)
 
-I am currently located in Chuncheon, South Korea, and the map accurately reflects my geographical location.
+I am currently writing this blog post in Chuncheon, South Korea, and the map accurately reflects my geographical location.
 
 With this, you should be able to get analytic data on your Next.js website!
 
 > References
 >
-> https://www.mohammadfaisal.dev/blog/add-google-analytics-to-nextjs > https://www.w3schools.com/howto/howto_google_analytics.asp
+> https://www.mohammadfaisal.dev/blog/add-google-analytics-to-nextjs
+>
+> https://www.w3schools.com/howto/howto_google_analytics.asp
