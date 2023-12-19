@@ -20,6 +20,7 @@ export default async function CategoryItem({ category }: CategoryItemProps) {
         width={200}
         height={200}
         className="h-[80%] w-full object-cover"
+        quality={100}
       />
       <div className="p-2">
         <p className="text-base font-bold sm:text-lg">
