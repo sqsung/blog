@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import { Header, Footer, PageWrapper } from "@/components/common";
+import Script from "next/script";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -20,6 +21,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+              });
+          `}
+        </Script>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css"
