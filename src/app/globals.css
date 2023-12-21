@@ -72,8 +72,12 @@
     @apply title-blog-text sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border font-semibold
   }
 
+  .blog-h4 {
+    @apply regular-blog-text my-3 font-semibold bg-gray-600 w-fit italic pr-1
+  }
+
   .blog-ul {
-    @apply list-disc pl-5 regular-blog-text text-sm sm:text-base flex flex-col gap-3
+    @apply list-disc pl-5 regular-blog-text text-sm sm:text-base flex flex-col gap-1
   }
 
   .blog-em {
@@ -126,7 +130,7 @@
 }
 
 .blog {
-  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>h1]:blog-h1 [&>em]:blog-em
+  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>h1]:blog-h1 [&>em]:blog-em [&>h4]:blog-h4
 }
 
 .noncode {
