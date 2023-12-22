@@ -6,6 +6,7 @@ import {
   PostHeader,
 } from "@/components/devlog";
 import Comments from "@/components/devlog/Comments";
+import Image from "next/image";
 
 const EMPTY_HTML_STRING = "<html><head></head><body></body></html>";
 
@@ -17,8 +18,17 @@ interface PostProps {
 }
 
 export default async function Post({ params }: PostProps) {
-  const { title, date, tags, prevPost, nextPost, modifiedHtmlContent } =
-    await getPostData(params.category, params.id);
+  const {
+    title,
+    date,
+    tags,
+    prevPost,
+    nextPost,
+    thumbnail,
+    modifiedHtmlContent,
+  } = await getPostData(params.category, params.id);
+
+  console.log("🐋", thumbnail);
 
   return (
     <MainContents>
@@ -31,6 +41,17 @@ export default async function Post({ params }: PostProps) {
             category={formatCategoryForUI(params.category)}
           />
         </div>
+        {thumbnail && (
+          <div className="relative h-[500px] w-full overflow-hidden rounded-md">
+            <Image
+              src={thumbnail}
+              alt={`${title} post thumbnail`}
+              layout="fill"
+              className="object-cover"
+              quality={100}
+            />
+          </div>
+        )}
         {modifiedHtmlContent !== EMPTY_HTML_STRING ? (
           <div
             className="blog"
@@ -40,7 +61,7 @@ export default async function Post({ params }: PostProps) {
           <EmptyBlogMessage />
         )}
         {(nextPost || prevPost) && (
-          <div className="flex w-full flex-col gap-1">
+          <div className="mt-10 flex w-full flex-col gap-1">
             <div className="flex h-full w-full items-center justify-center gap-2 rounded-sm py-1 sm:gap-5">
               <AdjacentPostButton direction="previous" postData={prevPost} />
               <AdjacentPostButton direction="next" postData={nextPost} />
