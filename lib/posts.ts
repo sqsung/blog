@@ -94,6 +94,7 @@ export async function getPostData(categoryName: string, id: string) {
   const category = formatCategoryForServer(categoryName);
   const { prevPost, nextPost } = await getAdjacentPosts(category, id);
   const fullPath = path.join(postsDirectory, `${category}/${id}.md`);
+  const thumbnail = getThumbnail(category, id);
   const fileContents = fs.readFileSync(fullPath, "utf-8");
   const matterResult = matter(fileContents);
 
@@ -147,6 +148,7 @@ export async function getPostData(categoryName: string, id: string) {
     prevPost,
     nextPost,
     ...(matterResult.data as PostData),
+    thumbnail: thumbnail === "/thumbnails/placeholder.png" ? null : thumbnail,
   };
 }
 
