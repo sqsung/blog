@@ -66,14 +66,16 @@ export async function getLatestTenPostsData() {
       const id = fullPath.split("/").at(-1)?.replace(/\.md$/, "");
       const thumbnail = getThumbnail(category, id!);
 
-      const post = {
-        ...matterResult.data,
-        category,
-        id,
-        thumbnail,
-      } as PostData;
+      if (matterResult.data.isPublished) {
+        const post = {
+          ...matterResult.data,
+          category,
+          id,
+          thumbnail,
+        } as PostData;
 
-      allPosts.push(post);
+        allPosts.push(post);
+      }
     });
   });
 
@@ -205,10 +207,23 @@ export async function getCategoryData(categoryName: string) {
   const category = formatCategoryForServer(categoryName);
   const categoryPath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(categoryPath);
+
+  const fullPaths: string[] = [];
+
+  fileNames.map((fileName) => {
+    const fullPath = path.join(categoryPath, fileName);
+    const fileContent = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContent);
+
+    if (matterResult.data.isPublished) {
+      fullPaths.push(fullPath);
+    }
+  });
+
   const categoryThumbnail = getThumbnail(category);
 
   return {
-    numberOfPosts: fileNames.length,
+    numberOfPosts: fullPaths.length,
     categoryThumbnail,
   };
 }
@@ -228,8 +243,16 @@ export async function getPostsByCategory(categoryName: string, page: number) {
   const startPoint = 1 + PAGE_SIZE * page - PAGE_SIZE;
   const endPoint = PAGE_SIZE * page;
 
-  const fullPaths = fileNames.map((file) => {
-    return path.join(filePath, file);
+  const fullPaths: string[] = [];
+
+  fileNames.map((fileName) => {
+    const fullPath = path.join(filePath, fileName);
+    const fileContent = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContent);
+
+    if (matterResult.data.isPublished) {
+      fullPaths.push(fullPath);
+    }
   });
 
   for (let i = startPoint; i <= endPoint; i++) {
@@ -255,7 +278,7 @@ export async function getPostsByCategory(categoryName: string, page: number) {
   return {
     totalPages: Math.ceil(fileNames.length / PAGE_SIZE),
     categorizedPosts,
-    totalPosts: fileNames.length,
+    totalPosts: fullPaths.length,
   };
 }
 
@@ -267,12 +290,13 @@ export async function getPostsByCategory(categoryName: string, page: number) {
 export async function getAllPostsByCategory(category: string) {
   const filePath = path.join(postsDirectory, category);
   const fileNames = fs.readdirSync(filePath);
+  const allPosts: PostData[] = [];
 
   const fullPaths = fileNames.map((file) => {
     return path.join(filePath, file);
   });
 
-  const allPostsMetadata = fullPaths.map((fullPath, index) => {
+  fullPaths.forEach((fullPath, index) => {
     const fileContent = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContent);
 
@@ -287,15 +311,17 @@ export async function getAllPostsByCategory(category: string) {
       ? thumbnailPath.split("public")[1]
       : `/thumbnails/${category}/default.png`;
 
-    return {
-      id,
-      thumbnail,
-      category,
-      ...matterResult.data,
-    } as PostData;
+    if (matterResult.data.isPublished) {
+      allPosts.push({
+        id,
+        thumbnail,
+        category,
+        ...matterResult.data,
+      } as PostData);
+    }
   });
 
-  return allPostsMetadata.sort((a, b) => {
+  return allPosts.sort((a, b) => {
     return a.date < b.date ? 1 : -1;
   });
 }

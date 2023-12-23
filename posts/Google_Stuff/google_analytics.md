@@ -3,6 +3,7 @@ title: "Adding Google Analytics to Your Next.js Project"
 date: 2023-12-18
 description: "A simple guide to adding Google Analytics to your Next.js project"
 tags: ["Google Analytics", "Next.js"]
+isPublished: true
 ---
 
 ## 1. Google Analytics
