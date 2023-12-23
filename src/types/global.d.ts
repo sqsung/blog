@@ -7,5 +7,6 @@ declare module "global" {
     tags: string[];
     id: string;
     category: string;
+    isPublished: boolean;
   }
 }

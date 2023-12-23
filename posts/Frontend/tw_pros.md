@@ -3,6 +3,7 @@ title: "The Pros of Using Tailwind"
 date: 2023-12-12
 description: "Hated it at first sight. Loved it after using it. My thoughts on why TailwindCSS is awesome"
 tags: ["Style", "CSS", "Tailwind"]
+isPublished: true
 ---
 
 > Once I got familiar with Tailwind, I started to love Tailwind.
