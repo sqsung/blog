@@ -37,8 +37,9 @@ function getThumbnail(category: string, id?: string) {
       `${category}/default${extension}`,
     );
 
-    if (fs.existsSync(defaultThumbnail))
+    if (fs.existsSync(defaultThumbnail)) {
       return defaultThumbnail.split("public")[1];
+    }
   }
 
   return "/thumbnails/placeholder.png";
@@ -67,14 +68,12 @@ export async function getLatestTenPostsData() {
       const thumbnail = getThumbnail(category, id!);
 
       if (matterResult.data.isPublished) {
-        const post = {
+        allPosts.push({
           ...matterResult.data,
           category,
           id,
           thumbnail,
-        } as PostData;
-
-        allPosts.push(post);
+        } as PostData);
       }
     });
   });
@@ -242,7 +241,6 @@ export async function getPostsByCategory(categoryName: string, page: number) {
 
   const startPoint = 1 + PAGE_SIZE * page - PAGE_SIZE;
   const endPoint = PAGE_SIZE * page;
-
   const fullPaths: string[] = [];
 
   fileNames.map((fileName) => {
@@ -265,14 +263,12 @@ export async function getPostsByCategory(categoryName: string, page: number) {
     const id = currentPath.split("/").at(-1)?.replace(/\.md$/, "");
     const thumbnail = getThumbnail(category, id);
 
-    const post = {
+    categorizedPosts.push({
       ...matterResult.data,
       thumbnail,
       category,
       id,
-    } as PostData;
-
-    categorizedPosts.push(post);
+    } as PostData);
   }
 
   return {
