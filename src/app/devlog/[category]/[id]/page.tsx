@@ -40,7 +40,7 @@ export default async function Post({ params }: PostProps) {
           />
         </div>
         {thumbnail && (
-          <div className="relative h-[500px] w-full overflow-hidden rounded-md">
+          <div className="relative h-[300px] w-full overflow-hidden rounded-md sm:h-[500px]">
             <Image
               src={thumbnail}
               alt={`${title} post thumbnail`}
