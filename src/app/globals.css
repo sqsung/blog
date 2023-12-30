@@ -126,7 +126,7 @@
 }
 
 .blog-image-wrapper {
-  @apply flex justify-center w-full sm:max-h-[400px] object-contain [&>img]:max-w-[100%]
+  @apply flex justify-center w-full sm:max-h-[500px] object-contain [&>img]:max-w-[100%]
 }
 
 .blog {
