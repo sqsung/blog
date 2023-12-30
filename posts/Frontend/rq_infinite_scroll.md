@@ -3,20 +3,20 @@ title: "Infinite Scroll with React Query"
 date: 2023-07-08
 description: "How to create inifinite scroll with React Query"
 tags: ["React Query", "Infinite Scroll"]
-isPublished: false
+isPublished: true
 ---
 
 ## 1. Intro: Infinite Scroll
 
-If someone asked me for a summary of what frontend devs do, I would explain that they are responsible for rendering components based on dataset fetched from the application's server. The problem is that dataset can get pretty large for a commercial application. So, simply deciding to fetch all the data you need at once would slow down your application and negatively affect user experience. Consequently, a good frontend developer should be able to strategically handle large dataset and come up with ways to render pages effectively.
+If someone asked me for a summary of what frontend devs do, I would explain that they are responsible for rendering components based on dataset fetched from the application's server. The problem is that dataset can get pretty large for a commercial application. Therefore, simply fetching all the data needed per page would slow down your application and negatively affect user experience. Consequently, a good frontend developer should be able to strategically handle large dataset and come up with ways to render pages effectively.
 
 ![MyChelin Guide Infinite Scroll Main Page](https://user-images.githubusercontent.com/112310899/236769855-db9ba5f3-1440-42de-9210-46362a1c5a37.gif)
 
-I ran into the same problem when working on the main page of a project called `MyChelin Guide`, a service where users could vote their favorite restaurants per food category. As demonstrated in the gif file above, the main page of the project was basically a ranking page of restaurants of all registered restaurants sorted in order of popularity. As expected, the dataset was pretty large and fetching it all at once slowed down our application, harming user experience.
+I ran into the same problem when working on the main page of a project called `MyChelin Guide`, a service where users could vote their favorite restaurants per food category. As demonstrated in the gif file above, the main page of the project was a ranking page of all registered restaurants (_sorted in order of popularity_). This essentially meant that rendering the main page required fetching information for all the stores in the DB. Of course, fetching the entire store dataset at once would most likely slow down the application and, consequently, harm user experience.
 
 > Check out MyChelin Guide's repository [here](https://github.com/Team-Hoisting/mychelin-guide-typescript?tab=readme-ov-file)
 
-A good solution to situations like this is using rendering your data in an infinite scroll approach. By implementing infinite scroll, you are empowered to show your users just a slice of your dataset before seaminglessly fetching before the user can notice.
+A good solution to situations like this is rendering your data in an infinite scroll approach. By implementing infinite scroll, you are empowered to show your users just a segment of your dataset while seamlessly retrieving the subsequent set of data before the user notices.
 
 ## 2. React Query and its useInfiniteQuery Hook
 
@@ -113,6 +113,73 @@ The return values from the `useInfiniteQuery` hook mean the following.
 
 Using these four return values, all I had to do was decide when the next set of data should be fetched.
 
-## 3. So... When Do I Fetch More?
+## 3. When to Fetch More
 
-In my case, I fetched 15 stores at once and let's assume you fetched about the same size of data. Logically, to have your users perceive a seamless infinite scroll, you are going to have to fetch more data once the user gets near the bottom of your data. There are two major ways to go about this. First is
+To ensure a seamless infinite scroll experience for your users, it is important to dynamically fetch additional data when a user approaches the lower end of the dataset. To implement this logic, you can use the `Intersection Observer API`.
+
+The role of Intersection Observer is basically observing the intersection between the browser viewport and a specified element (target), determining whether the target is visible within the user's screen or not.
+
+![Intersection observer API](/intersection_observer.png)
+
+In `MyChelin Guide`, I positioned a component called `ScrollObserver` at the bottom the store list, designating it as the target element for the Intersection Observer. When users reached the lower end of the dataset and `ScrollObserver` became viewable, I initiated the fetch of the subsequent dataset.
+
+```js
+const InfiniteStoreList = () => {
+  const searchedInput = useRecoilValue(searchInputState);
+  const { data, fetchNextPage, hasNextPage } = useFetchStores();
+  const searchedStores = data?.pages.flat();
+  const [topThree, remaining] = [
+    searchedStores?.slice(0, 3),
+    searchedStores?.slice(3),
+  ];
+
+  return searchedInput && !searchedStores ? (
+    <NoResultMessage />
+  ) : (
+    <StoresContainer>
+      {!searchedInput && <TopThreeStores stores={topThree} />}
+      <UnrankedStores stores={searchedInput ? searchedStores : remaining} />
+      {hasNextPage && <ScrollObserver fetchNextPage={fetchNextPage} />}
+    </StoresContainer>
+  );
+};
+```
+
+I used the `hasNextPage` value fetched from `useInfiniteQuery` hook to always determine if there were more restaurant datas to fetch. If not, I didn't bother rendering the `ScrollObserver` component because all I had left to show my users was the website footer.
+
+The code for `ScrollObserver` is given below.
+
+```js
+const ScrollObserver = ({
+  fetchNextPage,
+}: {
+  fetchNextPage: (
+    options?: FetchNextPageOptions | undefined
+  ) => Promise<InfiniteQueryObserverResult<StoresDataType, unknown>>;
+}) => {
+  const category = useRecoilValue(categoryState);
+  const observerRef = React.useRef(null);
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) fetchNextPage();
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  React.useEffect(() => {
+    if (observerRef.current) observer.observe(observerRef.current);
+
+    return () => observer.disconnect();
+  }, [category]);
+
+  return (
+    <Container ref={observerRef}>
+      <img src="/images/scroll-observer.svg" alt="Loading..." />
+    </Container>
+  );
+};
+
+```
