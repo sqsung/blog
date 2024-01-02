@@ -40,6 +40,10 @@
     @apply text-gray-500
   }
 
+  .light-blog-text {
+    @apply text-gray-400
+  }
+
   .regular-blog-text {
     @apply text-gray-300
   }
@@ -118,7 +122,7 @@
 }
 
 .quote {
-  @apply overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a
+  @apply overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a [&>ul]:blog-ul [&>ul>li]:light-blog-text
 }
 
 .title {
