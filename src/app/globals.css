@@ -11,6 +11,11 @@
   background-color: rgb(35, 47, 62);
 }
 
+
+body {
+  font-family: var(--nunito-sans);
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     background-color: rgb(32, 54, 74)
@@ -138,11 +143,11 @@
 }
 
 .noncode {
-  @apply bg-gray-600 px-1 text-sm rounded-sm text-blue-200
+  @apply bg-gray-600 px-1 text-sm rounded-sm text-blue-200 font-source-code-pro
 }
 
 pre {
-  @apply text-gray-200 bg-secondary border-[10px] sm:border-[20px] border-solid border-secondary rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar
+  @apply text-gray-200 bg-secondary border-[10px] sm:border-[20px] border-solid border-secondary rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar [&>*]:font-source-code-pro
 }
 
 .skeleton {

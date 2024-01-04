@@ -17,6 +17,10 @@ const config: Config = {
         primary: "rgb(35, 47, 62)",
         secondary: "rgb(45, 55, 67)",
       },
+      fontFamily: {
+        "source-code-pro": "var(--source-code-pro)",
+        "nunito-sans": "var(--nunito-sanss)",
+      },
     },
   },
   plugins: [],

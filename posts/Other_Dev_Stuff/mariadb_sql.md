@@ -182,7 +182,7 @@ $ INSERT INTO employees  (givenname, surname, pref_name, birthday, id) VALUES
 >
 > This is because id is set to auto_increment, meaning MariaDB will automatically set a unique value for id for each record
 
-## 3-2. Updating Data
+### 3-2. Updating Data
 
 To change data, use the `UPDATE` command in the following manner.
 
