@@ -1,11 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
+import { Nunito_Sans, Source_Code_Pro } from "next/font/google";
 import { Header, Footer, PageWrapper } from "@/components/common";
 import Script from "next/script";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
+  variable: "--nunito-sans",
+});
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ["latin"],
+  variable: "--source-code-pro",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +47,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={nunitoSans.className}>
+      <body className={`${nunitoSans.variable} ${sourceCodePro.variable}`}>
         <PageWrapper>
           <Header />
           {children}
