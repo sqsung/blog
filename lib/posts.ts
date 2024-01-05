@@ -10,7 +10,7 @@ import { PostData } from "global";
 import { PAGE_SIZE } from "@/utils/constants";
 
 const postsDirectory = path.join(process.cwd(), "posts");
-const thumbnailDirectory = path.join(process.cwd(), "public/thumbnails");
+const thumbnailDirectory = path.join(process.cwd(), "public/images");
 
 hljs.registerLanguage(
   "javascript",
@@ -18,31 +18,35 @@ hljs.registerLanguage(
 );
 
 function getThumbnail(category: string, id?: string) {
-  const validFileExtensions = [".jpeg", ".png", ".jpg"];
-
   if (id) {
-    for (const extension of validFileExtensions) {
-      const thumbnailPath = path.join(
-        thumbnailDirectory,
-        `${category}/posts/${id}${extension}`,
-      );
+    const imagesDirectory = path.join(thumbnailDirectory, `${category}/${id}`);
+    const files = fs.readdirSync(imagesDirectory);
 
-      if (fs.existsSync(thumbnailPath)) return thumbnailPath.split("public")[1];
+    for (const file of files) {
+      if (file.includes("__thumbnail"))
+        return `/images/${category}/${id}/${file}`;
     }
-  }
 
-  for (const extension of validFileExtensions) {
-    const defaultThumbnail = path.join(
+    if (files.length) return `/images/${category}/${id}/${files[0]}`;
+  } else {
+    const categoryDirectory = path.join(thumbnailDirectory, `${category}`);
+    const folders = fs.readdirSync(categoryDirectory);
+    const firstPostDirectory = path.join(
       thumbnailDirectory,
-      `${category}/default${extension}`,
+      `${category}/${folders[0]}`,
     );
+    const firstPostFiles = fs.readdirSync(firstPostDirectory);
 
-    if (fs.existsSync(defaultThumbnail)) {
-      return defaultThumbnail.split("public")[1];
+    for (const file of firstPostFiles) {
+      if (file.includes("__thumbnail"))
+        return `${firstPostDirectory.split("public")[1]}/${file}`;
     }
+
+    if (firstPostFiles.length)
+      return `/images/${category}/${folders[0]}/${firstPostFiles[0]}`;
   }
 
-  return "/thumbnails/placeholder.png";
+  return "/__placeholder_thumbnail.png";
 }
 
 /**
@@ -139,6 +143,13 @@ export async function getPostData(categoryName: string, id: string) {
   htmlContent("img").each((_, element) => {
     const img = htmlContent(element);
     const wrapper = htmlContent("<div>").addClass("blog-image-wrapper");
+    const imageId = img.attr("src");
+
+    if (!imageId?.includes("https://")) {
+      const newSrc = `/images/${category}/${id}/${imageId}`;
+      img.attr("src", newSrc);
+    }
+
     img.wrap(wrapper);
   });
 
