@@ -6,6 +6,7 @@ import {
   PostHeader,
 } from "@/components/devlog";
 import Comments from "@/components/devlog/Comments";
+import { formatDate } from "@/utils/format";
 import Image from "next/image";
 
 const EMPTY_HTML_STRING = "<html><head></head><body></body></html>";
@@ -25,31 +26,35 @@ export default async function Post({ params }: PostProps) {
     prevPost,
     nextPost,
     thumbnail,
+    description,
     modifiedHtmlContent,
   } = await getPostData(params.category, params.id);
 
   return (
     <MainContents>
-      <div className="flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:p-10 lg:w-[50%]">
+      <div className="relative flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:p-10 lg:w-[50%]">
+        <div className="absolute left-[-200px] flex flex-col gap-3">
+          <Image
+            src="/blog_profile.jpeg"
+            alt="Author profile image"
+            width={75}
+            height={75}
+            className="max-h-[75px] rounded-full"
+          />
+          <div className="flex h-full flex-col justify-around">
+            <p className="title-text font-bold">James K. Sohn</p>
+            <p className="subtle-text text-sm">{formatDate(date)}</p>
+          </div>
+        </div>
         <div className="w-full">
           <PostHeader
             title={title}
-            date={date}
             tags={tags}
             category={formatCategoryForUI(params.category)}
+            thumbnail={thumbnail}
+            description={description}
           />
         </div>
-        {thumbnail && (
-          <div className="relative my-5 h-[300px] w-full overflow-hidden rounded-md sm:h-[300px]">
-            <Image
-              src={thumbnail}
-              alt={`${title} post thumbnail`}
-              layout="fill"
-              className="object-contain"
-              quality={100}
-            />
-          </div>
-        )}
         {modifiedHtmlContent !== EMPTY_HTML_STRING ? (
           <div
             className="blog"

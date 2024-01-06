@@ -1,12 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nunito_Sans, Source_Code_Pro } from "next/font/google";
+import { Inter, Source_Code_Pro } from "next/font/google";
 import { Header, Footer, PageWrapper } from "@/components/common";
 import Script from "next/script";
 
-const nunitoSans = Nunito_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--nunito-sans",
+  variable: "--inter",
 });
 
 const sourceCodePro = Source_Code_Pro({
@@ -47,7 +47,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={`${nunitoSans.variable} ${sourceCodePro.variable}`}>
+      <body className={`${inter.variable} ${sourceCodePro.variable}`}>
         <PageWrapper>
           <Header />
           {children}
