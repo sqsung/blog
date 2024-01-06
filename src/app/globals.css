@@ -13,7 +13,7 @@
 
 
 body {
-  font-family: var(--nunito-sans);
+  font-family: var(--inter);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -66,15 +66,11 @@ body {
   }
 
   .blog-p {
-    @apply text-sm sm:text-base my-5 regular-blog-text [&>a]:blog-a
-  }
-
-  .blog-h1 {
-    @apply text-[30px] font-bold m-0 mb-2 leading-tight title-blog-text
+    @apply text-sm sm:text-base my-5 regular-blog-text [&>a]:blog-a font-light
   }
 
   .blog-h2 {
-    @apply title-blog-text font-bold sm:text-2xl text-2xl border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3 gray-border
+    @apply title-blog-text font-bold sm:text-2xl text-xl border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3 gray-border
   }
 
   .blog-h3 {
@@ -130,8 +126,9 @@ body {
   @apply overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a [&>ul]:blog-ul [&>ul>li]:light-blog-text
 }
 
-.title {
-  @apply text-[30px] font-bold text-black
+
+.blog-title {
+  @apply text-3xl font-bold m-0 mb-2 leading-tight title-blog-text
 }
 
 .blog-image-wrapper {
@@ -139,15 +136,15 @@ body {
 }
 
 .blog {
-  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>h1]:blog-h1 [&>em]:blog-em [&>h4]:blog-h4
+  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>em]:blog-em [&>h4]:blog-h4
 }
 
 .noncode {
-  @apply bg-gray-600 px-1 text-sm rounded-sm text-blue-200 font-source-code-pro
+  @apply bg-gray-600 px-1 text-sm rounded-sm text-blue-200 font-code
 }
 
 pre {
-  @apply text-gray-200 bg-secondary border-[10px] sm:border-[20px] border-solid border-secondary rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar [&>*]:font-source-code-pro
+  @apply text-gray-200 bg-secondary border-[10px] sm:border-[20px] border-solid border-secondary rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar [&>*]:font-code
 }
 
 .skeleton {
