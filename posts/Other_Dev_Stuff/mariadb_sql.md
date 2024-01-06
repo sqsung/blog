@@ -6,10 +6,6 @@ tags: ["MariaDB", "SQL", "Notes"]
 isPublished: true
 ---
 
-> The contents of this post is based on findings from the book ["Getting Started with MariaDB"](https://www.amazon.com/Getting-Started-MariaDB-Daniel-Bartholomew/dp/1785284126).
->
-> For a more detailed understanding, check out chapter 5~6 of the book written by Daniel Barhtolomew.
-
 ## 1. Database
 
 Installing MariaDB is like installing a MariaDB server. The subsequent step is to create a database to store tables (_actual data_) in.
