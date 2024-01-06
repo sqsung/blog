@@ -18,7 +18,7 @@ In efforts to become a better communicator/project manager, I started spending m
 
 This all happened towards the end of 2022 summer. It's December of 2023 now and it has been a few months since I started my career as a web developer now. Fortunately, I know much better to understand that being able to write a few lines of HTML and click live share does not equate to being a good developer. `Thank God!`
 
-![2023 Git Commits](/images/2023_commit.png)
+![2023 Git Commits](2023_commit.png)
 _My commits in 2023 (as of 12.13.2023). The empty spots since August are usually because my company uses Bitbucket_
 
 After more than a year, I still find developing immmensely exciting as my first day. But as is with anything, I know this level of passion cannot be constantly maintained. So these memoirs are for mainly myself (_and some of you who lost your way on Google and landed on this post_). I want to write a memoir every year `as long as I am still a developer`, recording my progress and thoughts as a dev. In the end, I hope to read these memoirs down the road and use them to fuel a new wave of evergy and enthusiasm for developing. Hopefully, I can fit at least 30 of these before having to retire. **Welcome to the first one!**
@@ -37,7 +37,7 @@ This is the stage where you genuinely believe that free contents available on Go
 
 I too went through this stage when I started binge watching YouTube videos on HTML/CSS. Thanks to all the great creators in the YouTube ecosystem, I was able to understand when to appropriately use a `grid` or `flex` box, or the difference between `p` and `span` tags very quickly.
 
-![Expert Curve](/images/expert_curve.jpg)
+![Expert Curve](expert_curve.jpg)
 _The Dunning-Kruger Effect: the tendency of people with low ability in a specific area to overestimate his or her ability._
 
 This stage was like me climbing up `Mt. Stupid` for the first time. I had no roadmap. I was blind to everything beyond HTML/CSS and therefore wasn't strategic about studying. The only curriculum I had was mindlessly jumping around YouTube's `related videos` tab after I finish a HTML/CSS tutorial video.
@@ -50,7 +50,7 @@ I had no basic knowledge about JavaScript. So with every video, I just ended up 
 
 ### 2-2. 'I Need Help' Stage (Part A: Book)
 
-![Modern JavaScript Deep Dive](/images/deep_dive.png)
+![Modern JavaScript Deep Dive](deep_dive.png)
 _"Modern JavaScript: Deep Dive" By: Lee Ungmo_
 
 I decided to read a book on JavaScript. I did some research here and there, and discovered a book titled `Modern JavaScript: Deep Dive`. According to the Korean dev forums I read, it apparently is renowned to be the `Bible of JavaScript` in Korea.
@@ -107,7 +107,7 @@ Of course, looking back we could have definitely done better. But I think that's
 
 So, did I feel like an absolute frontend expert after bootcamp ended? No. As a matter of fact, I felt the opposite. I felt like I finally climbed down from the peak of Mt. Stupid, only to see the Valley of Despair.
 
-![Expert Curve](/images/expert_curve.jpg)
+![Expert Curve](expert_curve.jpg)
 _The Dunning-Kruger Effect: the tendency of people with low ability in a specific area to overestimate his or her ability._
 
 Unlike when I believed HTML/CSS was all there was to learn about programming, me coming out of bootcamp definitely knew what I had to study from here on. `There just was too much.` I had too many things in mind. I had to dig deeper into TypeScript, learn Next.js, try styling libraries beside styled-components, and the list goes on and on and on. Surprisingly, the more I learned about something, the more I saw beyond the things I was comfortable with. It was an endless cycle of persuading myself to study something and shutting my computer down after thinking to myself: `"there's more?"`.

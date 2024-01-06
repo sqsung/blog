@@ -18,25 +18,25 @@ Without further due, here is how you can begin using Google Analytics with your 
 
 If you don't have a Google account for some odd reason, go ahead and make one first. Once logged in, access the `Admin` section and initiate the account creation process by following the steps provided by Google.
 
-![Google Analytics Setup Account Name Stage](/images/ga_s1.png)
+![Google Analytics Setup Account Name Stage](ga_s1.png)
 
 Enter an account name of your choice. An account is a user-specific identifier for a Google Analytics dashboard that organizes and manages multiple websites or mobile apps under its control.
 
-![Google Analytics Setup Property Stage](/images/ga_s2.png)
+![Google Analytics Setup Property Stage](ga_s2.png)
 
 Establish a property, representing either a mobile app or website. For my blog, the property is named `jsjs-devlog`.
 
-![Google Analytics Setup Business Stage](/images/ga_s3.png)
+![Google Analytics Setup Business Stage](ga_s3.png)
 
-![Google Analytics Setup Business Goals Stage](/images/ga_s4.png)
+![Google Analytics Setup Business Goals Stage](ga_s4.png)
 
 Select business descriptions and goals to what best fits your property.
 
-![Google Analytics Setup Platform Selection Stage](/images/ga_s5.png)
+![Google Analytics Setup Platform Selection Stage](ga_s5.png)
 
 If you are creating a website using Next.js, choose 'Web' as your platform. For other project types, select the appropriate option.
 
-![Google Analytics Setup Data Stream Stage](/images/ga_s6.png)
+![Google Analytics Setup Data Stream Stage](ga_s6.png)
 
 Enter the URL and the name of your website. Upon completion, make sure to grab the `Measurement ID`. It should look something like `G-0000000000`.
 
@@ -116,7 +116,7 @@ export default function RootLayout({
 
 Open up a browser and visit your property. Once finished, proceed to the Google Analytics Dashboard and select the 'Realtime Data' section. If everything has been correctly setup, you should be able to observe at least one user (representing yourself) and their location on the map.
 
-![Google Analytics Dashboard](/images/ga_dashboard.png)
+![Google Analytics Dashboard](ga_dashboard.png)
 
 I am currently writing this blog post in Chuncheon, South Korea, and the map accurately reflects my geographical location.
 

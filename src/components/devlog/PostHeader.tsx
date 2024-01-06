@@ -1,34 +1,48 @@
-import SmallAuthorProfile from "../common/SmallAuthorProfile";
-import { formatDate } from "@/utils/format";
 import Tags from "./Tags";
 import Divider from "../common/Divider";
 import Link from "next/link";
+import Image from "next/image";
 
 interface PostHeaderProps {
   title: string;
-  date: string;
   tags: string[];
   category: string;
+  thumbnail: string | null;
+  description: string;
 }
 
 export default function PostHeader({
   title,
-  date,
   tags,
   category,
+  thumbnail,
+  description,
 }: PostHeaderProps) {
   return (
-    <div className="flex w-full flex-col">
+    <div className="mb-5 flex w-full flex-col gap-5">
       <Link href={`/${category}/1`}>
         <p className="regular-text t-hover-blue text-xs sm:text-sm">
           {category}
         </p>
       </Link>
-      <h1 className="title-text text-[30px] font-bold">{title}</h1>
-      <p className="subtle-text m-0 text-xs sm:text-sm">{formatDate(date)}</p>
-      <Tags tags={tags} />
-      <SmallAuthorProfile />
-      <Divider />
+      <div>
+        <h1 className="blog-title">{title}</h1>
+        <Tags tags={tags} />
+      </div>
+      <div>
+        <p className="subtle-text text-base sm:text-lg">{description}</p>
+        {thumbnail && (
+          <div className="relative my-5 h-[300px] w-full overflow-hidden rounded-md sm:h-[300px]">
+            <Image
+              src={thumbnail}
+              alt={`${title} post thumbnail`}
+              layout="fill"
+              className="object-contain"
+              quality={100}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
