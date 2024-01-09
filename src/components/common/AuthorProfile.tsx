@@ -4,7 +4,7 @@ import Divider from "./Divider";
 
 export default async function AuthorProfile() {
   return (
-    <section className="flex w-full flex-col items-center">
+    <section className="relative flex w-fit flex-col items-center overflow-hidden rounded-lg py-5">
       <Image
         src="/blog_profile.jpeg"
         alt="Blog Author's profile picture"

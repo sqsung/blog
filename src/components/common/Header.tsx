@@ -9,18 +9,15 @@ export default function Header() {
           <Image src="/logo.png" alt="jsjs devlog logo" fill={true} />
         </div>
         <p className="hidden cursor-pointer font-code text-2xl font-bold italic text-[#5AF] sm:block">
-          jsjs devlog
+          JSJS BLOG
         </p>
       </Link>
-      <nav className="regular-text flex gap-3 font-code text-sm tracking-wider sm:gap-5">
-        <Link href="/" className="t-hover-blue">
-          Home
-        </Link>
+      <nav className="regular-text flex gap-3 font-code text-sm font-bold tracking-wider sm:gap-5">
         <Link href="/categories" className="t-hover-blue">
-          Categories
+          CATEGORIES
         </Link>
         <Link href="/resume" className="t-hover-blue">
-          About
+          ABOUT
         </Link>
       </nav>
     </div>

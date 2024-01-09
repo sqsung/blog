@@ -7,9 +7,9 @@ export default async function HomeDevlogPage() {
 
   return (
     <MainContents>
-      <div className="w-full px-0 2xl:px-[15%]">
+      <div className="flex w-full flex-col items-center">
         <AuthorProfile />
-        <section className="h-100 w-full flex-col items-center justify-center px-1">
+        <section className="h-100 w-full flex-col items-center justify-center">
           <BlogList blogs={latestTenPosts} />
         </section>
       </div>

@@ -7,5 +7,5 @@ export const formatDate = (dateString: string) => {
   const dd = date.getDate().toString().padStart(2, "0");
   const weekday = date.getDay();
 
-  return `${yyyy}.${mm}.${dd} ${WEEKDAYS[weekday]}`;
+  return `${yyyy}-${mm}-${dd} ${WEEKDAYS[weekday]}`;
 };

@@ -9,8 +9,8 @@ interface BlogListProps {
 
 export default function BlogList({ blogs, isOnMain = true }: BlogListProps) {
   return (
-    <div className="flex w-full flex-col justify-center gap-5 px-5 pb-10 sm:px-[10%] md:px-[15%]">
-      <ul className="flex w-full flex-col justify-center gap-5">
+    <div className="sm:px-[10%] md:px-[15%]">
+      <ul className="flex w-full flex-col gap-10 px-5 sm:grid sm:grid-cols-2 sm:px-0 lg:grid-cols-3">
         {blogs.map((metaData, index) => (
           <BlogListItem key={index} {...metaData} />
         ))}
@@ -20,6 +20,7 @@ export default function BlogList({ blogs, isOnMain = true }: BlogListProps) {
           <span className="regular-text i-hover-up t-hover-gray gray-border rounded-md border px-5 py-2 text-sm">
             Read More <i className="bi bi-arrow-right" />
           </span>
+          x
         </Link>
       )}
     </div>
