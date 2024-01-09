@@ -219,6 +219,7 @@ export async function getCategoryData(categoryName: string) {
   const fileNames = fs.readdirSync(categoryPath);
 
   const fullPaths: string[] = [];
+  let lastUpdatedAt: string | null = null;
 
   fileNames.map((fileName) => {
     const fullPath = path.join(categoryPath, fileName);
@@ -227,6 +228,11 @@ export async function getCategoryData(categoryName: string) {
 
     if (matterResult.data.isPublished) {
       fullPaths.push(fullPath);
+
+      const publishedDate = matterResult.data.date;
+      if (!lastUpdatedAt || publishedDate > lastUpdatedAt) {
+        lastUpdatedAt = publishedDate;
+      }
     }
   });
 
@@ -235,6 +241,7 @@ export async function getCategoryData(categoryName: string) {
   return {
     numberOfPosts: fullPaths.length,
     categoryThumbnail,
+    lastUpdatedAt,
   };
 }
 

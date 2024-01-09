@@ -1,34 +1,39 @@
 import Image from "next/image";
 import { formatCategoryForUI, getCategoryData } from "../../../lib/posts";
 import Link from "next/link";
+import { formatDate } from "@/utils/format";
 
 interface CategoryItemProps {
   category: string;
 }
 
 export default async function CategoryItem({ category }: CategoryItemProps) {
-  const { numberOfPosts, categoryThumbnail } = await getCategoryData(category);
+  const { numberOfPosts, categoryThumbnail, lastUpdatedAt } =
+    await getCategoryData(category);
 
   return (
     <Link
       href={`/${category}/1`}
-      className="i-hover-up regular-text t-hover-blue gray-border mx-auto h-80 w-[90%] overflow-hidden rounded-md border"
+      className="i-hover-up regular-text t-hover-blue mx-auto flex h-80 w-[90%] flex-col gap-2 overflow-hidden rounded-md"
     >
       <Image
         src={categoryThumbnail!}
         alt="Category Thumbnail"
         width={200}
         height={200}
-        className="h-[80%] w-full object-cover"
+        className="h-[70%] w-full rounded-lg object-cover"
         quality={100}
       />
-      <div className="p-2">
+      <div className="flex flex-col gap-1">
         <p className="text-base font-bold sm:text-lg">
           {formatCategoryForUI(category)}
         </p>
-        <p className="subtle-text text-sm">
-          {numberOfPosts} Post{numberOfPosts > 1 ? "s" : ""}
-        </p>
+        <div>
+          <p className="subtle-text gap-1 text-sm">
+            {numberOfPosts} Post{numberOfPosts > 1 ? "s" : ""}
+            {lastUpdatedAt && <p>Last Update: {formatDate(lastUpdatedAt)}</p>}
+          </p>
+        </div>
       </div>
     </Link>
   );
