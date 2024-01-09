@@ -211,7 +211,7 @@ export async function getCategories() {
 /**
  * Fetches category specific information
  * @param category name of the target category
- * @returns (object) numberOfPosts: total num of posts inside target category / categoryThumbnail: uri string of the default thumbnail of target category
+ * @returns (object) numberOfPosts: total num of posts inside target category / categoryThumbnail: uri string of the default thumbnail of target category, lastUpdateAt: date of latest publish
  */
 export async function getCategoryData(categoryName: string) {
   const category = formatCategoryForServer(categoryName);

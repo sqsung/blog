@@ -16,11 +16,13 @@ export default function BlogList({ blogs, isOnMain = true }: BlogListProps) {
         ))}
       </ul>
       {isOnMain && (
-        <Link href="/categories" className="flex justify-end gap-1">
+        <Link
+          href="/categories"
+          className="flex justify-center gap-1 sm:justify-end"
+        >
           <span className="regular-text i-hover-up t-hover-gray gray-border rounded-md border px-5 py-2 text-sm">
             Read More <i className="bi bi-arrow-right" />
           </span>
-          x
         </Link>
       )}
     </div>
