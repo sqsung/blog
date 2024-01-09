@@ -8,11 +8,11 @@ export default function Header() {
         <div className="relative h-[30px] w-[30px]">
           <Image src="/logo.png" alt="jsjs devlog logo" fill={true} />
         </div>
-        <p className="hidden cursor-pointer text-2xl font-bold italic text-[#5AF] sm:block">
+        <p className="hidden cursor-pointer font-code text-2xl font-bold italic text-[#5AF] sm:block">
           jsjs devlog
         </p>
       </Link>
-      <nav className="regular-text flex gap-3 text-sm tracking-wider sm:gap-5">
+      <nav className="regular-text flex gap-3 font-code text-sm tracking-wider sm:gap-5">
         <Link href="/" className="t-hover-blue">
           Home
         </Link>
