@@ -21,10 +21,6 @@ const config: Config = {
         primary: "var(--inter)",
         code: "var(--source-code-pro)",
       },
-      // fontSize: {
-      //   "title": ,
-      //   "subtitle": ,
-      // }
     },
   },
   plugins: [],
