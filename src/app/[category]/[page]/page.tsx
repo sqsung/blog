@@ -1,6 +1,6 @@
 import { formatCategoryForUI, getPostsByCategory } from "../../../../lib/posts";
 import { BlogList } from "@/components/devlog";
-import { Pagination } from "@/components/categories";
+import { Pagination } from "@/components/common";
 import { MainContents, Divider } from "@/components/common";
 
 interface CategoryPageProps {
@@ -18,7 +18,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <MainContents>
-      <div className="flex flex-col gap-5">
+      <div className="flex w-full flex-col gap-5">
         <div className="flex flex-col p-5 sm:mb-5 sm:px-[10%] md:px-[15%]">
           <p className="title-text text-[30px] font-bold">
             {formatCategoryForUI(params.category)}
@@ -28,7 +28,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </p>
           <Divider />
         </div>
-        <div className="flex h-full flex-col justify-between">
+        <div className="flex h-full w-full flex-col justify-between">
           <BlogList blogs={categorizedPosts} isOnMain={false} />
           <Pagination
             pagesCount={totalPages}

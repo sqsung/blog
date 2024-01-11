@@ -3,11 +3,13 @@ import { formatCategoryForUI, getCategoryData } from "../../../lib/posts";
 import Link from "next/link";
 import { formatDate } from "@/utils/format";
 
-interface CategoryItemProps {
+interface CategoryListItemProps {
   category: string;
 }
 
-export default async function CategoryItem({ category }: CategoryItemProps) {
+export default async function CategoryListItem({
+  category,
+}: CategoryListItemProps) {
   const { numberOfPosts, categoryThumbnail, lastUpdatedAt } =
     await getCategoryData(category);
 

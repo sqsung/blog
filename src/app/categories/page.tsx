@@ -1,5 +1,5 @@
 import { getCategories } from "../../../lib/posts";
-import { CategoryItem } from "@/components/categories";
+import { CategoryList } from "@/components/categories";
 import { MainContents, Divider } from "@/components/common";
 
 export default async function CategoriesPage() {
@@ -15,11 +15,7 @@ export default async function CategoriesPage() {
           </p>
           <Divider />
         </div>
-        <div className="mt-5 flex grid-cols-2 flex-col gap-3 pb-5 sm:grid">
-          {categories.map((category, index) => (
-            <CategoryItem key={index} category={category} />
-          ))}
-        </div>
+        <CategoryList categories={categories} />
       </div>
     </MainContents>
   );

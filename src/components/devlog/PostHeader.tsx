@@ -37,7 +37,7 @@ export default function PostHeader({
                 src={thumbnail}
                 alt={`${title} post thumbnail`}
                 layout="fill"
-                className="object-contain"
+                className="object-cover"
                 quality={100}
               />
             </div>
