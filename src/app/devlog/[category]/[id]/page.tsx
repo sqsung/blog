@@ -1,13 +1,12 @@
 import { formatCategoryForUI, getPostData } from "../../../../../lib/posts";
 import { Divider, MainContents } from "@/components/common";
+import Comments from "@/components/devlog/Comments";
 import {
-  AdjacentPostButton,
+  AdjacentButtonsWrapper,
   EmptyBlogMessage,
   PostHeader,
+  SideAuthorProfile,
 } from "@/components/devlog";
-import Comments from "@/components/devlog/Comments";
-import { formatDate } from "@/utils/format";
-import Image from "next/image";
 
 const EMPTY_HTML_STRING = "<html><head></head><body></body></html>";
 
@@ -32,29 +31,15 @@ export default async function Post({ params }: PostProps) {
 
   return (
     <MainContents>
-      <div className="relative flex h-full w-full flex-col content-center items-center gap-2 p-3 sm:p-10 lg:w-[50%]">
-        <div className="absolute left-[-200px] flex flex-col gap-3">
-          <Image
-            src="/blog_profile.jpeg"
-            alt="Author profile image"
-            width={75}
-            height={75}
-            className="max-h-[75px] rounded-full"
-          />
-          <div className="flex h-full flex-col justify-around">
-            <p className="title-text font-bold">James K. Sohn</p>
-            <p className="subtle-text text-sm">{formatDate(date)}</p>
-          </div>
-        </div>
-        <div className="w-full">
-          <PostHeader
-            title={title}
-            tags={tags}
-            category={formatCategoryForUI(params.category)}
-            thumbnail={thumbnail}
-            description={description}
-          />
-        </div>
+      <div className="relative flex h-full w-full max-w-[800px] flex-col content-center items-center gap-2 p-3 sm:p-10 lg:w-[50%]">
+        <SideAuthorProfile date={date} />
+        <PostHeader
+          title={title}
+          tags={tags}
+          category={formatCategoryForUI(params.category)}
+          thumbnail={thumbnail}
+          description={description}
+        />
         {modifiedHtmlContent !== EMPTY_HTML_STRING ? (
           <div
             className="blog"
@@ -64,12 +49,7 @@ export default async function Post({ params }: PostProps) {
           <EmptyBlogMessage />
         )}
         {(nextPost || prevPost) && (
-          <div className="mt-10 flex w-full flex-col gap-1">
-            <div className="flex h-full w-full items-center justify-center gap-2 rounded-sm py-1 sm:gap-5">
-              <AdjacentPostButton direction="previous" postData={prevPost} />
-              <AdjacentPostButton direction="next" postData={nextPost} />
-            </div>
-          </div>
+          <AdjacentButtonsWrapper nextPost={nextPost} prevPost={prevPost} />
         )}
         <Divider />
         <Comments />

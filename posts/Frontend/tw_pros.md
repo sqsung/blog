@@ -1,14 +1,10 @@
 ---
 title: "The Pros of Using Tailwind"
 date: 2023-12-12
-description: "Hated it at first sight. Loved it after using it. My thoughts on why TailwindCSS is awesome"
+description: "Hated it at first sight. Loved it after giving it a fair amount of tries. My opinions on why TailwindCSS is awesome, esepcially for your small personal projects."
 tags: ["Style", "CSS", "Tailwind"]
 isPublished: true
 ---
-
-> Once I got familiar with Tailwind, I started to love Tailwind.
->
-> This is a summary of all the reasons I want you to consider Tailwind for your next project
 
 ## 1. Tailwind CSS
 

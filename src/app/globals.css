@@ -123,9 +123,8 @@ body {
 }
 
 .quote {
-  @apply overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a [&>ul]:blog-ul [&>ul>li]:light-blog-text
+  @apply hide-scrollbar overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a [&>ul]:blog-ul [&>ul>li]:light-blog-text
 }
-
 
 .blog-title {
   @apply text-3xl font-bold m-0 mb-2 leading-tight title-blog-text

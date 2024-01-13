@@ -1,14 +1,10 @@
 ---
 title: "2023 Memoir: Developer From Zerobase"
 date: 2023-12-13
-description: "A junior frontend developer's memoir about transitioning from a young startup owner to a developer"
+description: "In 2022, I was an entrepreneur with a business degree. In 2023, a software engineer. This is a memoir of my 2023 (and 2022) where I transitioned from a developer from scratch."
 tags: ["2023", "Memoir", "Frontend Developer"]
 isPublished: true
 ---
-
-> In 2022, I was an entrepreneur with a business degree. In 2023, a software engineer.
->
-> This is my memoir of '22/'23 where I transitioned from a startup owner to a web developer.
 
 ## 1. Introduction
 

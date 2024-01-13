@@ -211,7 +211,7 @@ export async function getCategories() {
 /**
  * Fetches category specific information
  * @param category name of the target category
- * @returns (object) numberOfPosts: total num of posts inside target category / categoryThumbnail: uri string of the default thumbnail of target category
+ * @returns (object) numberOfPosts: total num of posts inside target category / categoryThumbnail: uri string of the default thumbnail of target category, lastUpdateAt: date of latest publish
  */
 export async function getCategoryData(categoryName: string) {
   const category = formatCategoryForServer(categoryName);
@@ -219,6 +219,7 @@ export async function getCategoryData(categoryName: string) {
   const fileNames = fs.readdirSync(categoryPath);
 
   const fullPaths: string[] = [];
+  let lastUpdatedAt: string | null = null;
 
   fileNames.map((fileName) => {
     const fullPath = path.join(categoryPath, fileName);
@@ -227,6 +228,11 @@ export async function getCategoryData(categoryName: string) {
 
     if (matterResult.data.isPublished) {
       fullPaths.push(fullPath);
+
+      const publishedDate = matterResult.data.date;
+      if (!lastUpdatedAt || publishedDate > lastUpdatedAt) {
+        lastUpdatedAt = publishedDate;
+      }
     }
   });
 
@@ -235,6 +241,7 @@ export async function getCategoryData(categoryName: string) {
   return {
     numberOfPosts: fullPaths.length,
     categoryThumbnail,
+    lastUpdatedAt,
   };
 }
 

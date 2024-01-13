@@ -1,7 +1,7 @@
 ---
-title: "Infinite Scroll with React Query"
+title: "Using React Query's useInfiniteQuery Hook to Make Infinite Scroll"
 date: 2023-07-08
-description: "How to create inifinite scroll with React Query"
+description: "Data can get heavy in modern day applications. That's why paginating data is important! Here is how to implement infinite scrolls in your next project with React Query's useInfiniteQuery hook."
 tags: ["React Query", "Infinite Scroll"]
 isPublished: true
 ---
