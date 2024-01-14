@@ -15,8 +15,8 @@ export default function BlogListItem(props: PostData) {
           <div className="relative h-[50%] min-h-[150px] overflow-hidden rounded-lg sm:max-h-[200px] sm:min-h-[200px]">
             <Image
               src={thumbnail}
-              layout="fill"
               alt="Blog Post Thumbnail"
+              layout="fill"
               className="w-full object-cover"
               quality={75}
             />
