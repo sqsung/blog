@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ContactLinks } from ".";
 import Divider from "./Divider";
 
 export default async function AuthorProfile() {
@@ -20,7 +19,6 @@ export default async function AuthorProfile() {
           <p className="subtle-text mr-auto flex items-center overflow-ellipsis whitespace-nowrap text-sm sm:mb-3 sm:mr-0 sm:text-lg">
             Frontend Engineer
           </p>
-          <ContactLinks color="text-gray-400" />
         </div>
         <Divider />
         <p className="regular-text sm:text-md text-sm">
