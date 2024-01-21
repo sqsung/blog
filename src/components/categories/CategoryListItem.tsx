@@ -18,14 +18,15 @@ export default async function CategoryListItem({
       href={`/${category}/1`}
       className="i-hover-up regular-text t-hover-blue mx-auto flex h-80 w-[90%] flex-col gap-2 overflow-hidden rounded-md"
     >
-      <Image
-        src={categoryThumbnail!}
-        alt="Category Thumbnail"
-        width={200}
-        height={200}
-        className="h-[70%] w-full rounded-lg object-cover"
-        quality={100}
-      />
+      <div className="relative h-[50%] min-h-[150px] overflow-hidden rounded-lg sm:max-h-[200px] sm:min-h-[200px]">
+        <Image
+          src={categoryThumbnail!}
+          alt="Category Thumbnail"
+          layout="fill"
+          className="w-full object-cover"
+          quality={75}
+        />
+      </div>
       <div className="flex flex-col gap-1">
         <p className="text-base font-bold sm:text-lg">
           {formatCategoryForUI(category)}

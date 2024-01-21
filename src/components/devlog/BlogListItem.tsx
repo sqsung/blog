@@ -12,13 +12,13 @@ export default function BlogListItem(props: PostData) {
     <li className="title-text i-hover-up t-hover-blue overflow-hidden rounded-md">
       <Link href={`/devlog/${category}/${id}`}>
         <div className="flex h-80 flex-col gap-2 sm:h-[26rem]">
-          <div className="relative h-[50%] min-h-[150px] overflow-hidden rounded-l sm:max-h-[200px] sm:min-h-[200px]">
+          <div className="relative h-[50%] min-h-[150px] overflow-hidden rounded-lg sm:max-h-[200px] sm:min-h-[200px]">
             <Image
               src={thumbnail}
-              layout="fill"
               alt="Blog Post Thumbnail"
+              layout="fill"
               className="w-full object-cover"
-              quality={100}
+              quality={75}
             />
           </div>
           <div className="flex h-[50%] w-full flex-col p-1 sm:justify-between">
