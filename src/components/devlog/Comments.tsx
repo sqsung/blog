@@ -9,7 +9,7 @@ export default function Comments() {
   const status = useScript({
     url: "https://utteranc.es/client.js",
     theme: "photon-dark",
-    repo: "sqsung/jsjs-devlog",
+    repo: "sqsung/jsjs.blog",
     issueTerm: "pathname",
     ref: comment,
   });
