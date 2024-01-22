@@ -16,7 +16,7 @@ export default async function CategoryListItem({
   return (
     <Link
       href={`/${category}/1`}
-      className="i-hover-up regular-text t-hover-blue mx-auto flex h-80 w-[90%] flex-col gap-2 overflow-hidden rounded-md"
+      className="i-hover-up regular-text t-hover-blue mx-auto flex h-60 w-[90%] flex-col gap-2 overflow-hidden rounded-md sm:h-80"
     >
       <div className="relative h-[50%] min-h-[150px] overflow-hidden rounded-lg sm:max-h-[200px] sm:min-h-[200px]">
         <Image
