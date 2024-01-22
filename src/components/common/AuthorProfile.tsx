@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Divider from "./Divider";
+import { ContactLinks } from ".";
 
 export default async function AuthorProfile() {
   return (
@@ -28,6 +29,7 @@ export default async function AuthorProfile() {
           startup${"'"}s development team. Been a full-time dev since.`}
         </p>
       </div>
+      <ContactLinks color="text-gray-500" />
     </section>
   );
 }

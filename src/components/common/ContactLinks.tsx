@@ -27,9 +27,9 @@ export default function ContactLinks({
       <a href="mailto:rok.ksohn@gmail.com">
         <i className="bi bi-envelope-fill cursor-pointer transition-colors hover:text-gray-300" />
       </a>
-      <Link href="/resume">
+      {/* <Link href="/resume">
         <i className="bi bi-info-circle-fill cursor-pointer transition-colors hover:text-gray-300" />
-      </Link>
+      </Link> */}
     </div>
   );
 }
