@@ -19,8 +19,8 @@ export default async function MostRecentBlogItem({
       href={`/devlog/${category}/${id}`}
       className="title-text i-hover-up t-hover-blue flex w-full justify-center rounded-lg px-5 sm:px-0"
     >
-      <div className="flex flex-col gap-5 lg:flex-row">
-        <div className="relative h-[150px] w-full overflow-hidden rounded-lg md:h-[300px] lg:w-[50%]">
+      <div className="flex w-full flex-col gap-5 lg:flex-row">
+        <div className="relative h-[150px] w-full overflow-hidden rounded-lg md:h-[300px] lg:w-[45%]">
           <Image
             src={thumbnail}
             alt="Blog Post Thumbnail"
