@@ -12,14 +12,14 @@ export default function Header() {
           JSJS BLOG
         </p>
       </Link>
-      <nav className="regular-text flex gap-3 font-code text-sm font-bold tracking-wider sm:gap-5">
+      {/* <nav className="regular-text flex gap-3 font-code text-sm font-bold tracking-wider sm:gap-5">
         <Link href="/categories" className="t-hover-blue">
           CATEGORIES
         </Link>
         <Link href="/resume" className="t-hover-blue">
           ABOUT
         </Link>
-      </nav>
+      </nav> */}
     </div>
   );
 }
