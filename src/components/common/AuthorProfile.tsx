@@ -4,7 +4,7 @@ import { ContactLinks } from ".";
 
 export default async function AuthorProfile() {
   return (
-    <section className="relative flex w-fit flex-col items-center overflow-hidden rounded-lg py-5">
+    <section className="relative flex w-fit flex-col items-center overflow-hidden sm:rounded-lg sm:py-5">
       <Image
         src="/blog_profile.jpeg"
         alt="Blog Author's profile picture"

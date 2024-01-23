@@ -8,7 +8,7 @@ export default function Header() {
         <div className="relative h-[30px] w-[30px]">
           <Image src="/logo.png" alt="jsjs devlog logo" fill={true} />
         </div>
-        <p className="hidden cursor-pointer font-code text-2xl font-bold italic text-[#5AF] sm:block">
+        <p className="cursor-pointer font-code text-2xl font-bold italic text-[#5AF]">
           JSJS BLOG
         </p>
       </Link>
