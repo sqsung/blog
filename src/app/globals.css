@@ -155,11 +155,11 @@ pre {
 }
 
 .t-hover-gray {
-  @apply [&:hover]:text-gray-300 transition cursor-pointer
+  @apply [&:hover]:text-gray-300 transition cursor-pointer duration-300 ease-in-out
 }
 
 .i-hover-up {
-  @apply transition cursor-pointer hover:-translate-y-1 transform
+  @apply transition cursor-pointer hover:-translate-y-1 transform duration-300 ease-in-out
 }
 
 .utterances {

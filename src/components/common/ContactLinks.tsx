@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 
 interface ContactLinksProps {
   color?: string;
@@ -22,14 +21,11 @@ export default function ContactLinks({
         rel="noreferrer noopener"
         className="cursor-pointer transition-colors"
       >
-        <i className="bi bi-github hover:text-gray-300" />
+        <i className="bi bi-github duration-300 hover:text-gray-300" />
       </a>
       <a href="mailto:rok.ksohn@gmail.com">
-        <i className="bi bi-envelope-fill cursor-pointer transition-colors hover:text-gray-300" />
+        <i className="bi bi-envelope-fill cursor-pointer transition-colors duration-300 hover:text-gray-300" />
       </a>
-      {/* <Link href="/resume">
-        <i className="bi bi-info-circle-fill cursor-pointer transition-colors hover:text-gray-300" />
-      </Link> */}
     </div>
   );
 }
