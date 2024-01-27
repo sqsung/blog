@@ -11,7 +11,7 @@ export default function CategorizedPostsLoading() {
           <Divider />
         </div>
         <div className="flex h-full w-full flex-col justify-between">
-          <BlogListSkeleton number={3} />
+          <BlogListSkeleton number={2} />
         </div>
       </div>
     </MainContents>

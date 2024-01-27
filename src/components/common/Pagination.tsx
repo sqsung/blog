@@ -17,7 +17,7 @@ export default function PaginationRounded({
   const router = useRouter();
 
   return (
-    <div className="mb-5 flex justify-center px-2 sm:px-[15%]">
+    <div className="mb-5 mt-auto flex justify-center px-2 sm:px-[15%]">
       <Pagination
         defaultPage={+page}
         color="primary"

@@ -53,7 +53,7 @@ function getThumbnail(category: string, id?: string) {
  * Fetches the ten latests posts in an uncategorized manner
  * @returns Array of ten latest posts
  */
-export async function getLatestTenPostsData() {
+export async function getLatestPosts() {
   const categories = fs.readdirSync(postsDirectory);
   const allPosts: PostData[] = [];
 
@@ -86,7 +86,7 @@ export async function getLatestTenPostsData() {
     .sort((a, b) => {
       return a.date < b.date ? 1 : -1;
     })
-    .splice(0, 10);
+    .splice(0, 12);
 }
 
 /**
