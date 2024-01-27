@@ -9,7 +9,7 @@ interface BlogListProps {
 
 export default function BlogList({ blogs, isOnMain = true }: BlogListProps) {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex max-w-[1150px] flex-col gap-10">
       <ul className="flex w-full flex-col gap-10 px-5 sm:grid sm:grid-cols-2 sm:px-0 ">
         {blogs.map((metaData, index) => (
           <BlogListItem key={index} {...metaData} />
