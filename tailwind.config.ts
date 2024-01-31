@@ -21,6 +21,9 @@ const config: Config = {
         primary: "var(--inter)",
         code: "var(--source-code-pro)",
       },
+      spacing: {
+        header: "50px",
+      },
     },
   },
   plugins: [],
