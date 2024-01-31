@@ -1,7 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Source_Code_Pro } from "next/font/google";
-import { Header, Footer, PageWrapper } from "@/components/common";
+import {
+  Header,
+  Footer,
+  PageWrapper,
+  HeaderPlaceholder,
+} from "@/components/common";
 import Script from "next/script";
 
 const inter = Inter({
@@ -50,6 +55,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${sourceCodePro.variable}`}>
         <PageWrapper>
           <Header />
+          <HeaderPlaceholder />
           {children}
           <Footer />
         </PageWrapper>
