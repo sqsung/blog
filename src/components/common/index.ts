@@ -8,4 +8,6 @@ export { default as ContactLinks } from "./ContactLinks";
 export { default as Divider } from "./Divider";
 export { default as GrayLabel } from "./GrayLabel";
 export { default as SmallAuthorProfile } from "./SmallAuthorProfile";
+export { default as ProgressBar } from "./ProgressBar";
+export { default as HeaderPlaceholder } from "./HeaderPlaceholder";
 export { default as Pagination } from "./Pagination";

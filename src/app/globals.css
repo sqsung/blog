@@ -169,3 +169,11 @@ pre {
 .MuiSvgIcon-root {
   @apply regular-text
 }
+
+.mini-header-wrapper {
+  @apply items-center w-[90%] h-full backdrop-blur-md bg-secondary/50 shadow-md rounded-md p-5 transition-all duration-500
+}
+
+.full-header-wrapper {
+  @apply items-center w-full h-full transition-all duration-500
+}
