@@ -20,6 +20,9 @@ hljs.registerLanguage(
 function getThumbnail(category: string, id?: string) {
   if (id) {
     const imagesDirectory = path.join(thumbnailDirectory, `${category}/${id}`);
+
+    if (!fs.existsSync(imagesDirectory)) return "/__placeholder_thumbnail.png";
+
     const files = fs.readdirSync(imagesDirectory);
 
     for (const file of files) {
