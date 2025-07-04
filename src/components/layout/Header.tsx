@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex w-full items-center py-5">
+    <header className="mb-10 flex w-full items-center py-5">
       <Link href="/" className="mr-auto text-2xl font-bold">
-        sqsung
+        {"<Sqsung />"}
       </Link>
       <div className="flex gap-5 font-bold">
         <Link href="/posts">posts</Link>
