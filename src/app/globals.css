@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background-primary: #212121;
-  --color-background-secondary: #141414;
+  /* Background Colors */
+  --color-background-primary: theme(colors.white);
+  --color-background-secondary: theme(colors.zinc.100);
+
+  /* Text Colors */
+  --color-t-emphasized: theme(colors.black);
+  --color-t-normal: theme(colors.zinc.700);
+  --color-t-subtle: theme(colors.zinc.400);
+}
+
+[data-theme="dark"] {
+  --color-background-primary: theme(colors.zinc.900);
+  --color-background-secondary: theme(colors.zinc.800);
+
+  --color-t-emphasized: theme(colors.white);
+  --color-t-normal: theme(colors.zinc.100);
+  --color-t-subtle: theme(colors.zinc.400);
+}
+
+[data-theme="light"] {
+  --color-background-primary: theme(colors.white);
+  --color-background-secondary: theme(colors.zinc.50);
+
+  --color-t-emphasized: theme(colors.black);
+  --color-t-normal: theme(colors.zinc.700);
+  --color-t-subtle: theme(colors.zinc.400);
 }
 
 body {
-  @apply bg-neutral-800 text-zinc-100;
+  @apply bg-background-primary text-t-normal transition-colors duration-300;
   font-family: Arial, Helvetica, sans-serif;
 }
 
