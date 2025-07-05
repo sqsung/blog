@@ -9,24 +9,30 @@
   --color-t-emphasized: theme(colors.black);
   --color-t-normal: theme(colors.zinc.700);
   --color-t-subtle: theme(colors.zinc.400);
+
+  --color-b-primary: theme(colors.neutral.600);
 }
 
-[data-theme="dark"] {
+[data-theme=dark] {
   --color-background-primary: theme(colors.zinc.900);
   --color-background-secondary: theme(colors.zinc.800);
 
   --color-t-emphasized: theme(colors.white);
   --color-t-normal: theme(colors.zinc.100);
   --color-t-subtle: theme(colors.zinc.400);
+
+  --color-b-primary: theme(colors.neutral.600);
 }
 
-[data-theme="light"] {
+[data-theme=light] {
   --color-background-primary: theme(colors.white);
-  --color-background-secondary: theme(colors.zinc.50);
+  --color-background-secondary: theme(colors.gray.100);
 
   --color-t-emphasized: theme(colors.black);
   --color-t-normal: theme(colors.zinc.700);
   --color-t-subtle: theme(colors.zinc.400);
+
+  --color-b-primary: theme(colors.neutral.200);
 }
 
 body {

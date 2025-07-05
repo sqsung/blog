@@ -6,8 +6,8 @@ interface BlogCardProps {
 
 const BlogCard = ({ metadata }: BlogCardProps) => {
   return (
-    <li className="border-y border-neutral-600 py-3">
-      <div className="flex cursor-pointer flex-col gap-5 rounded-xl p-3 hover:bg-neutral-700">
+    <li className="border-b-primary border-y py-3">
+      <div className="hover:bg-background-secondary flex cursor-pointer flex-col gap-5 rounded-xl p-3 transition-colors duration-300">
         <p className="text-zinc-400">{metadata.createdAt}</p>
 
         <div className="flex flex-col gap-1">
