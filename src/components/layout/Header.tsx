@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggler from "./ThemeToggler";
 
 export default function Header() {
   return (
@@ -6,10 +7,11 @@ export default function Header() {
       <Link href="/" className="mr-auto text-2xl font-bold">
         {"<Sqsung />"}
       </Link>
-      <div className="flex gap-5 font-bold">
+      <div className="flex items-end gap-5 font-bold">
         <Link href="/posts">posts</Link>
         <Link href="/tags">tags</Link>
         <Link href="/about">about</Link>
+        <ThemeToggler />
       </div>
     </header>
   );
