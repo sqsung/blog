@@ -1,36 +1,17 @@
-import fs from "fs";
-import matter from "gray-matter";
 import { notFound } from "next/navigation";
-import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
-import { Blog, BlogMetadata } from "@/types/blog.types";
 import Divider from "@/components/common/Divider";
 import BackButton from "@/components/common/BackButton";
 import BlogPostData from "@/components/blog/BlogPostData";
+import { getPostById } from "@/backend/posts.server";
 
 interface PostPageProps {
   params: {
     id: string;
   };
 }
-
-const getPostById = async (id: string): Promise<Blog | null> => {
-  try {
-    const filepath = path.join(process.cwd(), "/src/contents", `${id}.mdx`);
-    const fileContents = fs.readFileSync(filepath, "utf8");
-    const { data, content } = matter(fileContents);
-
-    return {
-      metadata: data as BlogMetadata,
-      content,
-    };
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
 
 const PostPage = async ({ params }: PostPageProps) => {
   const post = await getPostById(params.id);
