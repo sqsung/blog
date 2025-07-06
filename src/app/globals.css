@@ -54,7 +54,7 @@
 }
 
 .blog-post :not(pre)>code {
-  @apply text-sm bg-background-secondary py-1 px-2 rounded-md;
+  @apply text-sm bg-background-secondary py-1 px-2 rounded-md font-source-code-pro;
 }
 
 .blog-post pre>code {
