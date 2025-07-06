@@ -1,5 +1,6 @@
 "use client";
 
+import { ROUTES } from "@/constants/routes.constant";
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 
@@ -11,7 +12,7 @@ const BackButton = () => {
     const origin = window.location.origin;
 
     if (!referrer || !referrer.startsWith(origin)) {
-      router.push("/");
+      router.push(ROUTES.home());
     } else {
       router.back();
     }
