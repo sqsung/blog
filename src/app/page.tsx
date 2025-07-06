@@ -6,7 +6,7 @@ const Home = () => {
       listAlias="Checkout the latest posts"
       blogs={[
         {
-          id: "1",
+          id: "2025-07-05-dns-concepts",
           title: "How does DNS work under the hood?",
           summary:
             "Core concepts you need to know to understand how your website is registered to the world wide web.",
