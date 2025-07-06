@@ -6,7 +6,7 @@ export default function Header() {
     <header className="mb-10 flex w-full items-center py-5">
       <Link
         href="/"
-        className="font-source-code-pro mr-auto text-2xl font-bold"
+        className="font-source-code-pro mr-auto cursor-pointer text-2xl font-bold"
       >
         sqsung.
       </Link>

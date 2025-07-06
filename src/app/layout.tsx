@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/lib/ThemeProvider";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,7 +30,15 @@ export default async function RootLayout({
       <body
         className={`${sourceCodePro.variable} ${inter.variable} antialiased`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <div className="flex flex-col items-center">
+            <div className="flex w-full max-w-[1000px] flex-col gap-10">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
