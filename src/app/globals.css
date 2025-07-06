@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  /* Background Colors */
-  --color-background-primary: theme(colors.white);
-  --color-background-secondary: theme(colors.zinc.100);
+  --font-source-code-pro: var(--font-source-code-pro);
+  --font-inter: var(--font-inter);
 
-  /* Text Colors */
-  --color-t-emphasized: theme(colors.black);
-  --color-t-normal: theme(colors.zinc.700);
-  --color-t-subtle: theme(colors.zinc.400);
-
-  /* Border Colors */
-  --color-b-primary: theme(colors.neutral.600);
-}
-
-
-#theme-provider[data-theme=dark] {
-  --color-background-primary: theme(colors.zinc.900);
-  --color-background-secondary: theme(colors.zinc.800);
+  --color-background-primary: theme(colors.gray.800);
+  --color-background-secondary: theme(colors.gray.700);
 
   --color-t-emphasized: theme(colors.white);
   --color-t-normal: theme(colors.zinc.100);
   --color-t-subtle: theme(colors.zinc.400);
 
-  --color-b-primary: theme(colors.neutral.600);
+  --color-b-primary: theme(colors.gray.700);
+}
+
+
+#theme-provider[data-theme=dark] {
+  --color-background-primary: theme(colors.gray.800);
+  --color-background-secondary: theme(colors.gray.700);
+
+  --color-t-emphasized: theme(colors.white);
+  --color-t-normal: theme(colors.zinc.100);
+  --color-t-subtle: theme(colors.zinc.400);
+
+  --color-b-primary: theme(colors.gray.700);
 }
 
 #theme-provider[data-theme=light] {
@@ -32,14 +32,13 @@
 
   --color-t-emphasized: theme(colors.black);
   --color-t-normal: theme(colors.zinc.700);
-  --color-t-subtle: theme(colors.zinc.400);
+  --color-t-subtle: theme(colors.zinc.500);
 
   --color-b-primary: theme(colors.neutral.200);
 }
 
 #theme-provider {
-  @apply bg-background-primary text-t-normal transition-colors duration-300;
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-background-primary text-t-normal transition-colors duration-300 font-inter;
 }
 
 .debug-border {
