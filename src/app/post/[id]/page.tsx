@@ -45,7 +45,7 @@ const PostPage = async ({ params }: PostPageProps) => {
     <article className="flex flex-col gap-5">
       <BackButton />
       <div className="mb-5 flex flex-col gap-5">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-3">
           <h1 className="text-4xl font-bold">{metadata.title}</h1>
           <p className="text-t-subtle text-lg">{metadata.summary}</p>
         </div>

@@ -19,8 +19,12 @@ const BackButton = () => {
   };
 
   return (
-    <button className="group w-fit pe-5" onClick={onBack}>
-      <ArrowLongLeftIcon className="text-t-subtle transcolor group-hover:text-t-normal h-10 w-10 cursor-pointer" />
+    <button
+      className="group transcolor text-t-subtle hover:text-t-normal flex w-fit cursor-pointer items-center gap-1 pe-5"
+      onClick={onBack}
+    >
+      <ArrowLongLeftIcon className="h-8 w-8" />
+      <span className="text-lg font-bold">Back</span>
     </button>
   );
 };
