@@ -47,7 +47,7 @@ const PostPage = async ({ params }: PostPageProps) => {
       <div className="mb-5 flex flex-col gap-5">
         <div className="flex flex-col gap-1">
           <h1 className="text-4xl font-bold">{metadata.title}</h1>
-          <h2 className="text-t-subtle text-lg">{metadata.summary}</h2>
+          <p className="text-t-subtle text-lg">{metadata.summary}</p>
         </div>
       </div>
       <Divider />
@@ -55,7 +55,7 @@ const PostPage = async ({ params }: PostPageProps) => {
       <div className="flex gap-5">
         <BlogPostData createdAt={metadata.createdAt} tags={metadata.tags} />
         <Divider direction="vertical" />
-        <div className="flex w-full max-w-full flex-col gap-3 overflow-hidden text-lg">
+        <div className="blog-post">
           <MDXRemote
             source={content}
             options={{

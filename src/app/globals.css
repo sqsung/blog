@@ -49,6 +49,34 @@
   @apply transition-colors duration-300;
 }
 
-code {
-  @apply rounded-xl overflow-x-auto max-w-full block;
+.blog-post {
+  @apply flex w-full max-w-full flex-col gap-5 overflow-hidden text-lg leading-loose;
+}
+
+.blog-post :not(pre)>code {
+  @apply text-sm bg-background-secondary py-1 px-2 rounded-md;
+}
+
+.blog-post pre>code {
+  @apply rounded-xl overflow-x-auto max-w-full leading-relaxed;
+}
+
+.blog-post h2 {
+  @apply text-3xl font-bold mt-10 mb-5 first-of-type:mt-0;
+}
+
+.blog-post p {
+  @apply text-lg;
+}
+
+.blog-post ul {
+  @apply list-disc list-outside ps-10 leading-normal;
+}
+
+.blog-post ol {
+  @apply list-decimal list-outside ps-10 leading-normal;
+}
+
+.blog-post blockquote {
+  @apply bg-background-secondary whitespace-pre-wrap px-5 py-1 rounded-xl overflow-hidden border-s-3 border-amber-500;
 }
