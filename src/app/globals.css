@@ -44,3 +44,7 @@
 .debug-border {
   @apply border border-dashed border-red-500;
 }
+
+.transcolor {
+  @apply transition-colors duration-300;
+}
