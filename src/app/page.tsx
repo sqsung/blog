@@ -1,4 +1,5 @@
 import BlogList from "@/components/blog/BlogList";
+import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
         <Header />
 
         <BlogList
-          listAlias="Checkout the latest posts."
+          listAlias="Checkout the latest posts"
           blogs={[
             {
               id: "1",
@@ -43,6 +44,7 @@ const Home = () => {
             },
           ]}
         />
+        <Footer />
       </div>
     </div>
   );
