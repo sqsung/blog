@@ -4,8 +4,11 @@ import ThemeToggler from "./ThemeToggler";
 export default function Header() {
   return (
     <header className="mb-10 flex w-full items-center py-5">
-      <Link href="/" className="mr-auto text-2xl font-bold">
-        {"<Sqsung />"}
+      <Link
+        href="/"
+        className="font-source-code-pro mr-auto text-2xl font-bold"
+      >
+        sqsung
       </Link>
       <div className="flex items-end gap-5 font-bold">
         <Link href="/posts">posts</Link>
