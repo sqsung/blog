@@ -7,3 +7,8 @@ export interface BlogMetadata {
   createdAt: string;
   isPublished: boolean;
 }
+
+export interface Blog {
+  metadata: BlogMetadata;
+  content: string;
+}
