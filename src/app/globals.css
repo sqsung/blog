@@ -48,3 +48,7 @@
 .transcolor {
   @apply transition-colors duration-300;
 }
+
+code {
+  @apply rounded-xl;
+}
