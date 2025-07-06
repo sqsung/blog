@@ -1,5 +1,5 @@
 import BlogList from "@/components/blog/BlogList";
-import Header from "@/components/layout/Header";
+import Header from "@/components/common/Header";
 
 const Home = () => {
   return (
