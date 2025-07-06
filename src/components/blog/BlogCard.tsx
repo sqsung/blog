@@ -13,10 +13,10 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
           {metadata.createdAt}
         </p>
 
-        <div className="flex flex-col gap-5">
-          <div className="hover:bg-background-secondary flex flex-col gap-3 rounded-xl px-5 py-3 transition-colors duration-300">
+        <div className="flex w-full flex-col gap-5">
+          <div className="hover:bg-background-secondary transcolor flex flex-col gap-3 rounded-xl px-5 pt-3 pb-8">
             <p className="text-2xl font-bold">{metadata.title}</p>
-            <p className="text-t-subtle text-lg">{metadata.summary}</p>
+            <p className="text-t-subtle">{metadata.summary}</p>
           </div>
 
           {!!metadata.tags.length && (

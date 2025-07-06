@@ -10,12 +10,27 @@ export default function Header() {
       >
         sqsung.
       </Link>
-      <div className="flex items-center gap-5 font-bold">
-        <Link href="/posts">posts</Link>
-        <Link href="/tags">tags</Link>
-        <Link href="/about">about</Link>
+      <nav className="flex items-center gap-3 font-bold">
+        <Link
+          href="/posts"
+          className="transcolor hover:bg-background-secondary cursor-pointer rounded-lg bg-transparent px-3 py-1"
+        >
+          posts
+        </Link>
+        <Link
+          href="/tags"
+          className="transcolor hover:bg-background-secondary cursor-pointer rounded-lg bg-transparent px-3 py-1"
+        >
+          tags
+        </Link>
+        <Link
+          href="/about"
+          className="transcolor hover:bg-background-secondary cursor-pointer rounded-lg bg-transparent px-3 py-1"
+        >
+          about
+        </Link>
         <ThemeToggler />
-      </div>
+      </nav>
     </header>
   );
 }
