@@ -8,7 +8,6 @@ import "highlight.js/styles/github-dark.css";
 import { Blog, BlogMetadata } from "@/types/blog.types";
 import Divider from "@/components/common/Divider";
 import BackButton from "@/components/common/BackButton";
-import BlogTitle from "@/components/blog/BlogTitle";
 import BlogPostData from "@/components/blog/BlogPostData";
 
 interface PostPageProps {
@@ -45,13 +44,18 @@ const PostPage = async ({ params }: PostPageProps) => {
   return (
     <article className="flex flex-col gap-5">
       <BackButton />
-      <BlogTitle title={metadata.title} summary={metadata.summary} />
+      <div className="mb-5 flex flex-col gap-5">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-4xl font-bold">{metadata.title}</h1>
+          <h2 className="text-t-subtle text-lg">{metadata.summary}</h2>
+        </div>
+      </div>
       <Divider />
 
       <div className="flex gap-5">
         <BlogPostData createdAt={metadata.createdAt} tags={metadata.tags} />
         <Divider direction="vertical" />
-        <div className="flex flex-col gap-3 text-lg">
+        <div className="flex w-full max-w-full flex-col gap-3 overflow-hidden text-lg">
           <MDXRemote
             source={content}
             options={{

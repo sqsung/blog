@@ -50,5 +50,5 @@
 }
 
 code {
-  @apply rounded-xl overflow-scroll flex-grow;
+  @apply rounded-xl overflow-x-auto max-w-full block;
 }
