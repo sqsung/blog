@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@next/mdx": "^15.3.5",
     "framer-motion": "^12.23.0",
+    "gray-matter": "^4.0.3",
     "next": "15.3.4",
+    "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "rehype-highlight": "^7.0.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
