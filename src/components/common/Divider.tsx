@@ -3,7 +3,21 @@ interface DividerProps {
 }
 
 const Divider = ({ direction = "horizontal" }: DividerProps) => {
-  return <div className="border-b-primary w-full border-b"></div>;
+  if (direction === "vertical") {
+    return (
+      <div
+        className={`border-b-primary w-px self-stretch border-l`}
+        aria-hidden="true"
+      />
+    );
+  }
+
+  return (
+    <div
+      className={`border-b-primary h-px w-full border-b`}
+      aria-hidden="true"
+    />
+  );
 };
 
 export default Divider;

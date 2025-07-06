@@ -5,11 +5,11 @@ import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
-import Tag from "@/components/blog/Tag";
 import { Blog, BlogMetadata } from "@/types/blog.types";
 import Divider from "@/components/common/Divider";
-import Image from "next/image";
 import BackButton from "@/components/common/BackButton";
+import BlogTitle from "@/components/blog/BlogTitle";
+import BlogPostData from "@/components/blog/BlogPostData";
 
 interface PostPageProps {
   params: {
@@ -29,7 +29,6 @@ const getPostById = async (id: string): Promise<Blog | null> => {
     };
   } catch (error) {
     console.error(error);
-
     return null;
   }
 };
@@ -46,40 +45,12 @@ const PostPage = async ({ params }: PostPageProps) => {
   return (
     <article className="flex flex-col gap-5">
       <BackButton />
-      <div className="mb-5 flex flex-col gap-5">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-4xl font-bold">{metadata.title}</h1>
-          <h2 className="text-t-subtle text-lg">{metadata.summary}</h2>
-        </div>
-      </div>
-
+      <BlogTitle title={metadata.title} summary={metadata.summary} />
       <Divider />
 
       <div className="flex gap-5">
-        <div className="border-b-primary flex flex-shrink-0 flex-col gap-10 border-e pe-10">
-          <div className="flex flex-col gap-3">
-            <div className="relative aspect-square w-[50px] overflow-hidden rounded-full">
-              <Image
-                src="/images/blog_profile.jpeg"
-                fill
-                alt="Author Profile Picture"
-              />
-            </div>
-            <div>
-              <p className="text-t-subtle text-sm">sqsung</p>
-              <p className="text-t-subtle text-sm">{metadata.createdAt}</p>
-            </div>
-          </div>
-          <Divider />
-          <div className="flex flex-col gap-5">
-            <p className="text-t-subtle text-sm">TAGS</p>
-            <ul>
-              {metadata.tags.map((tag) => (
-                <Tag tag={tag} key={tag} />
-              ))}
-            </ul>
-          </div>
-        </div>
+        <BlogPostData createdAt={metadata.createdAt} tags={metadata.tags} />
+        <Divider direction="vertical" />
         <div className="flex flex-col gap-3 text-lg">
           <MDXRemote
             source={content}

@@ -50,5 +50,5 @@
 }
 
 code {
-  @apply rounded-xl;
+  @apply rounded-xl overflow-scroll flex-grow;
 }
