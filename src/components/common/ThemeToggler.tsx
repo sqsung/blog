@@ -63,7 +63,7 @@ const ThemeToggler = () => {
             transition={{ duration: 0.3 }}
             className="absolute inset-0"
           >
-            <SunIcon className="h-6 w-6 text-orange-300" />
+            <SunIcon className="h-6 w-6 text-amber-300" />
           </motion.div>
         )}
       </div>

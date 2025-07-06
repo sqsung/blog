@@ -9,7 +9,10 @@ interface BlogListProps {
 const BlogList = ({ listAlias, blogs }: BlogListProps) => {
   return (
     <ul className="flex flex-col">
-      <h2 className="mb-10 text-5xl font-bold">{listAlias}</h2>
+      <div className="mb-16 flex flex-col gap-1">
+        <h2 className="text-5xl font-bold">{listAlias}</h2>
+        <p className="text-t-subtle text-xl">by sqsung</p>
+      </div>
 
       {blogs.map((blog) => (
         <BlogCard key={blog.id} metadata={blog} />

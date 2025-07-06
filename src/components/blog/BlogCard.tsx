@@ -1,4 +1,5 @@
 import { BlogMetadata } from "@/types/blog.types";
+import Tag from "./Tag";
 
 interface BlogCardProps {
   metadata: BlogMetadata;
@@ -19,9 +20,9 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
           </div>
 
           {!!metadata.tags.length && (
-            <ul className="flex gap-5 ps-5 font-semibold text-indigo-400">
+            <ul className="flex gap-5 ps-5">
               {metadata.tags.map((tag) => (
-                <li key={tag}>{tag.toUpperCase()}</li>
+                <Tag tag={tag} key={tag} />
               ))}
             </ul>
           )}

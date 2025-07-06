@@ -8,7 +8,7 @@ const Home = () => {
         <Header />
 
         <BlogList
-          listAlias="Recent Posts"
+          listAlias="Checkout the latest posts."
           blogs={[
             {
               id: "1",

@@ -8,9 +8,9 @@ export default function Header() {
         href="/"
         className="font-source-code-pro mr-auto text-2xl font-bold"
       >
-        sqsung
+        sqsung.
       </Link>
-      <div className="flex items-end gap-5 font-bold">
+      <div className="flex items-center gap-5 font-bold">
         <Link href="/posts">posts</Link>
         <Link href="/tags">tags</Link>
         <Link href="/about">about</Link>
