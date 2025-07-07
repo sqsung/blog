@@ -31,8 +31,8 @@ export default async function RootLayout({
         className={`${sourceCodePro.variable} ${inter.variable} antialiased`}
       >
         <ThemeProvider>
-          <div className="flex flex-col items-center">
-            <div className="flex w-full max-w-[1000px] flex-col gap-10">
+          <div className="flex min-h-screen flex-col items-center">
+            <div className="flex w-full max-w-[1000px] flex-1 flex-col gap-10">
               <Header />
               {children}
               <Footer />

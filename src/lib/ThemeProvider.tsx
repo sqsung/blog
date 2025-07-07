@@ -32,11 +32,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div
-      id="theme-provider"
-      data-theme={theme}
-      className="min-h-screen min-w-screen"
-    >
+    <div id="theme-provider" data-theme={theme} className="h-full w-full">
       {children}
     </div>
   );

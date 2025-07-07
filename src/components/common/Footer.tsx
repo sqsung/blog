@@ -13,7 +13,7 @@ const GitHubIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center justify-center gap-3 py-10">
+    <footer className="mt-auto flex flex-col items-center justify-center gap-3 py-10">
       <div className="flex items-center gap-3">
         <a
           href="mailto:rok.ksohn@gmail.com"
