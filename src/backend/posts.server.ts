@@ -2,43 +2,16 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { BlogMetadata } from "@/types/blog.types";
+import blogIndex from "@/contents/_blog-index.json";
+import { POSTS_PER_PAGE } from "@/constants/posts.constant";
 
 const POSTS_PATH = path.join(process.cwd(), "/src/contents");
 
-export const getLatestPosts = async (limit = 10) => {
-  try {
-    const filenames = fs
-      .readdirSync(POSTS_PATH)
-      .filter((name) => name.endsWith(".mdx"))
-      .sort()
-      .reverse();
+export const getPostsPaginated = async (page: number) => {
+  const start = page * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
 
-    const posts: BlogMetadata[] = [];
-
-    for (const filename of filenames) {
-      if (posts.length >= limit) {
-        break;
-      }
-
-      const postId = filename.replace(/\.mdx$/, "");
-      const raw = fs.readFileSync(path.join(POSTS_PATH, filename), "utf8");
-      const { data } = matter(raw);
-
-      const metadata = {
-        id: postId,
-        ...data,
-      } as BlogMetadata;
-
-      if (metadata.isPublished) {
-        posts.push(metadata);
-      }
-    }
-
-    return posts;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
+  return blogIndex.sortedPosts.slice(start, end);
 };
 
 export const getPostById = async (postId: string) => {
@@ -57,6 +30,28 @@ export const getPostById = async (postId: string) => {
   }
 };
 
-// export const getPostsByTag = async (tag: string) => {};
+export const getPostsByTag = async (tag: string) => {
+  const taggedIds = blogIndex.tagToId[tag as keyof typeof blogIndex.tagToId];
 
-// export const getTags = async () => {};
+  if (!taggedIds || !taggedIds.length) {
+    return [];
+  }
+
+  const posts: BlogMetadata[] = [];
+
+  for (const id of taggedIds) {
+    const post = blogIndex.idToPost[id as keyof typeof blogIndex.idToPost];
+
+    if (!post) {
+      continue;
+    }
+
+    posts.push(post);
+  }
+
+  return posts;
+};
+
+export const getTags = async () => {
+  return blogIndex.tagCounts;
+};
