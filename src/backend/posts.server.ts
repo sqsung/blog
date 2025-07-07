@@ -2,19 +2,21 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { BlogMetadata } from "@/types/blog.types";
-import blogIndex from "@/contents/_blog-index.json";
+import rawBlogIndex from "@/contents/_blog-index.json";
 import { POSTS_PER_PAGE } from "@/constants/posts.constant";
+import { BlogIndex } from "@/types/blog.types";
 
 const POSTS_PATH = path.join(process.cwd(), "/src/contents");
+const blogIndex = rawBlogIndex as BlogIndex;
 
-export const getLatestPosts = async (page: number) => {
+export const getLatestPosts = (page: number) => {
   const start = (page - 1) * POSTS_PER_PAGE;
   const end = start + POSTS_PER_PAGE;
 
   return blogIndex.sortedPosts.slice(start, end);
 };
 
-export const getPostById = async (postId: string) => {
+export const getPostById = (postId: string) => {
   try {
     const filepath = path.join(POSTS_PATH, `${postId}.mdx`);
     const fileContents = fs.readFileSync(filepath, "utf8");
@@ -30,8 +32,8 @@ export const getPostById = async (postId: string) => {
   }
 };
 
-export const getPostsByTag = async (tag: string) => {
-  const taggedIds = blogIndex.tagToId[tag as keyof typeof blogIndex.tagToId];
+export const getPostsByTag = (tag: string) => {
+  const taggedIds = blogIndex.tagToId[tag];
 
   if (!taggedIds || !taggedIds.length) {
     return [];
@@ -40,7 +42,7 @@ export const getPostsByTag = async (tag: string) => {
   const posts: BlogMetadata[] = [];
 
   for (const id of taggedIds) {
-    const post = blogIndex.idToPost[id as keyof typeof blogIndex.idToPost];
+    const post = blogIndex.idToPost[id];
 
     if (!post) {
       continue;
@@ -52,6 +54,6 @@ export const getPostsByTag = async (tag: string) => {
   return posts;
 };
 
-export const getTags = async () => {
+export const getTags = () => {
   return blogIndex.tagCounts;
 };

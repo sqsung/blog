@@ -1,20 +1,10 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { BlogMetadata } from "@/types/blog.types";
+import { BlogIndex, BlogMetadata } from "@/types/blog.types";
 
 const POSTS_PATH = path.join(process.cwd(), "src/contents");
 const INDEX_FILE = path.join(process.cwd(), "src/contents/_blog-index.json");
-
-interface BlogIndex {
-  sortedPosts: BlogMetadata[];
-  tagToId: Record<string, string[]>;
-  tagCounts: Record<string, number>;
-  idToPost: Record<string, BlogMetadata>;
-  totalPosts: number;
-  totalTags: number;
-  lastBuilt: string;
-}
 
 const generateBlogIndexes = () => {
   const files = fs.readdirSync(POSTS_PATH);
@@ -35,7 +25,6 @@ const generateBlogIndexes = () => {
       id: mdx.replace(/\.mdx?$/, ""),
       title: metadata.title,
       summary: metadata.summary,
-      category: metadata.category,
       tags: metadata.tags || [],
       createdAt: metadata.createdAt,
       isPublished: metadata.isPublished,
