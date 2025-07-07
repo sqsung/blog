@@ -57,8 +57,7 @@ const generateBlogIndexes = () => {
 
     for (const tag of post.tags) {
       if (!tagToId[tag]) {
-        tagToId[tag] = [post.id];
-        continue;
+        tagToId[tag] = [];
       }
 
       tagToId[tag].push(post.id);
