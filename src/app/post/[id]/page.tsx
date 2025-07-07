@@ -14,7 +14,7 @@ interface PostPageProps {
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
-  const post = await getPostById(params.id);
+  const post = getPostById(params.id);
 
   if (!post) {
     notFound();
