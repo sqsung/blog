@@ -1,5 +1,5 @@
 {
-  "posts": [
+  "sortedPosts": [
     {
       "id": "2025-07-05-dns-concepts",
       "title": "How does DNS work under the hood?",
@@ -9,7 +9,7 @@
       "isPublished": true
     }
   ],
-  "tagIndex": {
+  "tagToId": {
     "DNS": ["2025-07-05-dns-concepts"],
     "Network": ["2025-07-05-dns-concepts"],
     "CS": ["2025-07-05-dns-concepts"]
@@ -19,7 +19,7 @@
     "Network": 1,
     "CS": 1
   },
-  "idIndex": {
+  "idToPost": {
     "2025-07-05-dns-concepts": {
       "id": "2025-07-05-dns-concepts",
       "title": "How does DNS work under the hood?",
@@ -29,23 +29,7 @@
       "isPublished": true
     }
   },
-  "metadata": {
-    "totalPosts": 1,
-    "totalTags": 3,
-    "lastBuilt": "2025-07-06T23:38:44.488Z",
-    "mostUsedTags": [
-      {
-        "tag": "DNS",
-        "count": 1
-      },
-      {
-        "tag": "Network",
-        "count": 1
-      },
-      {
-        "tag": "CS",
-        "count": 1
-      }
-    ]
-  }
+  "totalPosts": 1,
+  "totalTags": 3,
+  "lastBuilt": "2025-07-07T02:44:43.849Z"
 }
