@@ -1,10 +1,17 @@
 import { getLatestPosts } from "@/backend/posts.server";
 import BlogList from "@/components/blog/BlogList";
+import SeeMoreButton from "@/components/common/SeeMoreButton";
+import { ROUTES } from "@/constants/routes.constant";
 
-const LandingPage = async () => {
-  const posts = await getLatestPosts(1);
+const LandingPage = () => {
+  const posts = getLatestPosts(1);
 
-  return <BlogList listAlias="Checkout the latest posts" blogs={posts} />;
+  return (
+    <div className="flex flex-col items-center gap-10">
+      <BlogList title="Checkout the latest posts" blogs={posts} />
+      <SeeMoreButton href={ROUTES.posts(1)} text="See All Posts" />
+    </div>
+  );
 };
 
 export default LandingPage;
