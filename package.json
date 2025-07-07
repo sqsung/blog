@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "work": "cursor . && npm run dev",
-    "index-blogs": "ts-node --project tsconfig.scripts.json src/scripts/build-index.cjs.ts"
+    "index-blogs": "ts-node --project tsconfig.scripts.json src/scripts/build-index.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
