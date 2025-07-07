@@ -7,8 +7,8 @@ import { POSTS_PER_PAGE } from "@/constants/posts.constant";
 
 const POSTS_PATH = path.join(process.cwd(), "/src/contents");
 
-export const getPostsPaginated = async (page: number) => {
-  const start = page * POSTS_PER_PAGE;
+export const getLatestPosts = async (page: number) => {
+  const start = (page - 1) * POSTS_PER_PAGE;
   const end = start + POSTS_PER_PAGE;
 
   return blogIndex.sortedPosts.slice(start, end);
