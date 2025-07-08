@@ -25,7 +25,7 @@ const generateBlogIndexes = () => {
       id: mdx.replace(/\.mdx?$/, ""),
       title: metadata.title,
       summary: metadata.summary,
-      tags: metadata.tags || [],
+      tags: (metadata.tags || []).map((tag: string) => tag.toUpperCase()),
       createdAt: metadata.createdAt,
       isPublished: metadata.isPublished,
     };

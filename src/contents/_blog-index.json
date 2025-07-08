@@ -4,19 +4,29 @@
       "id": "2025-07-05-dns-concepts",
       "title": "How does DNS work under the hood?",
       "summary": "Core concepts you need to understand for properly deploying your website to the world wide web.",
-      "tags": ["DNS", "Network", "CS"],
+      "tags": [
+        "DNS",
+        "NETWORK",
+        "CS"
+      ],
       "createdAt": "2025-07-05",
       "isPublished": true
     }
   ],
   "tagToId": {
-    "DNS": ["2025-07-05-dns-concepts"],
-    "Network": ["2025-07-05-dns-concepts"],
-    "CS": ["2025-07-05-dns-concepts"]
+    "DNS": [
+      "2025-07-05-dns-concepts"
+    ],
+    "NETWORK": [
+      "2025-07-05-dns-concepts"
+    ],
+    "CS": [
+      "2025-07-05-dns-concepts"
+    ]
   },
   "tagCounts": {
     "DNS": 1,
-    "Network": 1,
+    "NETWORK": 1,
     "CS": 1
   },
   "idToPost": {
@@ -24,12 +34,16 @@
       "id": "2025-07-05-dns-concepts",
       "title": "How does DNS work under the hood?",
       "summary": "Core concepts you need to understand for properly deploying your website to the world wide web.",
-      "tags": ["DNS", "Network", "CS"],
+      "tags": [
+        "DNS",
+        "NETWORK",
+        "CS"
+      ],
       "createdAt": "2025-07-05",
       "isPublished": true
     }
   },
   "totalPosts": 1,
   "totalTags": 3,
-  "lastBuilt": "2025-07-07T02:44:43.849Z"
+  "lastBuilt": "2025-07-08T03:48:08.299Z"
 }

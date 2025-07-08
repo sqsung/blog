@@ -4,5 +4,5 @@ export const ROUTES = {
   posts: (page: number = 1) => `/posts/${page}`,
   about: () => "/about",
   tags: () => "/tags",
-  tagged: (tag: string) => `/tagged/${tag}`,
+  tagged: (tag: string, page: number) => `/tagged/${tag}/${page}`,
 } as const;
