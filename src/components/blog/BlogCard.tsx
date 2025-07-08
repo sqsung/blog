@@ -25,7 +25,9 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
             onClick={() => router.push(ROUTES.post(metadata.id))}
           >
             <p className="text-start text-2xl font-bold">{metadata.title}</p>
-            <p className="text-t-subtle text-start">{metadata.summary}</p>
+            <p className="text-t-subtle line-clamp-2 text-start text-ellipsis">
+              {metadata.summary}
+            </p>
           </button>
 
           {!!metadata.tags.length && (
