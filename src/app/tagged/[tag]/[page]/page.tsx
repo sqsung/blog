@@ -12,12 +12,13 @@ interface TaggedPageProps {
 const TaggedPage = ({ params }: TaggedPageProps) => {
   const { tag, page } = params;
   const integerPage = +page;
+  const upperCaseTag = tag.toUpperCase();
 
-  if (isNaN(integerPage)) {
+  if (isNaN(integerPage) || !upperCaseTag) {
     notFound();
   }
 
-  const taggedPosts = getPostsByTag(tag, integerPage);
+  const taggedPosts = getPostsByTag(upperCaseTag, integerPage);
 
   return <BlogList title={tag} subtitle={`Page ${page}`} blogs={taggedPosts} />;
 };
