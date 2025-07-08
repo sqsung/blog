@@ -4,7 +4,10 @@ import matter from "gray-matter";
 import { BlogIndex, BlogMetadata } from "@/types/blog.types";
 
 const POSTS_PATH = path.join(process.cwd(), "src/contents");
-const INDEX_FILE = path.join(process.cwd(), "src/contents/_blog-index.json");
+const INDEX_FILE = path.join(
+  process.cwd(),
+  "src/contents/generated/_blog-index.json",
+);
 
 const generateBlogIndexes = () => {
   const files = fs.readdirSync(POSTS_PATH);

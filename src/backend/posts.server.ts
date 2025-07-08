@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { BlogMetadata } from "@/types/blog.types";
-import rawBlogIndex from "@/contents/_blog-index.json";
+import rawBlogIndex from "@/contents/generated/_blog-index.json";
 import { BlogIndex } from "@/types/blog.types";
 import { POSTS_PER_PAGE } from "@/constants/posts.constant";
 
