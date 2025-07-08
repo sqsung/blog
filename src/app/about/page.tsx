@@ -1,30 +1,19 @@
-import ContactLinks from "@/components/common/ContactLinks";
-import Image from "next/image";
+import Divider from "@/components/common/Divider";
+import Biography from "@/components/about/Biography";
+import AuthorInfo from "@/components/about/AuthorInfo";
 
-const About = () => {
+const AboutAuthorPage = () => {
   return (
-    <div className="flex gap-10">
-      <div className="flex w-fit flex-col items-center gap-5">
-        <div className="relative aspect-square w-[200px] overflow-hidden rounded-full">
-          <Image
-            src="/images/blog_profile.jpeg"
-            alt="Author profile image"
-            fill
-            objectFit="cover"
-          />
-        </div>
-
-        <div className="flex flex-col items-center">
-          <p className="mb-1 text-xl font-bold">sqsung</p>
-          <p className="text-t-subtle">Software Engineer</p>
-          <p className="text-t-subtle">Seoul, Korea</p>
-        </div>
-
-        <ContactLinks />
+    <div className="flex flex-1 flex-col gap-5">
+      <h2 className="text-5xl font-bold">About the Author</h2>
+      <Divider />
+      <div className="flex gap-10">
+        <AuthorInfo />
+        <Divider direction="vertical" />
+        <Biography />
       </div>
-      <div className="debug-border flex-grow"></div>
     </div>
   );
 };
 
-export default About;
+export default AboutAuthorPage;

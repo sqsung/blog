@@ -16,6 +16,7 @@ const BlogPostData = ({ createdAt, tags }: BlogPostDataProps) => {
             fill
             src="/images/blog_profile.jpeg"
             alt="Author Profile Picture"
+            objectFit="cover"
           />
         </div>
         <div>
