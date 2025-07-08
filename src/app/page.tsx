@@ -1,10 +1,10 @@
-import { getLatestPosts } from "@/backend/posts.server";
+import { getAllPosts } from "@/backend/posts.server";
 import BlogList from "@/components/blog/BlogList";
 import SeeMoreButton from "@/components/common/SeeMoreButton";
 import { ROUTES } from "@/constants/routes.constant";
 
 const LandingPage = () => {
-  const posts = getLatestPosts(1);
+  const { posts } = getAllPosts(1);
 
   return (
     <div className="flex flex-col items-center gap-10">

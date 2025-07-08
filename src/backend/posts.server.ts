@@ -12,13 +12,23 @@ const blogIndex = rawBlogIndex as BlogIndex;
 const getPaginationValues = (page: number) => {
   const start = (page - 1) * POSTS_PER_PAGE;
   const end = start + POSTS_PER_PAGE;
+  const totalPages = Math.ceil(blogIndex.totalPosts / POSTS_PER_PAGE);
 
-  return { start, end };
+  return {
+    start,
+    end,
+    totalPages,
+  };
 };
 
-export const getLatestPosts = (page: number) => {
-  const { start, end } = getPaginationValues(page);
-  return blogIndex.sortedPosts.slice(start, end);
+export const getAllPosts = (page: number) => {
+  const { start, end, totalPages } = getPaginationValues(page);
+  const posts = blogIndex.sortedPosts.slice(start, end);
+
+  return {
+    posts,
+    totalPages,
+  };
 };
 
 export const getPostById = async (postId: string) => {
@@ -38,11 +48,11 @@ export const getPostById = async (postId: string) => {
 };
 
 export const getPostsByTag = (tag: string, page: number) => {
-  const { start, end } = getPaginationValues(page);
+  const { start, end, totalPages } = getPaginationValues(page);
   const taggedIds = blogIndex.tagToId[tag.toUpperCase()]?.slice(start, end);
 
   if (!taggedIds || !taggedIds.length) {
-    return [];
+    return { posts: [], totalPages: 1 };
   }
 
   const posts: BlogMetadata[] = [];
@@ -57,7 +67,7 @@ export const getPostsByTag = (tag: string, page: number) => {
     posts.push(post);
   }
 
-  return posts;
+  return { posts, totalPages };
 };
 
 export const getTags = () => {

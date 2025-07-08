@@ -1,5 +1,6 @@
-import { getLatestPosts } from "@/backend/posts.server";
+import { getAllPosts } from "@/backend/posts.server";
 import BlogList from "@/components/blog/BlogList";
+import PaginationButtons from "@/components/blog/PaginationButtons";
 import { notFound } from "next/navigation";
 
 interface PostsPageProps {
@@ -16,14 +17,17 @@ const PostsPage = async ({ params }: PostsPageProps) => {
     notFound();
   }
 
-  const posts = getLatestPosts(integerPage);
+  const { posts, totalPages } = getAllPosts(integerPage);
 
   return (
-    <BlogList
-      title="All Posts"
-      subtitle={`Page ${integerPage}`}
-      blogs={posts}
-    />
+    <>
+      <BlogList
+        title="All Posts"
+        subtitle={`Page ${integerPage}`}
+        blogs={posts}
+      />
+      <PaginationButtons page={integerPage} totalPages={totalPages} />
+    </>
   );
 };
 
