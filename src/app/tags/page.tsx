@@ -6,7 +6,7 @@ const Tags = () => {
   const tags = getTags();
 
   return (
-    <div className="flex flex-1 gap-10">
+    <div className="flex gap-10">
       <p className="text-5xl font-bold">Tags</p>
       <Divider direction="vertical" />
       <ul className="flex h-fit gap-5">
