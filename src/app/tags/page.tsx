@@ -6,10 +6,12 @@ const Tags = () => {
   const tags = getTags();
 
   return (
-    <div className="flex gap-10">
-      <p className="text-5xl font-bold">Tags</p>
+    <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
+      <p className="border-b-primary text-5xl font-bold max-lg:border-b max-lg:pb-5">
+        Tags
+      </p>
       <Divider direction="vertical" />
-      <ul className="flex h-fit gap-5">
+      <ul className="flex h-fit flex-wrap gap-5">
         {Object.keys(tags).map((tag) => {
           const count = tags[tag];
 

@@ -29,14 +29,16 @@ const PostPage = async ({ params }: PostPageProps) => {
 
       <div className="mb-5 flex flex-col gap-5">
         <div className="flex flex-col gap-3">
-          <h1 className="text-4xl font-bold">{metadata.title}</h1>
-          <p className="text-t-subtle text-lg">{metadata.summary}</p>
+          <h1 className="text-2xl font-bold lg:text-4xl">{metadata.title}</h1>
+          <p className="text-t-subtle text-base lg:text-lg">
+            {metadata.summary}
+          </p>
         </div>
       </div>
 
       <Divider />
 
-      <div className="flex gap-5">
+      <div className="flex flex-col gap-5 lg:flex-row">
         <BlogPostData createdAt={metadata.createdAt} tags={metadata.tags} />
         <Divider direction="vertical" />
         <div className="blog-post">

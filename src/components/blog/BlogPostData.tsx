@@ -9,8 +9,8 @@ interface BlogPostDataProps {
 
 const BlogPostData = ({ createdAt, tags }: BlogPostDataProps) => {
   return (
-    <div className="flex w-[150px] max-w-[150px] flex-shrink-0 flex-col gap-10">
-      <div className="flex flex-col gap-3">
+    <div className="flex w-full flex-shrink-0 flex-col gap-5 lg:w-[150px] lg:max-w-[150px] lg:gap-10">
+      <div className="flex flex-row items-center gap-3 lg:flex-col lg:items-start">
         <div className="relative aspect-square w-[50px] overflow-hidden rounded-full">
           <Image
             fill
@@ -25,16 +25,18 @@ const BlogPostData = ({ createdAt, tags }: BlogPostDataProps) => {
         </div>
       </div>
 
-      <Divider />
+      <Divider className="max-lg:hidden" />
 
-      <div className="flex flex-col gap-5">
+      <div className="flex w-full flex-col gap-1 lg:gap-5">
         <p className="text-t-subtle text-sm">TAGS</p>
-        <ul>
+        <ul className="flex flex-row gap-3 overflow-x-auto lg:flex-col lg:gap-0 lg:overflow-hidden">
           {tags.map((tag) => (
             <Tag tag={tag} key={tag} />
           ))}
         </ul>
       </div>
+
+      <Divider className="lg:hidden" />
     </div>
   );
 };

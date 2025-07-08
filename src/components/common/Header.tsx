@@ -4,7 +4,7 @@ import { ROUTES } from "@/constants/routes.constant";
 
 export default function Header() {
   return (
-    <header className="mb-10 flex w-full items-center py-5">
+    <header className="mb-5 flex w-full items-center py-5 lg:mb-10">
       <Link
         href={ROUTES.home()}
         className="font-source-code-pro mr-auto cursor-pointer text-2xl font-bold"

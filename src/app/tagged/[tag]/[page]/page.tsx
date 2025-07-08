@@ -1,5 +1,6 @@
 import { getPostsByTag } from "@/backend/posts.server";
 import BlogList from "@/components/blog/BlogList";
+import PaginationButtons from "@/components/blog/PaginationButtons";
 import { notFound } from "next/navigation";
 
 interface TaggedPageProps {
@@ -18,14 +19,17 @@ const TaggedPage = async ({ params }: TaggedPageProps) => {
     notFound();
   }
 
-  const taggedPosts = getPostsByTag(upperCaseTag, integerPage);
+  const { posts, totalPages } = getPostsByTag(upperCaseTag, integerPage);
 
   return (
-    <BlogList
-      title={upperCaseTag}
-      subtitle={`Page ${page}`}
-      blogs={taggedPosts}
-    />
+    <>
+      <BlogList title={upperCaseTag} subtitle={`Page ${page}`} blogs={posts} />
+      <PaginationButtons
+        page={integerPage}
+        totalPages={totalPages}
+        baseURL={`/tagged/${tag}`}
+      />
+    </>
   );
 };
 

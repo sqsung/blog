@@ -1,12 +1,21 @@
+import { twMerge } from "tailwind-merge";
+
 interface DividerProps {
   direction?: "horizontal" | "vertical";
+  className?: string;
 }
 
-const Divider = ({ direction = "horizontal" }: DividerProps) => {
+const Divider = ({
+  direction = "horizontal",
+  className = "",
+}: DividerProps) => {
   if (direction === "vertical") {
     return (
       <div
-        className={`border-b-primary w-px self-stretch border-l`}
+        className={twMerge(
+          `border-b-primary w-px self-stretch border-l`,
+          className,
+        )}
         aria-hidden="true"
       />
     );
@@ -14,7 +23,7 @@ const Divider = ({ direction = "horizontal" }: DividerProps) => {
 
   return (
     <div
-      className={`border-b-primary h-px w-full border-b`}
+      className={twMerge(`border-b-primary h-px w-full border-b`, className)}
       aria-hidden="true"
     />
   );

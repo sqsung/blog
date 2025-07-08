@@ -3,7 +3,7 @@ import ContactLinks from "../common/ContactLinks";
 
 const AuthorInfo = () => {
   return (
-    <div className="flex w-fit flex-shrink-0 flex-col items-center gap-5">
+    <div className="flex w-full flex-shrink-0 flex-col items-center gap-5 lg:w-fit">
       <div className="relative aspect-square w-[200px] overflow-hidden rounded-full">
         <Image
           src="/images/blog_profile.jpeg"

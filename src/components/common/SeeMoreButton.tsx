@@ -14,7 +14,7 @@ const SeeMoreButton = ({ href, text = "See More" }: SeeMoreButtonProps) => {
   return (
     <button
       onClick={() => router.push(href)}
-      className="transcolor hover:bg-background-secondary flex cursor-pointer items-center gap-1 rounded-xl px-5 py-1 font-bold"
+      className="transcolor hover:bg-background-secondary flex cursor-pointer items-center gap-1 rounded-lg px-5 py-1 font-bold"
     >
       <span>{text}</span>
       <ArrowLongRightIcon className="h-7 w-7" />
