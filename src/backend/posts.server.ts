@@ -1,5 +1,5 @@
 import path from "path";
-import fs from "fs";
+import fs from "fs/promises";
 import matter from "gray-matter";
 import { BlogMetadata } from "@/types/blog.types";
 import rawBlogIndex from "@/contents/generated/_blog-index.json";
@@ -21,10 +21,10 @@ export const getLatestPosts = (page: number) => {
   return blogIndex.sortedPosts.slice(start, end);
 };
 
-export const getPostById = (postId: string) => {
+export const getPostById = async (postId: string) => {
   try {
     const filepath = path.join(POSTS_PATH, `${postId}.mdx`);
-    const fileContents = fs.readFileSync(filepath, "utf8");
+    const fileContents = await fs.readFile(filepath, "utf8");
     const { data, content } = matter(fileContents);
 
     return {
