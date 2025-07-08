@@ -20,7 +20,13 @@ const TaggedPage = ({ params }: TaggedPageProps) => {
 
   const taggedPosts = getPostsByTag(upperCaseTag, integerPage);
 
-  return <BlogList title={tag} subtitle={`Page ${page}`} blogs={taggedPosts} />;
+  return (
+    <BlogList
+      title={upperCaseTag}
+      subtitle={`Page ${page}`}
+      blogs={taggedPosts}
+    />
+  );
 };
 
 export default TaggedPage;
