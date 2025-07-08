@@ -14,24 +14,26 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
 
   return (
     <li className="border-b-primary border-b first-of-type:border-y">
-      <div className="flex flex-row gap-5 py-8">
+      <div className="flex flex-col gap-3 py-8 lg:flex-row lg:gap-5">
         <p className="text-t-subtle me-10 mt-3 flex-shrink-0 tracking-wide">
           {metadata.createdAt}
         </p>
 
         <div className="flex w-full flex-col gap-5">
           <button
-            className="hover:bg-background-secondary transcolor flex cursor-pointer flex-col gap-3 rounded-xl px-5 pt-3 pb-8"
+            className="group lg:hover:bg-background-secondary transcolor flex cursor-pointer flex-col gap-3 rounded-xl pt-3 pb-8 lg:px-5"
             onClick={() => router.push(ROUTES.post(metadata.id))}
           >
-            <p className="text-start text-2xl font-bold">{metadata.title}</p>
+            <p className="transcolor text-start text-2xl font-bold max-lg:group-hover:text-violet-500">
+              {metadata.title}
+            </p>
             <p className="text-t-subtle line-clamp-2 text-start text-ellipsis">
               {metadata.summary}
             </p>
           </button>
 
           {!!metadata.tags.length && (
-            <ul className="flex gap-5 ps-5">
+            <ul className="flex gap-5 overflow-x-auto lg:ps-5">
               {metadata.tags.map((tag) => (
                 <Tag tag={tag} key={tag} />
               ))}
