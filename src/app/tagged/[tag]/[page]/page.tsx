@@ -3,14 +3,14 @@ import BlogList from "@/components/blog/BlogList";
 import { notFound } from "next/navigation";
 
 interface TaggedPageProps {
-  params: {
+  params: Promise<{
     tag: string;
     page: string;
-  };
+  }>;
 }
 
-const TaggedPage = ({ params }: TaggedPageProps) => {
-  const { tag, page } = params;
+const TaggedPage = async ({ params }: TaggedPageProps) => {
+  const { tag, page } = await params;
   const integerPage = +page;
   const upperCaseTag = tag.toUpperCase();
 

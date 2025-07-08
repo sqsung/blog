@@ -8,13 +8,14 @@ import BlogPostData from "@/components/blog/BlogPostData";
 import { getPostById } from "@/backend/posts.server";
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
-  const post = await getPostById(params.id);
+  const { id } = await params;
+  const post = await getPostById(id);
 
   if (!post) {
     notFound();

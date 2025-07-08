@@ -3,13 +3,14 @@ import BlogList from "@/components/blog/BlogList";
 import { notFound } from "next/navigation";
 
 interface PostsPageProps {
-  params: {
+  params: Promise<{
     page: string;
-  };
+  }>;
 }
 
-const PostsPage = ({ params }: PostsPageProps) => {
-  const integerPage = +params.page;
+const PostsPage = async ({ params }: PostsPageProps) => {
+  const { page } = await params;
+  const integerPage = +page;
 
   if (isNaN(integerPage)) {
     notFound();
