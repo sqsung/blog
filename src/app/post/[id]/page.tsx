@@ -13,7 +13,7 @@ interface PostPageProps {
   };
 }
 
-const PostPage = async ({ params }: PostPageProps) => {
+const PostPage = ({ params }: PostPageProps) => {
   const post = getPostById(params.id);
 
   if (!post) {
