@@ -1,12 +1,12 @@
-import { ContactLinks } from ".";
+import ContactLinks from "./ContactLinks";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div className="gray-border mt-10 flex h-[50px] items-center justify-between border-t-[1px] px-1 sm:mt-auto md:px-10">
-      <p className="subtle-text text-[10px] italic md:text-sm">
-        © 2023 sqsung devlog. All Rights Reserved.
-      </p>
+    <footer className="mt-auto flex flex-col items-center justify-center gap-3 py-10">
       <ContactLinks />
-    </div>
+      <p className="text-t-subtle">Copyrights 2025. All Rights Reserved.</p>
+    </footer>
   );
-}
+};
+
+export default Footer;

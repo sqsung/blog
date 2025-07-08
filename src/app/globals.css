@@ -1,179 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "tailwindcss";
 
+@theme {
+  --font-source-code-pro: var(--font-source-code-pro);
+  --font-inter: var(--font-inter);
 
-:root {
-  /* --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
-  background-color: rgb(35, 47, 62);
+  --color-background-primary: theme(colors.gray.800);
+  --color-background-secondary: theme(colors.gray.700);
+
+  --color-t-emphasized: theme(colors.white);
+  --color-t-normal: theme(colors.zinc.100);
+  --color-t-subtle: theme(colors.zinc.400);
+
+  --color-b-primary: theme(colors.gray.700);
 }
 
 
-body {
-  font-family: var(--inter);
+#theme-provider[data-theme=dark] {
+  --color-background-primary: theme(colors.gray.800);
+  --color-background-secondary: theme(colors.gray.700);
+
+  --color-t-emphasized: theme(colors.white);
+  --color-t-normal: theme(colors.zinc.100);
+  --color-t-subtle: theme(colors.zinc.400);
+
+  --color-b-primary: theme(colors.gray.700);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    background-color: rgb(32, 54, 74)
-  }
-} */
+#theme-provider[data-theme=light] {
+  --color-background-primary: theme(colors.white);
+  --color-background-secondary: theme(colors.gray.100);
 
-@layer utilities {
-  .hide-scrollbar::-webkit-scrollbar {
-    width: 12px;
-  }
+  --color-t-emphasized: theme(colors.black);
+  --color-t-normal: theme(colors.zinc.700);
+  --color-t-subtle: theme(colors.zinc.500);
 
-  .hide-scrollbar::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
-
-  .hide-scrollbar::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  .hide-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-    overflow: auto;
-  }
-
-  .subtle-blog-text {
-    @apply text-gray-500
-  }
-
-  .light-blog-text {
-    @apply text-gray-400
-  }
-
-  .regular-blog-text {
-    @apply text-gray-300
-  }
-
-  .title-blog-text {
-    @apply text-gray-200
-  }
-
-  .gray-border {
-    @apply border-gray-600
-  }
-
-  .blog-a {
-    @apply text-blue-500 hover:text-blue-300 transition
-  }
-
-  .blog-p {
-    @apply text-sm sm:text-base my-5 regular-blog-text [&>a]:blog-a font-light
-  }
-
-  .blog-h2 {
-    @apply title-blog-text font-bold sm:text-2xl text-xl border-b-[1px] mt-10 mb-5 [&:first-of-type]:mt-3 gray-border
-  }
-
-  .blog-h3 {
-    @apply title-blog-text sm:text-xl text-lg mt-10 mb-5 border-b-[1px] gray-border font-semibold
-  }
-
-  .blog-h4 {
-    @apply regular-blog-text my-3 font-semibold bg-gray-600 w-fit italic pr-1
-  }
-
-  .blog-ul {
-    @apply list-disc pl-5 regular-blog-text text-sm sm:text-base flex flex-col gap-1
-  }
-
-  .blog-em {
-    @apply subtle-blog-text text-xs flex justify-center w-full sm:max-h-[400px] sm:[&>img]:max-w-[80%] [&>img]:max-w-[100%] my-1 text-center
-  }
+  --color-b-primary: theme(colors.neutral.200);
 }
 
-.subtle-text {
-  @apply text-gray-500
+#theme-provider {
+  @apply bg-background-primary text-t-normal transition-colors duration-300 font-inter;
 }
 
-.light-text {
-  @apply text-gray-400
+.debug-border {
+  @apply border border-dashed border-red-500;
 }
 
-.regular-text {
-  @apply text-gray-300
+.transcolor {
+  @apply transition-colors duration-300;
 }
 
-.title-text {
-  @apply text-gray-200
+.blog-post {
+  @apply flex w-full max-w-full flex-col gap-5 overflow-hidden text-lg leading-loose;
 }
 
-.gray-border {
-  @apply border-gray-600
+.blog-post :not(pre)>code {
+  @apply text-sm bg-background-secondary py-1 px-2 rounded-md font-source-code-pro;
 }
 
-.menu {
-  @apply w-[150px] cursor-pointer font-light text-lg
+.blog-post pre>code {
+  @apply rounded-xl overflow-x-auto max-w-full leading-relaxed;
 }
 
-.menu-selected {
-  @apply w-[150px] cursor-pointer font-bold text-lg
+.blog-post h2 {
+  @apply text-3xl font-bold mt-10 mb-5 first-of-type:mt-0;
 }
 
-.border-test {
-  @apply border border-red-300 border-dashed
+.blog-post p {
+  @apply text-lg;
 }
 
-.quote {
-  @apply hide-scrollbar overflow-scroll light-text border-s-4 px-3 py-3 my-5 w-full bg-secondary border-s-blue-300 italic [&>p]:mt-3 [&>p:first-of-type]:m-0 text-sm sm:text-base [&>p>a]:blog-a [&>ul]:blog-ul [&>ul>li]:light-blog-text
+.blog-post ul {
+  @apply list-disc list-outside ps-10 leading-normal;
 }
 
-.blog-title {
-  @apply text-3xl font-bold m-0 mb-2 leading-tight title-blog-text
+.blog-post ol {
+  @apply list-decimal list-outside ps-10 leading-normal;
 }
 
-.blog-image-wrapper {
-  @apply flex justify-center w-full sm:max-h-[500px] object-contain [&>img]:max-w-[100%]
-}
-
-.blog {
-  @apply w-full [&>p]:blog-p [&>h2]:blog-h2 [&>ul]:blog-ul [&>h3]:blog-h3 [&>a]:blog-a [&>em]:blog-em [&>h4]:blog-h4
-}
-
-.noncode {
-  @apply bg-gray-600 px-1 text-sm rounded-sm text-blue-200 font-code
-}
-
-pre {
-  @apply text-gray-200 bg-secondary border-[10px] sm:border-[20px] border-solid border-secondary rounded-md overflow-scroll max-w-full sm:text-base text-xs hide-scrollbar [&>*]:font-code
-}
-
-.skeleton {
-  @apply bg-gray-500 animate-pulse rounded-sm text-gray-500
-}
-
-.t-hover-blue {
-  @apply [&:hover]:text-blue-300 transition cursor-pointer
-}
-
-.t-hover-gray {
-  @apply [&:hover]:text-gray-300 transition cursor-pointer duration-300 ease-in-out
-}
-
-.i-hover-up {
-  @apply transition cursor-pointer hover:-translate-y-1 transform duration-300 ease-in-out
-}
-
-.utterances {
-  @apply max-w-full
-}
-
-.MuiSvgIcon-root {
-  @apply regular-text
-}
-
-.mini-header-wrapper {
-  @apply items-center w-[90%] h-full backdrop-blur-md bg-secondary/50 shadow-md rounded-md p-5 transition-all duration-500
-}
-
-.full-header-wrapper {
-  @apply items-center w-full h-full transition-all duration-500
+.blog-post blockquote {
+  @apply bg-background-secondary whitespace-pre-wrap px-5 py-1 rounded-xl overflow-hidden border-s-3 border-amber-500;
 }

@@ -1,18 +1,17 @@
-import BlogList from "@/components/devlog/BlogList";
-import { AuthorProfile, MainContents } from "@/components/common";
-import { getLatestPosts } from "../../lib/posts";
+import { getLatestPosts } from "@/backend/posts.server";
+import BlogList from "@/components/blog/BlogList";
+import SeeMoreButton from "@/components/common/SeeMoreButton";
+import { ROUTES } from "@/constants/routes.constant";
 
-export default async function HomeDevlogPage() {
-  const latestBlogPosts = await getLatestPosts();
+const LandingPage = () => {
+  const posts = getLatestPosts(1);
 
   return (
-    <MainContents>
-      <div className="flex w-full flex-col items-center sm:px-[15%]">
-        <section className="flex w-full max-w-[1800px] flex-col items-center justify-center gap-12 sm:py-10">
-          <AuthorProfile />
-          <BlogList blogs={latestBlogPosts} />
-        </section>
-      </div>
-    </MainContents>
+    <div className="flex flex-col items-center gap-10">
+      <BlogList title="Checkout the latest posts" blogs={posts} />
+      <SeeMoreButton href={ROUTES.posts(1)} text="See All Posts" />
+    </div>
   );
-}
+};
+
+export default LandingPage;

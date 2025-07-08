@@ -1,16 +1,31 @@
 "use client";
 
+import { ROUTES } from "@/constants/routes.constant";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 
-export default function BackButton() {
+const BackButton = () => {
   const router = useRouter();
 
+  const onBack = () => {
+    const referrer = document.referrer;
+    const origin = window.location.origin;
+
+    if (!referrer || !referrer.startsWith(origin)) {
+      router.push(ROUTES.home());
+    } else {
+      router.back();
+    }
+  };
+
   return (
-    <div className="w-full cursor-pointer text-base text-gray-700 sm:text-2xl">
-      <i
-        className="bi bi-arrow-left transition-colors hover:text-gray-400"
-        onClick={() => router.back()}
-      />
-    </div>
+    <button
+      className="group transcolor text-t-subtle hover:text-t-normal flex w-fit cursor-pointer items-center gap-1 pe-5"
+      onClick={onBack}
+    >
+      <ArrowLongLeftIcon className="h-8 w-8" />
+      <span className="text-lg font-bold">Back</span>
+    </button>
   );
-}
+};
+export default BackButton;

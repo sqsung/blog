@@ -1,51 +1,37 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import useHeader from "./Header.hook";
-import { ProgressBar } from ".";
+import ThemeToggler from "./ThemeToggler";
+import { ROUTES } from "@/constants/routes.constant";
 
 export default function Header() {
-  const {
-    models: { onTop, scrollProgress },
-  } = useHeader();
-
   return (
-    <header
-      className={`fixed ${
-        onTop ? "shadow-md" : ""
-      } h-header z-[100] flex w-full justify-center px-1 py-3 transition duration-500 md:px-32 ${
-        onTop ? "bg-primary" : ""
-      }`}
-    >
-      <div
-        className={`flex justify-between ${
-          onTop ? "full-header-wrapper" : "mini-header-wrapper"
-        }`}
+    <header className="mb-10 flex w-full items-center py-5">
+      <Link
+        href={ROUTES.home()}
+        className="font-source-code-pro mr-auto cursor-pointer text-2xl font-bold"
       >
-        <Link href="/" className="flex items-center justify-center gap-3">
-          <div className="relative h-[30px] w-[30px]">
-            <Image src="/logo.png" alt="jsjs devlog logo" fill={true} />
-          </div>
-          <p
-            className={`cursor-pointer font-code text-2xl font-bold italic text-[#5AF] sm:block ${
-              onTop ? "" : "hidden"
-            }`}
-          >
-            JSJS BLOG
-          </p>
+        sqsung.
+      </Link>
+      <nav className="flex items-center gap-3 font-bold">
+        <Link
+          href={ROUTES.posts(1)}
+          className="transcolor hover:bg-background-secondary cursor-pointer rounded-lg bg-transparent px-3 py-1"
+        >
+          posts
         </Link>
         <Link
-          href="/categories"
-          className={`regular-text ${
-            onTop ? "hidden" : "block"
-          } t-hover-blue flex gap-1 font-semibold`}
+          href={ROUTES.tags()}
+          className="transcolor hover:bg-background-secondary cursor-pointer rounded-lg bg-transparent px-3 py-1"
         >
-          <p className="rounded-md text-sm">Read More</p>
-          <i className="bi bi-arrow-right" />
+          tags
         </Link>
-      </div>
-      <ProgressBar progress={scrollProgress} />
+        <Link
+          href={ROUTES.about()}
+          className="transcolor hover:bg-background-secondary cursor-pointer rounded-lg bg-transparent px-3 py-1"
+        >
+          about
+        </Link>
+        <ThemeToggler />
+      </nav>
     </header>
   );
 }
