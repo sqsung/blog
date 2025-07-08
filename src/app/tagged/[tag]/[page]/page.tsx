@@ -24,7 +24,11 @@ const TaggedPage = async ({ params }: TaggedPageProps) => {
   return (
     <>
       <BlogList title={upperCaseTag} subtitle={`Page ${page}`} blogs={posts} />
-      <PaginationButtons page={integerPage} totalPages={totalPages} />
+      <PaginationButtons
+        page={integerPage}
+        totalPages={totalPages}
+        baseURL={`/tagged/${tag}`}
+      />
     </>
   );
 };
