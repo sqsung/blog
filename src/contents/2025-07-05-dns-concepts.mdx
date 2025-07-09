@@ -1,64 +1,142 @@
 ---
 title: "How does DNS work under the hood?"
 summary: "Core concepts you need to understand for properly deploying your website to the world wide web."
-isPublished: true
-tags: ["DNS", "Network", "CS"]
+tags: ["Browser", "DNS", "Network", "CS"]
 createdAt: "2025-07-05"
+isPublished: true
 ---
 
-## 1. Some h2
+import Image from "next/image";
 
-This is your actual blog post content. You can use all the standard Markdown syntax here.This is your actual blog post content. You can use all the standard Markdown syntax here.This is your actual blog post content. You can use all the standard Markdown syntax here.This is your actual blog post content. You can use all the standard Markdown syntax here.
+## 1. Intro
 
-## 2. What is DNS?
+In 2025, we’ve grown so used to the internet and the magic our browsers perform every day that we often overlook the complexity behind it all.
 
-DNS stands for Domain Name System...
+I’m reminded of this every time I deploy a web service and need to set up a custom domain.
+Suddenly I’m dealing with unfamiliar terms like “CNAME”, “A Record”, and “nameservers” — words that I've heard of, but rarely come up in day-to-day development.
 
-## 3. Key Points
+I used to breeze through the process in the past, heavily relying on search engines and AI tools for quick enlightments.
+I never really invested the time to simply understand what was going on.
+Consequently, the process of deploying a new website alawys felt painful and foggy.
 
-- DNS translates domain names to IP addresses DNS translates domain names to IP addressesDNS translates domain names to IP addressesDNS translates domain names to IP addressesDNS translates domain names to IP addresses
-- It's like the phonebook of the internet
-- Uses a hierarchical structure
+This time, I decided to slow down and finally do my long overdue homework.
+Hopefully, this helps those of you who want to do the same.
 
-1. this is some random
-2. this is some random 2
-3. this is some random 3
+## 2. DNS & DNS Lookup
 
-You can also use JSX components if you want:
+DNS, or Domain Name System, is the internet's phonebook.
+Its role is to guide your browser to the correct IP address that maps to the human-readable domain name.
 
-> lorem asdokaspdkasopdkop lorem asdokaspdkasopdkop lorem asdokaspdkasopdkop lorem asdokaspdkasopdkop lorem asdokaspdkasopdkop lorem asdokaspdkasopdkop lorem asdokaspdkasopdkop
-> a blockquote test
+DNS lookup describes the entire process your browser goes through to finding the correct IP address.
+For example, when you enter a website address like `google.com`, your browser goes through the DNS lookup process to find out where the website's resources are hosted.
+
+The diagram below demonstrates the entire DNS lookup process. Let's go through each step to highlight how it works.
+
+<div className="bg-background-excalidraw relative aspect-square w-full">
+  <Image
+    fill
+    src="/assets/dns-lookup-diagram.png"
+    alt="DNS lookup diagram"
+    objectFit="contain"
+  />
+</div>
+
+### Step 1: Cache Check
+
+When you enter a website address like `google.com` into the browser's address bar,
+the browser first checks if the address is already mapped to an IP address in the device's local cache.
+
+If it's cached, the IP address is immediately returned and is used to fetch website resources.
+Otherwise, the browser makes a request to the recursive resolver to initiate the DNS lookup process.
+
+The recursive resolver is a remote server that handles the actual DNS lookup process on behalf of clients.
+It's usually run by your internet service provider (ISP) or a third-party DNS service like Google or Cloudflare.
+
+> While not included in the diagram, the recursive resolver doesn't immediately query external servers without looking into its own cache first.
 >
-> 환ㄴㅈ장해
+> In most scenarios, IP addresses for popular websites like google are probably going to be found in the cache layer; but to further explore the DNS lookup process, we're going to assume the resolver doesn't go through any cache.
 
-Imma name my variable `variable`;
+### Step 2: Root DNS Server
 
-## 4. Code Examples
+The first thing the recursive resolver does is querying the root DNS server for the correct Top-Level Domain (TLD) nameserver.
+You can think of TLDs as the last part of a domain name, located after the last dot.
+In the case of `google.com`, the TLD would be '.com'.
 
-<div>hi</div>
+Step 2 is the recursive resolver asking the root server, "Who is responsible for the .com TLD?"
+This helps narrow down the lookup process, as the resolver now knows which nameserver to contact next — one that holds more specific information about domains under '.com'.
 
-```typescript
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${sourceCodePro.variable} ${inter.variable} antialiased`}
-      >
-        <ThemeProvider>
-          <div className="flex flex-col items-center">
-            <div className="flex w-full max-w-[1000px] flex-col gap-10">
-              <Header />
-              {children}
-              <Footer />
-            </div>
-          </div>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
-}
-```
+### Step 3: TLD Nameserver
+
+TLD nameservers are DNS servers responsible for handling queries about domains registered under a specific TLD.
+They are operated by registry operators that have been authorized by a global body called <a href="https://www.icann.org/" target="_blank">ICANN</a>.
+
+For example, some of the more well-known TLDs, called gTLDs (Generic TLD), like '.com' and '.net' are managed by an organization called Verisign.
+
+There are also region-specific TLDs called ccTLDs (Country-Code TLD). Some examples include '.kr' for Korea, '.jp' for Japan, and '.uk' for the United Kingdom.
+As for ccTLD management, ICANN delegates them to each respective country, and that country delegates the authority onto registry operators of its choice.
+
+> If queried for both `google.com` and `gmarket.co.kr`, the root server would respond with two different TLD nameservers. One that manages '.com', and another that manages '.kr'.
+>
+> Notice despite the example website using '.co.kr', the root DNS returns the address of the '.kr' TLD nameserver. This is because domains like '.co.kr' are second-level domains under '.kr'.
+>
+> This adds another layer of DNS delegation. To get to a website with a '.co.kr' address, the recursive resolver has to query the '.kr' nameserver to find the appropriate second-level TLD nameserver.
+
+The TLD nameserver's role in step 3 is to provide the recursive resolver with the address of the authoritative nameserver for that domain.
+In our scenario, it will look for the address of the authoritative nameserver that manages `google.com`.
+
+### Step 4: Authoritative Nameserver
+
+Authoritative nameservers are DNS servers that store the actual DNS records for a domain — such as A, AAAA, or CNAME records.
+They are typically operated by DNS hosting providers like Cloudflare, GoDaddy, or AWS Route 53, and their role in the DNS lookup process is to provide the recursive resolver with the final answer for the queried domain.
+
+Below are common DNS record types.
+
+<table>
+  <thead>
+    <tr>
+      <th>Record Type</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1. A Record</th>
+      <th>Maps a domain name to a IPv4 address</th>
+    </tr>
+    <tr>
+      <th>2. AAAA Record</th>
+      <th>Maps a domain name to a IPv6 address</th>
+    </tr>
+    <tr>
+      <th>3. CNAME (Canonical Name)</th>
+      <th>Points a domain name to another domain name</th>
+    </tr>
+  </tbody>
+</table>
+
+When the authoritative nameserver returns an A or AAAA record, the lookup is complete.
+The recursive resolver returns the IP address to the browser, which then uses it to load the requested website.
+
+But if the authoritative nameserver returns a CNAME (Canonical Name) record, the situation is a bit different.
+A CNAME doesn't provide an IP address directly; instead, it points one domain name to another.
+It's essentially the authoritative nameserver saying, "Hey, the domain is just an alias. The real one you want is over here."
+
+If you've ever configured a custom domain with Vercel, you've probably seen something like cname.vercel-dns.com.
+That’s a typical CNAME record.
+It tells the DNS system to continue the lookup process with the new domain.
+
+For example, if your website's configured domain is 'invy.co.kr', but the CNAME linked to it is 'd1d4c829fe7bc.vercel-dns.com',
+the resolver will have to look for the IP address of 'd1d4c829fe7bc.vercel-dns.com' before it can complete the lookup process.
+
+And as the name 'recursive resolver' suggests,
+the resolver will repeat the entire DNS lookup process for the 'd1d4c829fe7bc.vercel-dns.com' domain until it finds an explicit IP address.
+
+## 3. Conclusion
+
+The DNS lookup process is like peeling an onion.
+The IP address is hidden beneath multiple layers of DNS servers, each with its own level of authority.
+
+It is the recursive resolver's job to peel each layer, narrowing down the search until it finally finds the IP address the browser needs to load the website.
+
+By better understanding core concepts of DNS and how the DNS lookup process works,
+the process of configuring a custom domain for my website felt much less initimidating.
