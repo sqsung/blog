@@ -1,6 +1,12 @@
 import { getTags } from "@/backend/posts.server";
 import Tag from "@/components/blog/Tag";
 import Divider from "@/components/common/Divider";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Choose a tag",
+  description: "Choose a tag to filter articles by the tag",
+};
 
 const Tags = () => {
   const tags = getTags();

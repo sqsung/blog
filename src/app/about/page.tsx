@@ -1,6 +1,12 @@
 import Divider from "@/components/common/Divider";
 import Biography from "@/components/about/Biography";
 import AuthorInfo from "@/components/about/AuthorInfo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About sqsung",
+  description: "A quick introduction to sqsung, the author of this blog.",
+};
 
 const AboutAuthorPage = () => {
   return (
