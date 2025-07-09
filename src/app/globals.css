@@ -70,11 +70,11 @@
 }
 
 .blog-post h2 {
-  @apply text-3xl font-bold mt-10 mb-5 first-of-type:mt-0;
+  @apply text-2xl lg:text-3xl font-bold mt-10 mb-5 first-of-type:mt-0;
 }
 
 .blog-post h3 {
-  @apply text-2xl font-bold mt-5;
+  @apply text-xl lg:text-2xl font-bold mt-5;
 }
 
 .blog-post p {

@@ -24,7 +24,7 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
             className="group lg:hover:bg-background-secondary transcolor flex cursor-pointer flex-col gap-3 rounded-xl pt-3 pb-8 lg:px-5"
             onClick={() => router.push(ROUTES.post(metadata.id))}
           >
-            <p className="transcolor text-start text-2xl font-bold max-lg:group-hover:text-violet-500">
+            <p className="transcolor max-lg:group-hover:text-t-subtle text-start text-2xl font-bold">
               {metadata.title}
             </p>
             <p className="text-t-subtle line-clamp-2 text-start text-ellipsis">
