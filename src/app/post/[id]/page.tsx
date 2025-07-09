@@ -6,6 +6,7 @@ import Divider from "@/components/common/Divider";
 import BackButton from "@/components/common/BackButton";
 import BlogPostData from "@/components/blog/BlogPostData";
 import { getPostById } from "@/backend/posts.server";
+import Image from "next/image";
 
 interface PostPageProps {
   params: Promise<{
@@ -43,6 +44,9 @@ const PostPage = async ({ params }: PostPageProps) => {
         <Divider direction="vertical" />
         <div className="blog-post">
           <MDXRemote
+            components={{
+              Image,
+            }}
             source={content}
             options={{
               mdxOptions: {

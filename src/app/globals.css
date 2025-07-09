@@ -6,6 +6,8 @@
 
   --color-background-primary: theme(colors.gray.800);
   --color-background-secondary: theme(colors.gray.700);
+  --color-background-excalidraw: #111111;
+  --color-background-blockquote-code: theme(colors.gray.600);
 
   --color-t-emphasized: theme(colors.white);
   --color-t-normal: theme(colors.zinc.100);
@@ -18,6 +20,7 @@
 #theme-provider[data-theme=dark] {
   --color-background-primary: theme(colors.gray.800);
   --color-background-secondary: theme(colors.gray.700);
+  --color-background-blockquote-code: theme(colors.gray.600);
 
   --color-t-emphasized: theme(colors.white);
   --color-t-normal: theme(colors.zinc.100);
@@ -29,6 +32,7 @@
 #theme-provider[data-theme=light] {
   --color-background-primary: theme(colors.white);
   --color-background-secondary: theme(colors.gray.100);
+  --color-background-blockquote-code: theme(colors.gray.200);
 
   --color-t-emphasized: theme(colors.black);
   --color-t-normal: theme(colors.zinc.700);
@@ -54,7 +58,11 @@
 }
 
 .blog-post :not(pre)>code {
-  @apply text-sm bg-background-secondary py-1 px-2 rounded-md font-source-code-pro;
+  @apply text-sm bg-background-secondary p-1 rounded-sm font-source-code-pro;
+}
+
+.blog-post blockquote>:not(pre)>code {
+  @apply text-sm p-1 rounded-sm font-source-code-pro bg-background-blockquote-code;
 }
 
 .blog-post pre>code {
@@ -63,6 +71,10 @@
 
 .blog-post h2 {
   @apply text-3xl font-bold mt-10 mb-5 first-of-type:mt-0;
+}
+
+.blog-post h3 {
+  @apply text-2xl font-bold mt-5;
 }
 
 .blog-post p {
@@ -79,4 +91,28 @@
 
 .blog-post blockquote {
   @apply bg-background-secondary whitespace-pre-wrap px-5 py-1 rounded-xl overflow-hidden border-s-3 border-amber-500;
+}
+
+.blog-post a {
+  @apply text-blue-400 underline hover:text-blue-500 transition-colors duration-300;
+}
+
+.blog-post table {
+  @apply w-full border-[2px] border-b-primary text-base;
+}
+
+.blog-post thead {
+  @apply border-b-[2px] border-b-primary;
+}
+
+.blog-post tbody tr {
+  @apply bg-background-primary border-b border-b-primary;
+}
+
+.blog-post th {
+  @apply w-fit text-start p-2 font-normal border-e border-b-primary;
+}
+
+.blog-post thead th {
+  @apply font-bold;
 }
