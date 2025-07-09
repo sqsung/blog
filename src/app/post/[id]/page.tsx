@@ -5,14 +5,32 @@ import "highlight.js/styles/github-dark.css";
 import Divider from "@/components/common/Divider";
 import BackButton from "@/components/common/BackButton";
 import BlogPostData from "@/components/blog/BlogPostData";
-import { getPostById } from "@/backend/posts.server";
+import { getPostById, getPostMetadataById } from "@/backend/posts.server";
 import Image from "next/image";
+import { Metadata } from "next";
 
 interface PostPageProps {
   params: Promise<{
     id: string;
   }>;
 }
+
+export const generateMetadata = async ({
+  params,
+}: PostPageProps): Promise<Metadata> => {
+  const { id } = await params;
+  const blog = getPostMetadataById(id);
+
+  return {
+    title: blog.title,
+    description: blog.summary,
+    openGraph: {
+      title: blog.title,
+      description: blog.summary,
+      images: ["/images/blog_profile.jpeg"],
+    },
+  };
+};
 
 const PostPage = async ({ params }: PostPageProps) => {
   const { id } = await params;

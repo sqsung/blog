@@ -31,6 +31,10 @@ export const getAllPosts = (page: number) => {
   };
 };
 
+export const getPostMetadataById = (postId: string) => {
+  return blogIndex.idToPost[postId];
+};
+
 export const getPostById = async (postId: string) => {
   try {
     const filepath = path.join(POSTS_PATH, `${postId}.mdx`);

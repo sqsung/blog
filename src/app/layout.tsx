@@ -16,7 +16,7 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Sqsung Blog",
+  title: "sqsung",
   description: "Things I've learned here and there",
 };
 
