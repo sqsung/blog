@@ -2,18 +2,35 @@
   "sortedPosts": [
     {
       "id": "2025-07-05-dns-concepts",
-      "title": "How does DNS work under the hood?",
-      "summary": "Core concepts you need to understand for properly deploying your website to the world wide web.",
+      "title": "The DNS Lookup Process Explained",
+      "summary": "Core DNS concepts you need to understand for properly configuring a custom domain for your next website.",
       "tags": [
+        "BROWSER",
         "DNS",
         "NETWORK",
         "CS"
       ],
       "createdAt": "2025-07-05",
       "isPublished": true
+    },
+    {
+      "id": "2025-06-30-on-demand-revalidation",
+      "title": "Using ISR and On-Demand Revalidation to Improve the Performance of My Next.js Project",
+      "summary": "I think I found the perfect use case for ISR and on-demand revalidation.",
+      "tags": [
+        "FRONTEND",
+        "NEXTJS",
+        "ISR",
+        "ON-DEMAND-REVALIDATION"
+      ],
+      "createdAt": "2025-06-30",
+      "isPublished": true
     }
   ],
   "tagToId": {
+    "BROWSER": [
+      "2025-07-05-dns-concepts"
+    ],
     "DNS": [
       "2025-07-05-dns-concepts"
     ],
@@ -22,28 +39,59 @@
     ],
     "CS": [
       "2025-07-05-dns-concepts"
+    ],
+    "FRONTEND": [
+      "2025-06-30-on-demand-revalidation"
+    ],
+    "NEXTJS": [
+      "2025-06-30-on-demand-revalidation"
+    ],
+    "ISR": [
+      "2025-06-30-on-demand-revalidation"
+    ],
+    "ON-DEMAND-REVALIDATION": [
+      "2025-06-30-on-demand-revalidation"
     ]
   },
   "tagCounts": {
+    "BROWSER": 1,
     "DNS": 1,
     "NETWORK": 1,
-    "CS": 1
+    "CS": 1,
+    "FRONTEND": 1,
+    "NEXTJS": 1,
+    "ISR": 1,
+    "ON-DEMAND-REVALIDATION": 1
   },
   "idToPost": {
     "2025-07-05-dns-concepts": {
       "id": "2025-07-05-dns-concepts",
-      "title": "How does DNS work under the hood?",
-      "summary": "Core concepts you need to understand for properly deploying your website to the world wide web.",
+      "title": "The DNS Lookup Process Explained",
+      "summary": "Core DNS concepts you need to understand for properly configuring a custom domain for your next website.",
       "tags": [
+        "BROWSER",
         "DNS",
         "NETWORK",
         "CS"
       ],
       "createdAt": "2025-07-05",
       "isPublished": true
+    },
+    "2025-06-30-on-demand-revalidation": {
+      "id": "2025-06-30-on-demand-revalidation",
+      "title": "Using ISR and On-Demand Revalidation to Improve the Performance of My Next.js Project",
+      "summary": "I think I found the perfect use case for ISR and on-demand revalidation.",
+      "tags": [
+        "FRONTEND",
+        "NEXTJS",
+        "ISR",
+        "ON-DEMAND-REVALIDATION"
+      ],
+      "createdAt": "2025-06-30",
+      "isPublished": true
     }
   },
-  "totalPosts": 1,
-  "totalTags": 3,
-  "lastBuilt": "2025-07-08T03:54:47.799Z"
+  "totalPosts": 2,
+  "totalTags": 8,
+  "lastBuilt": "2025-07-10T07:34:28.812Z"
 }
