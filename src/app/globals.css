@@ -30,6 +30,15 @@
   --color-b-primary: theme(colors.gray.700);
 }
 
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   @apply bg-background-primary text-t-normal font-inter;
