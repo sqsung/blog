@@ -20,7 +20,7 @@ let's first explore some key usage patterns I observed during the service's beta
 
 After completing the initial version, I granted free access to a handful of users.
 My original goal was simply to confirm everything worked as intended before launching a paid version.
-But through this test run, I discovered some interesting user behaviors:
+But through this test run, I noticed some interesting user behaviors:
 
 1. Each user shared their invitation with approximately 300 guests on average
 2. Sharing typically occurred in bulks. This means users usually shared their invitations to dozens of guests at once
@@ -49,7 +49,7 @@ Keep in mind that things discussed within this post may not be applicable to fut
 "next": "14.2.3",
 ```
 
-## 2. Incremental Static Regeneration
+## 2. ISR vs. SSG/SSR
 
 Next.js offers the following server-side rendering strategies:
 
@@ -73,16 +73,17 @@ With ISR, pages are:
 
 It's performant, but somewhat flexible enough to keep contents up to date.
 
-I implemented ISR on the invitation page with a 24 hour revalidation interval.
-This turned out to be an ideal solution for reducing unnecessary load on the server while improving page performance because
-invitation details rarely changed once sharing begins and page traffic is typically concentrated within the 24 hour time frame.
+## 3. Implementing ISR
 
 Implementing ISR in a page router Next.js project is quite straightforward:
 you simply specify a `revalidate` value in your `getStaticProps` function.
 
+I implemented ISR on my project's invitation page with a 24 hour revalidation interval.
 Here's a simplified version of my actual implementation as an example.
 
 ```tsx
+// /src/pages/invitation/[alias]/index.tsx
+
 export default function InvitationPage({ invitation }: InvitationPageProps) {
   return <Invitation invitation={invitation} />;
 }
@@ -117,16 +118,38 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 ```
 
+### 3-1. ISR with Dynamic Routes
+
 One important detail to note is that the invitation page uses a dynamic slug in its path ('/invitation/[alias]').
-Since users are responsible for customizing their invitation aliases, it's impossible to know any exact paths ahead of build time.
+Since users customize their invitation aliases, it's impossible to know ahead of build time what every alias will turn out to be.
 
-I mentioned earlier that ISR pages are generated at build time and revalidated after a set interval.
-But in the cases like this, pre-building all possible pages during build time is obviously impossible.
+I mentioned earlier that ISR pages are generated at build time and regularly revalidated.
+But in cases like this where the path is dynamic, we can use the `getStaticPaths` function with an empty `paths` array to opt Next.js out of pre-building any pages.
+Instead, Next.js will generate each page during runtime when they are first requested for.
 
-To handle this, I used `getStaticPaths` function with an empty paths array.
-This tells Next.js not to pre-render any pages at build time, and instead, generate each page on-demand when it’s first requested for.
+### 3-2. Why Revalidate = 1?
 
-So let's say a total of 150 guests visited the invitation page with the alias 'cool-invy' over a course of three days.
+When an error occurs while fetching the invitation data,
+the `getStaticProps` function throws and falls into the catch block.
+In many cases, errors are not permanent.
+Therefore, it's best not to cache error responses for too long.
+
+That's why in the catch block, I set the `revalidate` property to 1;
+this tells Next.js to mark the page as stale after just one second.
+By doing so, I could keep the page within the ISR flow while giving users the ability to retry getting the correct data.
+
+Setting the `revalidate` property to 0 does not work.
+Doing so would disable ISR and make the page behave like a statically generated page.
+This means the error would be cached indefinitely and the page wouldn't update until the next site deployment.
+
+### 3-3. ISR Effects
+
+Implmenting ISR had two major benefits for my project:
+
+1. Lower server load as traffic spikes no longer triggered a flood of database queries
+2. Better client performance as most visitors were served static pages
+
+To better visualize, let's let's assume a total of 150 guests requested for an invitation with the alias of 'cool-invy' over a course of three days.
 
 - <strong>Day 1:</strong> 50 guests
 - <strong>Day 2:</strong> 0 guests
@@ -140,7 +163,76 @@ Here is how ISR would work in this scenario:
 - The first visitor of Day 3 triggers the second generation of the page
 - The remaining 99 guests on Day 3 get the newly cached version
 
-## 3. On-Demand Revalidation
+This means for three days, my backend server had to only handle 2 requests while the website served 150 visitors.
+It also means only 2 of the 150 visitors had to experience a slight delay in page load time, while the remaining 148 visitors were able to see the page near instantly.
 
-In most cases, there probably is a reason why the developer chose to use ISR instead of SSG (Static Site Generation) for certain pages.
-In many cases, the reason is because the data used in the page is definitely not static and may need to be updated quickly.
+## 4. On-Demand Revalidation
+
+Let's go back to the example of our imaginary user, User A.
+If User A realizes on the morning of his wedding day that there is a mistake in his wedding venue address,
+he would probably like his updates to bypass the 24 hour interval and show up immediately.
+Because otherwise, his guests would arrive at the wrong venue and his dream of having a well-attended wedding would be ruined.
+
+On-demand revalidation is the perfect solution for situation like this.
+It's a feature that allows you, or your users, to manually revalidate a page without having to wait for the revalidation interval to expire.
+
+## 5. Implementing On-Demand Revalidation
+
+To implement on-demand revalidation in a Next.js page router project, you first need to create a new API route inside the `/pages/api` directory.
+Then whenever you want to manually revalidate, you can call the API route to tell the Next.js server to revalidate the page.
+
+```typescript
+async function revalidateInvitation(req: NextApiRequest, res: NextApiResponse) {
+  const { alias, secret } = req.body;
+
+  if (!alias || !secret) {
+    // ...handle bad request error
+  }
+
+  if (secret !== process.env.REVALIDATE_SECRET) {
+    // ...handle unauthorized error
+  }
+
+  try {
+    await res.revalidate(`/invitation/${alias}`);
+
+    return res.status(200).json({
+      isRevalidated: true,
+    });
+  } catch (error) {
+    // ...handle revalidation error
+  }
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  if (req.method === "POST") {
+    return await revalidateInvitation(req, res);
+  }
+
+  res.setHeader("Allow", ["POST"]);
+  res.status(405).end("Method Not Allowed");
+}
+```
+
+### 5-1. Security Concerns
+
+For obvious reasons, granting public access to the revalidation API route is not a good idea.
+If there isn't a security validation layer, anyone with the URL can revalidate the page without any restrictions.
+
+In my project, I added an environment variable called `REVALIDATE_SECRET` to both the Next.js and backend server.
+Before actually revalidating the page, I check if the `REVALIDATE_SECRET` value matches.
+
+Then when users update their invitations, I have my API server make the POST request to my Next.js server to revalidate the invitation page of the given alias.
+
+<div className="relative aspect-square w-full">
+  <Image
+    src="/assets/on-demand-revalidation-flow.png"
+    alt="Diagram of on-demand revalidation"
+    fill
+    objectFit="contain"
+    className="invert dark:invert-0"
+  />
+</div>
