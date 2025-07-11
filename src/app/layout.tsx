@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   description: "Things I've learned here and there",
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+const RootLayout = async ({ children }: Readonly<RootLayoutProps>) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         className={`${sourceCodePro.variable} ${inter.variable} antialiased`}
       >
@@ -42,4 +42,6 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

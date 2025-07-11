@@ -1,49 +1,37 @@
 "use client";
 
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ColorScheme } from "@/types/shared.types";
-import { checkIsProperScheme } from "@/utils/theme.utils";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
+const Placeholder = () => {
+  return <div className="aspect-square h-8" />;
+};
 
 const ThemeToggler = () => {
-  const [theme, setTheme] = useState<ColorScheme>();
-
-  const updateColorScheme = (targetScheme: ColorScheme) => {
-    setTheme(targetScheme);
-
-    localStorage.setItem("color-scheme", targetScheme);
-    document
-      .getElementById("theme-provider")
-      ?.setAttribute("data-theme", targetScheme);
-  };
+  const { resolvedTheme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const locallyStored = localStorage.getItem("color-scheme");
-
-    if (checkIsProperScheme(locallyStored)) {
-      updateColorScheme(locallyStored);
-      return;
+    if (typeof window !== "undefined") {
+      setIsMounted(true);
     }
-
-    const bodyTheme = document
-      .getElementById("theme-provider")
-      ?.getAttribute("data-theme");
-
-    if (!checkIsProperScheme(bodyTheme)) {
-      return;
-    }
-
-    updateColorScheme(bodyTheme);
   }, []);
+
+  const isDark = resolvedTheme === "dark";
+
+  if (!resolvedTheme || !isMounted) {
+    return <Placeholder />;
+  }
 
   return (
     <button
-      onClick={() => updateColorScheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       className="hover:bg-background-secondary relative flex aspect-square h-8 cursor-pointer items-center justify-center rounded-lg p-1"
     >
       <div className="relative h-full w-full cursor-pointer">
-        {theme === "dark" ? (
+        {resolvedTheme === "dark" ? (
           <motion.div
             key="moon"
             initial={{ opacity: 0, rotate: -90 }}
