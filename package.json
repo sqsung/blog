@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "work": "cursor . && npm run dev",
-    "index-blogs": "ts-node --project tsconfig.scripts.json src/scripts/build-index.ts"
+    "index-blogs": "ts-node --project tsconfig.scripts.json src/scripts/build-index.ts",
+    "deploy": "curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_LPJlb0sIUx4b4LSc1MA58rKd7mxZ/AV0r7CbrWI",
+    "deploy:dev": "curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_LPJlb0sIUx4b4LSc1MA58rKd7mxZ/6qjaw7q4Df"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
