@@ -8,7 +8,7 @@ interface TagProps {
   isClamped?: boolean;
 }
 
-const Tag = ({ tag, isClamped = true }: TagProps) => {
+const Tag = ({ tag, isClamped = false }: TagProps) => {
   const router = useRouter();
 
   return (

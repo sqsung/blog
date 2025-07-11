@@ -18,7 +18,6 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
         <p className="text-t-subtle me-10 mt-3 flex-shrink-0 tracking-wide">
           {metadata.createdAt}
         </p>
-
         <div className="flex w-full flex-col gap-5">
           <button
             className="group lg:hover:bg-background-secondary transcolor flex cursor-pointer flex-col gap-3 rounded-xl pt-3 pb-8 lg:px-5"
@@ -31,11 +30,10 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
               {metadata.summary}
             </p>
           </button>
-
           {!!metadata.tags.length && (
             <ul className="flex gap-5 overflow-x-auto whitespace-nowrap lg:ps-5">
               {metadata.tags.map((tag) => (
-                <Tag tag={tag} isClamped={false} key={tag} />
+                <Tag tag={tag} key={tag} />
               ))}
             </ul>
           )}
