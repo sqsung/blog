@@ -15,8 +15,8 @@
     },
     {
       "id": "2025-06-30-on-demand-revalidation",
-      "title": "Using ISR and On-Demand Revalidation to Improve the Performance of My Next.js Project",
-      "summary": "I think I found the perfect use case for ISR and on-demand revalidation.",
+      "title": "How I Optimized My Next.js App with ISR and On-Demand Revalidation",
+      "summary": "Learn how I used ISR and on-demand revalidation to serve dynamic content at scale, keeping server load low and performance high.",
       "tags": [
         "FRONTEND",
         "NEXTJS",
@@ -79,8 +79,8 @@
     },
     "2025-06-30-on-demand-revalidation": {
       "id": "2025-06-30-on-demand-revalidation",
-      "title": "Using ISR and On-Demand Revalidation to Improve the Performance of My Next.js Project",
-      "summary": "I think I found the perfect use case for ISR and on-demand revalidation.",
+      "title": "How I Optimized My Next.js App with ISR and On-Demand Revalidation",
+      "summary": "Learn how I used ISR and on-demand revalidation to serve dynamic content at scale, keeping server load low and performance high.",
       "tags": [
         "FRONTEND",
         "NEXTJS",
@@ -93,5 +93,5 @@
   },
   "totalPosts": 2,
   "totalTags": 8,
-  "lastBuilt": "2025-07-10T07:34:28.812Z"
+  "lastBuilt": "2025-07-11T13:13:01.305Z"
 }
