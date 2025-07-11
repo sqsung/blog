@@ -35,7 +35,7 @@ const BlogCard = ({ metadata }: BlogCardProps) => {
           {!!metadata.tags.length && (
             <ul className="flex gap-5 overflow-x-auto whitespace-nowrap lg:ps-5">
               {metadata.tags.map((tag) => (
-                <Tag tag={tag} key={tag} />
+                <Tag tag={tag} isClamped={false} key={tag} />
               ))}
             </ul>
           )}
