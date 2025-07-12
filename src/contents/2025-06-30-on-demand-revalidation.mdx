@@ -118,7 +118,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 ```
 
-### 3-1. ISR with Dynamic Routes
+### 4-1. ISR with Dynamic Routes
 
 One important detail to note is that the invitation page uses a dynamic slug in its path: '/invitation/[alias]'.
 Since users customize their own invitation aliases, it's impossible to know ahead of build time what every alias will turn out to be.
@@ -128,7 +128,7 @@ But in cases like this where the path is dynamic, we can use the `getStaticPaths
 
 Instead, Next.js will generate each page during runtime when they are first requested for.
 
-### 3-2. Revalidate = 1
+### 4-2. Revalidate = 1
 
 When an error occurs while fetching the invitation data,
 the `getStaticProps` function throws and falls into the catch block.
@@ -143,7 +143,7 @@ Keep in min that setting the `revalidate` property to 0 does not work.
 Doing so would disable ISR and make the page behave like a statically generated page.
 This means that once an error occurs, the error would be cached indefinitely and the page wouldn't update until the next site deployment.
 
-## 4. On-Demand Revalidation
+## 5. On-Demand Revalidation
 
 Let’s return to the example of our imaginary user, User A.
 If, on the morning of his wedding day, Users A realizes there’s a typo in the address,
@@ -152,7 +152,7 @@ he’d likely want to fix it immediately without waiting 24 hours for the next s
 On-demand revalidation is a perfect solution for situations like this.
 It allows users to manually trigger a page revalidation, bypassing the regular interval and ensuring that updates are reflected instantly.
 
-## 5. Implementing On-Demand Revalidation
+## 6. Implementing On-Demand Revalidation
 
 To implement on-demand revalidation in a Next.js pages router project:
 
@@ -196,7 +196,7 @@ export default async function handler(
 }
 ```
 
-### 5-1. Security Concerns
+### 6-1. Security Concerns
 
 Exposing your revalidation API route to the public can be risky.
 Without proper security measures, anyone who knows the URL could trigger revalidation and consume your server resources.
@@ -221,7 +221,7 @@ The revalidation flow works as follows:
   />
 </div>
 
-## 6. Results
+## 7. Results
 
 Implmenting ISR had two major benefits for my project:
 
