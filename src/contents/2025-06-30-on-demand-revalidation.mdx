@@ -139,7 +139,7 @@ That's why in the catch block, I set the `revalidate` property to 1.
 This tells Next.js to mark the page as stale after just one second.
 By doing so, I could keep the page within the ISR flow while giving users the ability to retry getting the correct data.
 
-Keep in min that setting the `revalidate` property to 0 does not work.
+Keep in mind that setting the `revalidate` property to 0 does not work.
 Doing so would disable ISR and make the page behave like a statically generated page.
 This means that once an error occurs, the error would be cached indefinitely and the page wouldn't update until the next site deployment.
 

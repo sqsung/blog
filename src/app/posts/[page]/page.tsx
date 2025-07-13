@@ -33,10 +33,14 @@ const PostsPage = async ({ params }: PostsPageProps) => {
   const integerPage = +page;
 
   if (isNaN(integerPage)) {
-    notFound();
+    return notFound();
   }
 
   const { posts, totalPages } = getAllPosts(integerPage);
+
+  if (integerPage > totalPages) {
+    return notFound();
+  }
 
   return (
     <>
