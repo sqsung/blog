@@ -1,7 +1,6 @@
 import { getAllPosts } from "@/backend/posts.server";
 import BlogList from "@/components/blog/BlogList";
 import PaginationButtons from "@/components/blog/PaginationButtons";
-import { POST_TTL } from "@/constants/posts.constant";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -11,7 +10,7 @@ interface PostsPageProps {
   }>;
 }
 
-export const revalidate = POST_TTL;
+export const revalidate = 86400;
 
 export const generateStaticParams = async () => {
   const { totalPages } = getAllPosts(1);
