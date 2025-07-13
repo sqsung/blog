@@ -27,7 +27,7 @@ const BlogPostData = ({ createdAt, tags }: BlogPostDataProps) => {
       <Divider className="max-lg:hidden" />
       <div className="flex w-full flex-col gap-1 lg:gap-5">
         <p className="text-t-subtle text-sm">TAGS</p>
-        <ul className="flex flex-row gap-3 overflow-x-auto lg:flex-col lg:gap-1 lg:overflow-hidden">
+        <ul className="flex flex-row gap-3 overflow-x-auto max-lg:whitespace-nowrap lg:flex-col lg:gap-1 lg:overflow-hidden">
           {tags.map((tag) => (
             <Tag tag={tag} key={tag} />
           ))}

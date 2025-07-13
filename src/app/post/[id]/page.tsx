@@ -45,7 +45,6 @@ const PostPage = async ({ params }: PostPageProps) => {
   return (
     <article className="flex flex-col gap-5">
       <BackButton />
-
       <div className="mb-5 flex flex-col gap-5">
         <div className="flex flex-col gap-3">
           <h1 className="text-2xl font-bold lg:text-4xl">{metadata.title}</h1>
@@ -54,9 +53,7 @@ const PostPage = async ({ params }: PostPageProps) => {
           </p>
         </div>
       </div>
-
       <Divider />
-
       <div className="flex flex-col gap-5 lg:flex-row">
         <BlogPostData createdAt={metadata.createdAt} tags={metadata.tags} />
         <Divider direction="vertical" />
