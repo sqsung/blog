@@ -8,6 +8,7 @@ import BlogPostData from "@/components/blog/BlogPostData";
 import { getPostById, getPostMetadataById } from "@/backend/posts.server";
 import Image from "next/image";
 import { Metadata } from "next";
+import { POST_TTL } from "@/constants/posts.constant";
 
 interface PostPageProps {
   params: Promise<{
@@ -31,6 +32,8 @@ export const generateMetadata = async ({
     },
   };
 };
+
+export const revalidate = POST_TTL;
 
 const PostPage = async ({ params }: PostPageProps) => {
   const { id } = await params;
