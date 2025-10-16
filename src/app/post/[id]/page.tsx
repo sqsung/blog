@@ -30,8 +30,6 @@ export const generateMetadata = async ({
   };
 };
 
-export const revalidate = 86400;
-
 const PostPage = async ({ params }: PostPageProps) => {
   const { id } = await params;
   const post = await getPostById(id);
