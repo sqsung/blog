@@ -1,12 +1,12 @@
 import path from "path";
 import fs from "fs/promises";
-import matter from "gray-matter";
 import { BlogMetadata } from "@/types/blog.types";
 import rawBlogIndex from "@/contents/generated/_blog-index.json";
 import { BlogIndex } from "@/types/blog.types";
 import { POSTS_PER_PAGE } from "@/constants/posts.constant";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-const POSTS_PATH = path.join(process.cwd(), "/src/contents");
+const POSTS_PATH = path.join(process.cwd(), "/src/contents/generated/compiled");
 const blogIndex = rawBlogIndex as BlogIndex;
 
 const getPaginationValues = (page: number) => {
@@ -37,13 +37,13 @@ export const getPostMetadataById = (postId: string) => {
 
 export const getPostById = async (postId: string) => {
   try {
-    const filepath = path.join(POSTS_PATH, `${postId}.mdx`);
+    const filepath = path.join(POSTS_PATH, `${postId}.json`);
     const fileContents = await fs.readFile(filepath, "utf8");
-    const { data, content } = matter(fileContents);
+    const { metadata, mdxSource } = JSON.parse(fileContents);
 
     return {
-      metadata: data as BlogMetadata,
-      content,
+      metadata: metadata as BlogMetadata,
+      mdxSource: mdxSource as MDXRemoteSerializeResult,
     };
   } catch (error) {
     console.error(error);
