@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { serialize } from "next-mdx-remote/serialize";
+import rehypeHighlight from "rehype-highlight";
 import { BlogIndex, BlogMetadata } from "@/types/blog.types";
 
 const POSTS_PATH = path.join(process.cwd(), "src/contents");
@@ -8,8 +10,16 @@ const INDEX_FILE = path.join(
   process.cwd(),
   "src/contents/generated/_blog-index.json",
 );
+const COMPILED_POSTS_DIR = path.join(
+  process.cwd(),
+  "src/contents/generated/compiled",
+);
 
-const generateBlogIndexes = () => {
+const generateBlogIndexes = async () => {
+  if (!fs.existsSync(COMPILED_POSTS_DIR)) {
+    fs.mkdirSync(COMPILED_POSTS_DIR, { recursive: true });
+  }
+
   const files = fs.readdirSync(POSTS_PATH);
   const mdxOnly = files.filter((file) => file.endsWith(".mdx"));
 
@@ -18,14 +28,28 @@ const generateBlogIndexes = () => {
   for (const mdx of mdxOnly) {
     const filePath = path.join(POSTS_PATH, mdx);
     const raw = fs.readFileSync(filePath, "utf-8");
-    const { data: metadata } = matter(raw);
+    const { data: metadata, content } = matter(raw);
 
     if (!metadata.isPublished) {
       continue;
     }
 
+    const postId = mdx.replace(/\.mdx?$/, "");
+
+    const mdxSource = await serialize(content, {
+      mdxOptions: {
+        rehypePlugins: [rehypeHighlight],
+      },
+    });
+
+    const compiledPath = path.join(COMPILED_POSTS_DIR, `${postId}.json`);
+    fs.writeFileSync(
+      compiledPath,
+      JSON.stringify({ metadata, mdxSource }, null, 2),
+    );
+
     const post: BlogMetadata = {
-      id: mdx.replace(/\.mdx?$/, ""),
+      id: postId,
       title: metadata.title,
       summary: metadata.summary,
       tags: (metadata.tags || []).map((tag: string) => tag.toUpperCase()),
@@ -68,7 +92,9 @@ const generateBlogIndexes = () => {
   };
 
   fs.writeFileSync(INDEX_FILE, JSON.stringify(index, null, 2));
+
   console.log("✅ Blog index generated:", INDEX_FILE);
+  console.log(`✅ ${posts.length} posts compiled to ${COMPILED_POSTS_DIR}`);
 };
 
 generateBlogIndexes();
