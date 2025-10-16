@@ -1,13 +1,11 @@
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import Divider from "@/components/common/Divider";
 import BackButton from "@/components/common/BackButton";
 import BlogPostData from "@/components/blog/BlogPostData";
 import { getPostById, getPostMetadataById } from "@/backend/posts.server";
-import Image from "next/image";
 import { Metadata } from "next";
+import BlogContentRenderer from "@/components/blog/BlogContentRenderer";
 
 interface PostPageProps {
   params: Promise<{
@@ -42,7 +40,7 @@ const PostPage = async ({ params }: PostPageProps) => {
     notFound();
   }
 
-  const { metadata, content } = post;
+  const { metadata, mdxSource } = post;
 
   return (
     <article className="flex flex-col gap-5">
@@ -59,19 +57,7 @@ const PostPage = async ({ params }: PostPageProps) => {
       <div className="flex flex-col gap-5 lg:flex-row">
         <BlogPostData createdAt={metadata.createdAt} tags={metadata.tags} />
         <Divider direction="vertical" />
-        <div className="blog-post">
-          <MDXRemote
-            components={{
-              Image,
-            }}
-            source={content}
-            options={{
-              mdxOptions: {
-                rehypePlugins: [rehypeHighlight],
-              },
-            }}
-          />
-        </div>
+        <BlogContentRenderer content={mdxSource} />
       </div>
     </article>
   );
